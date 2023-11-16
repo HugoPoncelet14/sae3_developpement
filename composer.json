@@ -78,7 +78,15 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "test:cs" : "php vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "fix:cs" : "php vendor/bin/php-cs-fixer fix",
+        "start" : ["Composer\\Config::disableProcessTimeout","symfony serve"]
+    },
+    "scripts-descriptions": {
+        "test:cs": "retourne les fichiers a fixer",
+        "fix:cs": "fixe les fichiers a fixer",
+        "start": "lance les serveur de tests symfony"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -90,6 +98,7 @@
         }
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.38",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "6.3.*",
         "symfony/css-selector": "6.3.*",
