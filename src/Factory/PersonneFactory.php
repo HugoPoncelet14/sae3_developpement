@@ -46,11 +46,16 @@ final class PersonneFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $nom = self::faker()->lastName(50);
+        $pnom = self::faker()->lastName(50);
+        $pseudo = "$pnom-$nom";
+
         return [
-            'SHA512PASS' => self::faker()->text(126),
+            'SHA512PASS' => self::faker()->password(40),
             'dateNais' => self::faker()->dateTime(),
-            'nomPers' => self::faker()->text(50),
-            'pseudo' => self::faker()->text(50),
+            'nomPers' => $nom,
+            'pnomPers' => $pnom,
+            'pseudo' => $pseudo,
         ];
     }
 
