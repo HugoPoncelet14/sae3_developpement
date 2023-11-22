@@ -24,7 +24,7 @@ class Personne
     private ?string $SHA512PASS = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $date = null;
+    private ?\DateTimeInterface $dateNais = null;
 
     #[ORM\Column(length: 50)]
     private ?string $pseudo = null;
