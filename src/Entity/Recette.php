@@ -13,11 +13,6 @@ class Recette
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-    #[ORM\Column]
-    private ?int $idTpRec = null;
-
-    #[ORM\Column]
-    private ?int $idPays = null;
 
     #[ORM\Column(length: 50)]
     private ?string $nomRec = null;
