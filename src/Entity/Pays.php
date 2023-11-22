@@ -13,12 +13,6 @@ class Pays
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $idPays = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?int $idReg = null;
-
     #[ORM\Column(length: 50)]
     private ?string $nomPays = null;
 
