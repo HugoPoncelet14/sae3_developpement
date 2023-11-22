@@ -47,7 +47,7 @@ final class PaysFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'nomPays' => self::faker()->text(50),
+            'nomPays' => self::faker()->country(50),
         ];
     }
 
