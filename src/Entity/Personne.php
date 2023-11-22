@@ -23,8 +23,8 @@ class Personne
     #[ORM\Column(length: 126)]
     private ?string $SHA512PASS = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $dateNais = null;
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 50)]
     private ?string $pseudo = null;
