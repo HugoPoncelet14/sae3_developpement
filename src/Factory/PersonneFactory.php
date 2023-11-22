@@ -51,7 +51,7 @@ final class PersonneFactory extends ModelFactory
         $pseudo = "$pnom-$nom";
 
         return [
-            'SHA512PASS' => self::faker()->password(40),
+            'SHA512PASS' => self::faker()->sha256(),
             'dateNais' => self::faker()->dateTime(),
             'nomPers' => $nom,
             'pnomPers' => $pnom,
