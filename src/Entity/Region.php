@@ -13,9 +13,6 @@ class Region
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $idReg = null;
-
     #[ORM\Column(length: 50)]
     private ?string $nomReg = null;
 

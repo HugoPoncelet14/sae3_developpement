@@ -13,9 +13,6 @@ class TypePersonne
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $idTpPers = null;
-
     #[ORM\Column(length: 50)]
     private ?string $nomTpPers = null;
 
