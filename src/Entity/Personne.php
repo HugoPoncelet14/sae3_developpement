@@ -13,10 +13,6 @@ class Personne
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column]
-    private ?int $idPers = null;
-
     #[ORM\Column(nullable: true)]
     private ?int $idTpPers = null;
 
