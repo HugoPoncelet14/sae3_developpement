@@ -2,15 +2,17 @@
 
 namespace App\DataFixtures;
 
-use App\Factory\RegionFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 ;
 
-class RegionFixtures extends Fixture
+class TypePersonneFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        RegionFactory::createMany(20);
+        // $product = new Product();
+        // $manager->persist($product);
+
+        $manager->flush();
     }
 }
