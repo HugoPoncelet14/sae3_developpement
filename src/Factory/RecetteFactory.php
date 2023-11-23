@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Recette>
  *
- * @method        Recette|Proxy create(array|callable $attributes = [])
- * @method static Recette|Proxy createOne(array $attributes = [])
- * @method static Recette|Proxy find(object|array|mixed $criteria)
- * @method static Recette|Proxy findOrCreate(array $attributes)
- * @method static Recette|Proxy first(string $sortedField = 'id')
- * @method static Recette|Proxy last(string $sortedField = 'id')
- * @method static Recette|Proxy random(array $attributes = [])
- * @method static Recette|Proxy randomOrCreate(array $attributes = [])
+ * @method        Recette|Proxy                     create(array|callable $attributes = [])
+ * @method static Recette|Proxy                     createOne(array $attributes = [])
+ * @method static Recette|Proxy                     find(object|array|mixed $criteria)
+ * @method static Recette|Proxy                     findOrCreate(array $attributes)
+ * @method static Recette|Proxy                     first(string $sortedField = 'id')
+ * @method static Recette|Proxy                     last(string $sortedField = 'id')
+ * @method static Recette|Proxy                     random(array $attributes = [])
+ * @method static Recette|Proxy                     randomOrCreate(array $attributes = [])
  * @method static RecetteRepository|RepositoryProxy repository()
- * @method static Recette[]|Proxy[] all()
- * @method static Recette[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Recette[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Recette[]|Proxy[] findBy(array $attributes)
- * @method static Recette[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Recette[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Recette[]|Proxy[]                 all()
+ * @method static Recette[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Recette[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Recette[]|Proxy[]                 findBy(array $attributes)
+ * @method static Recette[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Recette[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class RecetteFactory extends ModelFactory
 {
@@ -46,12 +46,15 @@ final class RecetteFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $faker = \Faker\Factory::create();
+        $faker->addProvider(new \FakerRestaurant\Provider\fr_FR\Restaurant($faker));
+
         return [
-            'descRec' => self::faker()->text(250),
-            'nbrCallo' => self::faker()->randomFloat(),
-            'nbrPers' => self::faker()->randomNumber(),
-            'nomRec' => self::faker()->text(50),
-            'tpsDePrep' => null, // TODO add TIME type manually
+            'descRec' => $faker->sentence(),
+            'nbrCallo' => $faker->numberBetween(500, 1000),
+            'nbrPers' => $faker->numberBetween(1, 6),
+            'nomRec' => $faker->foodName(),
+            'tpsDePrep' => 5 * $faker->numberBetween(1, 12),
         ];
     }
 
