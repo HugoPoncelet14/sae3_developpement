@@ -23,8 +23,8 @@ class Recette
     #[ORM\Column(type: Types::BLOB, nullable: true)]
     private $imgRec = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE)]
-    private ?\DateTimeInterface $tpsDePrep = null;
+    #[ORM\Column]
+    private ?int $tpsDePrep = null;
 
     #[ORM\Column]
     private ?float $nbrCallo = null;
@@ -109,12 +109,12 @@ class Recette
         return $this;
     }
 
-    public function getTpsDePrep(): ?\DateTimeInterface
+    public function getTpsDePrep(): ?int
     {
         return $this->tpsDePrep;
     }
 
-    public function setTpsDePrep(\DateTimeInterface $tpsDePrep): static
+    public function setTpsDePrep(int $tpsDePrep): static
     {
         $this->tpsDePrep = $tpsDePrep;
 
