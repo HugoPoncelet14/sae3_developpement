@@ -50,7 +50,7 @@ final class IngrediantFactory extends ModelFactory
         $faker->addProvider(new \FakerRestaurant\Provider\fr_FR\Restaurant($faker));
 
         $nomIng = '';
-        $n = self::faker()->numberBetween(1, 6);
+        $n = self::faker()->numberBetween(1, 4);
         if (1 == $n) {
             $nomIng = $faker->dairyName();
         } elseif (2 == $n) {
