@@ -46,7 +46,7 @@ final class AllergeneFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
-        $all = self::faker()->text(15);
+        $all = self::faker()->word();
         return [
             'nomAll' => "Allergene $all",
         ];
