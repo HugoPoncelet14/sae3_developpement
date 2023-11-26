@@ -2,20 +2,20 @@
 
 namespace App\DataFixtures;
 
-use App\Factory\TypeRecetteFactory;
+use App\Factory\AllergeneFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 ;
 
-class TypeRecetteFixtures extends Fixture
+class AllergeneFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
         $dir = __DIR__;
-        $file = "$dir/data/TypeRecette.json";
+        $file = "$dir/data/Allergene.json";
         $categories = json_decode(file_get_contents($file), true);
         foreach ($categories as $value) {
-            TypeRecetteFactory::createOne($value);
+            AllergeneFactory::createOne($value);
         }
     }
 }
