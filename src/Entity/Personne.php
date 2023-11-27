@@ -32,6 +32,9 @@ class Personne
     #[ORM\Column(type: Types::BLOB, nullable: true)]
     private $photoProfil = null;
 
+    #[ORM\ManyToOne(inversedBy: 'personnes')]
+    private ?TypePersonne $typePersonne = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -129,6 +132,18 @@ class Personne
     public function setPhotoProfil($photoProfil): static
     {
         $this->photoProfil = $photoProfil;
+
+        return $this;
+    }
+
+    public function getTypePersonne(): ?TypePersonne
+    {
+        return $this->typePersonne;
+    }
+
+    public function setTypePersonne(?TypePersonne $typePersonne): static
+    {
+        $this->typePersonne = $typePersonne;
 
         return $this;
     }
