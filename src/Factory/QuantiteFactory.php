@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Quantite>
  *
- * @method        Quantite|Proxy create(array|callable $attributes = [])
- * @method static Quantite|Proxy createOne(array $attributes = [])
- * @method static Quantite|Proxy find(object|array|mixed $criteria)
- * @method static Quantite|Proxy findOrCreate(array $attributes)
- * @method static Quantite|Proxy first(string $sortedField = 'id')
- * @method static Quantite|Proxy last(string $sortedField = 'id')
- * @method static Quantite|Proxy random(array $attributes = [])
- * @method static Quantite|Proxy randomOrCreate(array $attributes = [])
+ * @method        Quantite|Proxy                     create(array|callable $attributes = [])
+ * @method static Quantite|Proxy                     createOne(array $attributes = [])
+ * @method static Quantite|Proxy                     find(object|array|mixed $criteria)
+ * @method static Quantite|Proxy                     findOrCreate(array $attributes)
+ * @method static Quantite|Proxy                     first(string $sortedField = 'id')
+ * @method static Quantite|Proxy                     last(string $sortedField = 'id')
+ * @method static Quantite|Proxy                     random(array $attributes = [])
+ * @method static Quantite|Proxy                     randomOrCreate(array $attributes = [])
  * @method static QuantiteRepository|RepositoryProxy repository()
- * @method static Quantite[]|Proxy[] all()
- * @method static Quantite[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Quantite[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Quantite[]|Proxy[] findBy(array $attributes)
- * @method static Quantite[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Quantite[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Quantite[]|Proxy[]                 all()
+ * @method static Quantite[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Quantite[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Quantite[]|Proxy[]                 findBy(array $attributes)
+ * @method static Quantite[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Quantite[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class QuantiteFactory extends ModelFactory
 {
@@ -46,9 +46,33 @@ final class QuantiteFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
-        return [
-            'quantite' => self::faker()->randomFloat(),
-        ];
+        $n = self::faker()->numberBetween(1, 3);
+
+        if (1 == $n) {
+            $quantite = self::faker()->numberBetween(1, 5) * 100;
+            $unitMesure = 'g';
+
+            return [
+                'quantite' => $quantite,
+                'unitMesure' => $unitMesure,
+            ];
+        } elseif (2 == $n) {
+            $quantite = self::faker()->numberBetween(1, 5) * 20;
+            $unitMesure = 'cl';
+
+            return [
+                'quantite' => $quantite,
+                'unitMesure' => $unitMesure,
+            ];
+        } elseif (3 == $n) {
+            $quantite = self::faker()->numberBetween(1, 5);
+
+            return [
+                'quantite' => $quantite,
+            ];
+        }
+
+        return [];
     }
 
     /**
