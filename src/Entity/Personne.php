@@ -33,6 +33,7 @@ class Personne
     private $photoProfil = null;
 
     #[ORM\ManyToOne(inversedBy: 'personnes')]
+    #[ORM\JoinColumn(nullable: true)]
     private ?TypePersonne $typePersonne = null;
 
     public function getId(): ?int
