@@ -14,12 +14,7 @@ class PersonneFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         PersonneFactory::createMany(10, function () {
-            $rep = ['typePersonne' => null];
-            if (PersonneFactory::faker()->boolean(90)) {
-                $rep = ['typePersonne' => TypePersonneFactory::random()];
-            }
-
-            return $rep;
+            return ['typePersonne' => TypePersonneFactory::random()];
         }
         );
     }
