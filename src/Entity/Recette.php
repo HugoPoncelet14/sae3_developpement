@@ -32,6 +32,10 @@ class Recette
     #[ORM\Column]
     private ?int $nbrPers = null;
 
+    #[ORM\ManyToOne(inversedBy: 'recettes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?TypeRecette $typeRecette = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,6 +145,18 @@ class Recette
     public function setNbrPers(int $nbrPers): static
     {
         $this->nbrPers = $nbrPers;
+
+        return $this;
+    }
+
+    public function getTypeRecette(): ?TypeRecette
+    {
+        return $this->typeRecette;
+    }
+
+    public function setTypeRecette(?TypeRecette $typeRecette): static
+    {
+        $this->typeRecette = $typeRecette;
 
         return $this;
     }
