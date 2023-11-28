@@ -33,8 +33,9 @@ class Recette
     private ?int $nbrPers = null;
 
     #[ORM\ManyToOne(inversedBy: 'recettes')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?TypeRecette $typeRecette = null;
+
 
     public function getId(): ?int
     {
@@ -160,4 +161,6 @@ class Recette
 
         return $this;
     }
+
+
 }
