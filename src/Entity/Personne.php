@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PersonneRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -35,6 +37,14 @@ class Personne
     #[ORM\ManyToOne(inversedBy: 'personnes')]
     #[ORM\JoinColumn(nullable: true)]
     private ?TypePersonne $typePersonne = null;
+
+    #[ORM\ManyToMany(targetEntity: allergene::class, inversedBy: 'personnes')]
+    private Collection $allergenes;
+
+    public function __construct()
+    {
+        $this->allergenes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -145,6 +155,30 @@ class Personne
     public function setTypePersonne(?TypePersonne $typePersonne): static
     {
         $this->typePersonne = $typePersonne;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, allergene>
+     */
+    public function getAllergenes(): Collection
+    {
+        return $this->allergenes;
+    }
+
+    public function addAllergene(allergene $allergene): static
+    {
+        if (!$this->allergenes->contains($allergene)) {
+            $this->allergenes->add($allergene);
+        }
+
+        return $this;
+    }
+
+    public function removeAllergene(allergene $allergene): static
+    {
+        $this->allergenes->removeElement($allergene);
 
         return $this;
     }
