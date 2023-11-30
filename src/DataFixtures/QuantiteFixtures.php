@@ -3,14 +3,22 @@
 namespace App\DataFixtures;
 
 use App\Factory\QuantiteFactory;
+use App\Factory\RecetteFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-;
 
-class QuantiteFixtures extends Fixture
+class QuantiteFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        QuantiteFactory::createMany(20);
+        QuantiteFactory::createMany(20, function () {
+            return ['recette' => RecetteFactory::random()];
+        });
+    }
+
+    public function getDependencies(): array
+    {
+        return [RecetteFixtures::class];
     }
 }
