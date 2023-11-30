@@ -16,6 +16,10 @@ class Ingrediant
     #[ORM\Column(length: 50)]
     private ?string $nomIng = null;
 
+    #[ORM\ManyToOne(inversedBy: 'ingrediants')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Allergene $allergene = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +33,18 @@ class Ingrediant
     public function setNomIng(string $nomIng): static
     {
         $this->nomIng = $nomIng;
+
+        return $this;
+    }
+
+    public function getAllergene(): ?Allergene
+    {
+        return $this->allergene;
+    }
+
+    public function setAllergene(?Allergene $allergene): static
+    {
+        $this->allergene = $allergene;
 
         return $this;
     }
