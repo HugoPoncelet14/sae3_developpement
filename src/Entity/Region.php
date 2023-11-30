@@ -16,6 +16,9 @@ class Region
     #[ORM\Column(length: 50)]
     private ?string $nomReg = null;
 
+    #[ORM\ManyToOne(inversedBy: 'regions')]
+    private ?Pays $pays = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -41,6 +44,18 @@ class Region
     public function setNomReg(string $nomReg): static
     {
         $this->nomReg = $nomReg;
+
+        return $this;
+    }
+
+    public function getPays(): ?Pays
+    {
+        return $this->pays;
+    }
+
+    public function setPays(?Pays $pays): static
+    {
+        $this->pays = $pays;
 
         return $this;
     }
