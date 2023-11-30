@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\IngrediantRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: IngrediantRepository::class)]
@@ -19,6 +21,14 @@ class Ingrediant
     #[ORM\ManyToOne(inversedBy: 'ingrediants')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Allergene $allergene = null;
+
+    #[ORM\OneToMany(mappedBy: 'ingrediant', targetEntity: Quantite::class)]
+    private Collection $quantites;
+
+    public function __construct()
+    {
+        $this->quantites = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -45,6 +55,36 @@ class Ingrediant
     public function setAllergene(?Allergene $allergene): static
     {
         $this->allergene = $allergene;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Quantite>
+     */
+    public function getQuantites(): Collection
+    {
+        return $this->quantites;
+    }
+
+    public function addQuantite(Quantite $quantite): static
+    {
+        if (!$this->quantites->contains($quantite)) {
+            $this->quantites->add($quantite);
+            $quantite->setIngrediant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuantite(Quantite $quantite): static
+    {
+        if ($this->quantites->removeElement($quantite)) {
+            // set the owning side to null (unless already changed)
+            if ($quantite->getIngrediant() === $this) {
+                $quantite->setIngrediant(null);
+            }
+        }
 
         return $this;
     }

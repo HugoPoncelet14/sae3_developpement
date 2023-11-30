@@ -22,6 +22,9 @@ class Quantite
     #[ORM\ManyToOne(inversedBy: 'quantites')]
     private ?Recette $recette = null;
 
+    #[ORM\ManyToOne(inversedBy: 'quantites')]
+    private ?Ingrediant $ingrediant = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Quantite
     public function setRecette(?Recette $recette): static
     {
         $this->recette = $recette;
+
+        return $this;
+    }
+
+    public function getIngrediant(): ?Ingrediant
+    {
+        return $this->ingrediant;
+    }
+
+    public function setIngrediant(?Ingrediant $ingrediant): static
+    {
+        $this->ingrediant = $ingrediant;
 
         return $this;
     }
