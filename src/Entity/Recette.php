@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RecetteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -38,6 +40,14 @@ class Recette
 
     #[ORM\ManyToOne(inversedBy: 'recettes')]
     private ?Pays $pays = null;
+
+    #[ORM\OneToMany(mappedBy: 'recette', targetEntity: Quantite::class)]
+    private Collection $quantites;
+
+    public function __construct()
+    {
+        $this->quantites = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -172,6 +182,36 @@ class Recette
     public function setPays(?Pays $pays): static
     {
         $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Quantite>
+     */
+    public function getQuantites(): Collection
+    {
+        return $this->quantites;
+    }
+
+    public function addQuantite(Quantite $quantite): static
+    {
+        if (!$this->quantites->contains($quantite)) {
+            $this->quantites->add($quantite);
+            $quantite->setRecette($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuantite(Quantite $quantite): static
+    {
+        if ($this->quantites->removeElement($quantite)) {
+            // set the owning side to null (unless already changed)
+            if ($quantite->getRecette() === $this) {
+                $quantite->setRecette(null);
+            }
+        }
 
         return $this;
     }
