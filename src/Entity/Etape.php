@@ -20,6 +20,9 @@ class Etape
     #[ORM\Column(length: 1000)]
     private ?string $descEtape = null;
 
+    #[ORM\ManyToOne(inversedBy: 'etapes')]
+    private ?Recette $recette = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +48,18 @@ class Etape
     public function setDescEtape(string $descEtape): static
     {
         $this->descEtape = $descEtape;
+
+        return $this;
+    }
+
+    public function getRecette(): ?Recette
+    {
+        return $this->recette;
+    }
+
+    public function setRecette(?Recette $recette): static
+    {
+        $this->recette = $recette;
 
         return $this;
     }
