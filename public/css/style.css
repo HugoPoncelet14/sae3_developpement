@@ -1,0 +1,50 @@
+@font-face {
+    font-family: Raleway;
+    src : local('/public/fonts/Raleway-VariableFont_wght.ttf');
+}
+
+html {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    flex: 1 0 0;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    background: #AD4F09;
+}
+
+.social_media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    padding-top: 15px;
+}
+
+.social_media__img {
+    width: 3.5rem;
+    height: 3.5rem;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.footer_credits {
+    color: #FFF;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-bottom: 15px;
+
+}
