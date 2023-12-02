@@ -48,7 +48,7 @@ final class EtapeFactory extends ModelFactory
     {
         return [
             'descEtape' => self::faker()->text(1000),
-            'numEtape' => self::faker()->numberBetween(1, 32767),
+            'numEtape' => self::faker()->numberBetween(1, 5),
         ];
     }
 
