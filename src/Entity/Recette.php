@@ -28,6 +28,9 @@ class Recette
     #[ORM\Column]
     private ?int $tpsDePrep = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $tpsCuisson = null;
+
     #[ORM\Column]
     private ?float $nbrCallo = null;
 
@@ -46,6 +49,8 @@ class Recette
 
     #[ORM\OneToMany(mappedBy: 'recette', targetEntity: Etape::class)]
     private Collection $etapes;
+
+
 
     public function __construct()
     {
@@ -246,6 +251,18 @@ class Recette
                 $etape->setRecette(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTpsCuisson(): ?int
+    {
+        return $this->tpsCuisson;
+    }
+
+    public function setTpsCuisson(?int $tpsCuisson): static
+    {
+        $this->tpsCuisson = $tpsCuisson;
 
         return $this;
     }
