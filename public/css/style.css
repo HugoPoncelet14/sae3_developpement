@@ -11,6 +11,20 @@ html {
     align-items: center;
 }
 
+.bg-custom {
+    background-color: #AD4F09;
+}
+.cuisinisi_logo {
+    width: 2em;
+    height: 2em;
+    object-fit: cover;
+}
+
+.navbar-nav .show > .nav-link,
+.navbar-nav .nav-link.active {
+    color: #FFF;
+}
+
 .foot {
     display: flex;
     flex-direction: column;
