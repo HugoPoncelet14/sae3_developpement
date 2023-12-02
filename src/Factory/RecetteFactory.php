@@ -55,6 +55,7 @@ final class RecetteFactory extends ModelFactory
             'nbrPers' => $faker->numberBetween(1, 6),
             'nomRec' => $faker->foodName(),
             'tpsDePrep' => 5 * $faker->numberBetween(1, 12),
+            'tpsCuisson' => 10 * $faker->numberBetween(1, 12),
         ];
     }
 
