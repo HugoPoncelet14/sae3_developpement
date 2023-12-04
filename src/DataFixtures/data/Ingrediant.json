@@ -1,0 +1,47 @@
+[
+  {"nomIng": "Sel"},
+  {"nomIng": "Sucre"},
+  {"nomIng": "Farine","nomAll": "Céréales contenant du gluten"},
+  {"nomIng": "Poivre"},
+  {"nomIng": "Genièvre"},
+
+  {"nomIng": "Levure chimique"},
+  {"nomIng": "Sucre vanillé"},
+
+  {"nomIng": "Huile"},
+  {"nomIng": "Huile d'olive"},
+  {"nomIng": "Huile de colza"},
+
+  {"nomIng": "Spagheti"},
+
+  {"nomIng": "Pecorino romano","nomAll": "Lait"},
+  {"nomIng": "Reblochon","nomAll": "Lait"},
+  {"nomIng": "Saindoux","nomAll": "Lait"},
+  {"nomIng": "Yaourt nature","nomAll": "Lait"},
+
+
+  {"nomIng": "Poitrine salée nature"},
+  {"nomIng": "Lardons fumés"},
+  {"nomIng": "Lard fumé"},
+  {"nomIng": "Palette"},
+  {"nomIng": "Saucisses de Strasbourg"},
+
+  {"nomIng": "Jaunes d'oeuf","nomAll": "Oeuf"},
+  {"nomIng": "Oeuf","nomAll": "Oeuf"},
+
+  {"nomIng": "Oignon"},
+  {"nomIng": "Gousse d'ail"},
+
+  {"nomIng": "Pomme de terre"},
+  {"nomIng": "Choucroute"},
+
+  {"nomIng": "Feuille de laurier"},
+
+  {"nomIng": "Riesling"},
+
+  {"nomIng": "Citron jaune"},
+
+  {"nomIng": "Chocolat noir"}
+
+
+]
