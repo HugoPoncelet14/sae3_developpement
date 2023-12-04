@@ -1,0 +1,142 @@
+[
+  {
+    "nomPays": "France",
+    "regions": "Europe"
+  },
+  {
+    "nomPays": "Espagne",
+    "regions": "Europe"
+  },
+  {
+    "nomPays": "Royaume-uni",
+    "regions": "Europe"
+  },
+  {
+    "nomPays": "Allemagne",
+    "regions": "Europe"
+  },
+  {
+    "nomPays": "Italie",
+    "regions": "Europe"
+  },
+  {
+    "nomPays": "Grèce",
+    "regions": "Europe"
+  },
+  {
+    "nomPays": "Belgique",
+    "regions": "Europe"
+  },
+  {
+    "nomPays": "Suisse",
+    "regions": "Europe"
+  },
+  {
+    "nomPays": "Turquie",
+    "regions": "Europe"
+  },
+  {
+    "nomPays": "Etat-unis",
+    "regions": "Amérique du nord"
+  },
+  {
+    "nomPays": "Canada",
+    "regions": "Amérique du nord"
+  },
+  {
+    "nomPays": "Mexique",
+    "regions": "Amérique du nord"
+  },
+  {
+    "nomPays": "Argentine",
+    "regions": "Amérique Latine"
+  },
+  {
+    "nomPays": "Brésil",
+    "regions": "Amérique Latine"
+  },
+  {
+    "nomPays": "Colombie",
+    "regions": "Amérique Latine"
+  },
+  {
+    "nomPays": "Chilie",
+    "regions": "Amérique Latine"
+  },
+  {
+    "nomPays": "Arabie Saoudite",
+    "regions": "Moyen Orient"
+  },
+  {
+    "nomPays": "Qatar",
+    "regions": "Moyen Orient"
+  },
+  {
+    "nomPays": "Iran",
+    "regions": "Moyen Orient"
+  },
+  {
+    "nomPays": "Irak",
+    "regions": "Moyen Orient"
+  },
+  {
+    "nomPays": "Chine",
+    "regions": "Asie"
+  },
+  {
+    "nomPays": "Japon",
+    "regions": "Asie"
+  },
+  {
+    "nomPays": "Corée du Sud",
+    "regions": "Asie"
+  },
+  {
+    "nomPays": "Inde",
+    "regions": "Asie"
+  },
+  {
+    "nomPays": "Algérie",
+    "regions": "Maghreb"
+  },
+  {
+    "nomPays": "Maroc",
+    "regions": "Maghreb"
+  },
+  {
+    "nomPays": "Tunisie",
+    "regions": "Maghreb"
+  },
+  {
+    "nomPays": "Sénégal",
+    "regions": "Afrique"
+  },
+  {
+    "nomPays": "Egypte",
+    "regions": "Afrique"
+  },
+  {
+    "nomPays": "Afrique du Sud",
+    "regions": "Afrique"
+  },
+  {
+    "nomPays": "Mali",
+    "regions": "Afrique"
+  },
+  {
+    "nomPays": "Réunion",
+    "regions": "Ile"
+  },
+  {
+    "nomPays": "Singapour",
+    "regions": "Ile"
+  },
+  {
+    "nomPays": "Caraïbes",
+    "regions": "Ile"
+  },
+  {
+    "nomPays": "Madagascar",
+    "regions": "Ile"
+  }
+]
