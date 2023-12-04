@@ -119,6 +119,20 @@ body {
     background-color: #612C05;
 }
 
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    background-color:black;
+    height: 1px;
+    width: 20rem;
+}
+
+.main>a {
+    color: #AD4F09;
+    text-decoration: none;
+}
+
 .foot {
     display: flex;
     flex-direction: column;
