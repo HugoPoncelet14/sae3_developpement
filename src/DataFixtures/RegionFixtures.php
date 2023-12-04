@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-use App\Factory\PaysFactory;
 use App\Factory\RegionFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -12,13 +11,11 @@ class RegionFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        RegionFactory::createMany(20, function () {
-            return ['pays' => PaysFactory::random()];
-        });
-    }
-
-    public function getDependencies(): array
-    {
-        return [PaysFixtures::class];
+        $dir = __DIR__;
+        $file = "$dir/data/TypePersonne.json";
+        $regions = json_decode(file_get_contents($file), true);
+        foreach ($regions as $region) {
+            RegionFactory::createOne($region);
+        }
     }
 }
