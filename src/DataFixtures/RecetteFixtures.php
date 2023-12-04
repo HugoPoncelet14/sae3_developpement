@@ -17,11 +17,17 @@ class RecetteFixtures extends Fixture implements DependentFixtureInterface
         $file = "$dir/data/Recette.json";
         $recettes = json_decode(file_get_contents($file), true);
         foreach ($recettes as $infoRecette) {
+
+            $typeRecette = null;
+            if (isset($infoRecette['nomTpRec'])) {
+                $typeRecette = TypeRecetteFactory::random(['nomTpRec' => $infoRecette['nomTpRec']]);
+            }
+
             $recette = ['nomRec' => $infoRecette['nomRec'],
                         'tpsDePrep' => $infoRecette['tpsDePrep'],
                         'tpsCuisson' => $infoRecette['tpsCuisson'],
                         'nbrPers' => $infoRecette['nbrPers'],
-                        'typeRecette' => TypeRecetteFactory::random(['nomTpRec' => $infoRecette['nomTpRec']])];
+                        'typeRecette' => $typeRecette];
             RecetteFactory::createOne($recette);
         }
     }
