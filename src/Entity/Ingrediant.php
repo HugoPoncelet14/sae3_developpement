@@ -19,7 +19,7 @@ class Ingrediant
     private ?string $nomIng = null;
 
     #[ORM\ManyToOne(inversedBy: 'ingrediants')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Allergene $allergene = null;
 
     #[ORM\OneToMany(mappedBy: 'ingrediant', targetEntity: Quantite::class)]
