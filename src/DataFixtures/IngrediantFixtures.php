@@ -12,9 +12,20 @@ class IngrediantFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        IngrediantFactory::createMany(20, function () {
-            return ['allergene' => AllergeneFactory::random()];
-        });
+        $dir = __DIR__;
+        $file = "$dir/data/Ingrediant.json";
+        $ingrediants = json_decode(file_get_contents($file), true);
+        foreach ($ingrediants as $infoIngrediant) {
+
+            $allergene = null;
+            if (isset($infoIngrediant['nomAll'])) {
+                $allergene = AllergeneFactory::random(['nomAll' => $infoIngrediant['nomAll']]);
+            }
+
+            $ingrediant = ['nomIng' => $infoIngrediant['nomIng'],
+                           'allergene' => $allergene];
+            IngrediantFactory::createOne($ingrediant);
+        }
     }
 
     public function getDependencies(): array
