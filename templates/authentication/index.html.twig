@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'authentifier{% endblock %}
+
+{% block body %}
+    <div class="main">
+        <h1>S'authentifier</h1>
+        <form method="post">
+            <input class="form-control custom-size" name="identifiant" placeholder="Identifiant"/>
+            <input class="form-control custom-size" name="password" type="password" placeholder="Mot de passe"/>
+            <button class="auth-button" type="submit">Connexion</button>
+        </form>
+        <hr>
+        <a href="#">Créez un compte</a>
+    </div>
+{% endblock %}
