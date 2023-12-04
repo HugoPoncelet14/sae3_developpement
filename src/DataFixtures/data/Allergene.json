@@ -1,35 +1,44 @@
 [
   {
-    "nomAll": "Oeuf"
+    "nomAll": "Arachide"
+  },
+  {
+    "nomAll": "Céleri"
+  },
+  {
+    "nomAll": "Crustacés"
+  },
+  {
+    "nomAll": "Céréales contenant du gluten"
+  },
+  {
+    "nomAll": "Fruits à coque"
   },
   {
     "nomAll": "Lait"
   },
   {
+    "nomAll": "Lupin"
+  },
+  {
+    "nomAll": "Oeuf"
+  },
+  {
+    "nomAll": "Poisson"
+  },
+  {
+    "nomAll": "Mollusques"
+  },
+  {
     "nomAll": "Moutarde"
   },
   {
-    "nomAll": "Arachide"
-  },
-  {
-    "nomAll": "Mollusques et crustacés"
-  },
-  {
-    "nomAll": "Poissons"
-  },
-  {
-    "nomAll": "Graines de sézame"
+    "nomAll": "Sésame"
   },
   {
     "nomAll": "Soja"
   },
   {
     "nomAll": "Sulfites"
-  },
-  {
-    "nomAll": "Noix"
-  },
-  {
-    "nomAll": "Blé et triticale"
   }
 ]
