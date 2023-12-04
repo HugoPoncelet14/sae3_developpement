@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RegionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RegionRepository::class)]
@@ -16,8 +18,13 @@ class Region
     #[ORM\Column(length: 50)]
     private ?string $nomReg = null;
 
-    #[ORM\ManyToOne(inversedBy: 'regions')]
-    private ?Pays $pays = null;
+    #[ORM\OneToMany(mappedBy: 'region', targetEntity: Pays::class)]
+    private Collection $pays;
+
+    public function __construct()
+    {
+        $this->pays = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -48,15 +55,37 @@ class Region
         return $this;
     }
 
-    public function getPays(): ?Pays
+    /**
+     * @return Collection<int, Pays>
+     */
+    public function getPays(): Collection
     {
         return $this->pays;
     }
 
-    public function setPays(?Pays $pays): static
+    public function addPay(Pays $pay): static
     {
-        $this->pays = $pays;
+        if (!$this->pays->contains($pay)) {
+            $this->pays->add($pay);
+            $pay->setRegion($this);
+        }
 
         return $this;
     }
+
+    public function removePay(Pays $pay): static
+    {
+        if ($this->pays->removeElement($pay)) {
+            // set the owning side to null (unless already changed)
+            if ($pay->getRegion() === $this) {
+                $pay->setRegion(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
+
 }
