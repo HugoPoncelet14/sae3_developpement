@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\TypeRecette;
+use App\Factory\PaysFactory;
 use App\Factory\RecetteFactory;
 use App\Factory\TypeRecetteFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -17,17 +17,22 @@ class RecetteFixtures extends Fixture implements DependentFixtureInterface
         $file = "$dir/data/Recette.json";
         $recettes = json_decode(file_get_contents($file), true);
         foreach ($recettes as $infoRecette) {
-
             $typeRecette = null;
             if (isset($infoRecette['nomTpRec'])) {
                 $typeRecette = TypeRecetteFactory::random(['nomTpRec' => $infoRecette['nomTpRec']]);
+            }
+
+            $pays = null;
+            if (isset($infoRecette['nomPays'])) {
+                $pays = PaysFactory::random(['nomPays' => $infoRecette['nomPays']]);
             }
 
             $recette = ['nomRec' => $infoRecette['nomRec'],
                         'tpsDePrep' => $infoRecette['tpsDePrep'],
                         'tpsCuisson' => $infoRecette['tpsCuisson'],
                         'nbrPers' => $infoRecette['nbrPers'],
-                        'typeRecette' => $typeRecette];
+                        'typeRecette' => $typeRecette,
+                        'pays' => $pays];
             RecetteFactory::createOne($recette);
         }
     }
