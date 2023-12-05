@@ -1,142 +1,142 @@
 [
   {
     "nomPays": "France",
-    "regions": "Europe"
+    "nomReg": "Europe"
   },
   {
     "nomPays": "Espagne",
-    "regions": "Europe"
+    "nomReg": "Europe"
   },
   {
     "nomPays": "Royaume-uni",
-    "regions": "Europe"
+    "nomReg": "Europe"
   },
   {
     "nomPays": "Allemagne",
-    "regions": "Europe"
+    "nomReg": "Europe"
   },
   {
     "nomPays": "Italie",
-    "regions": "Europe"
+    "nomReg": "Europe"
   },
   {
     "nomPays": "Grèce",
-    "regions": "Europe"
+    "nomReg": "Europe"
   },
   {
     "nomPays": "Belgique",
-    "regions": "Europe"
+    "nomReg": "Europe"
   },
   {
     "nomPays": "Suisse",
-    "regions": "Europe"
+    "nomReg": "Europe"
   },
   {
     "nomPays": "Turquie",
-    "regions": "Europe"
+    "nomReg": "Europe"
   },
   {
     "nomPays": "Etat-unis",
-    "regions": "Amérique du nord"
+    "nomReg": "Amérique du nord"
   },
   {
     "nomPays": "Canada",
-    "regions": "Amérique du nord"
+    "nomReg": "Amérique du nord"
   },
   {
     "nomPays": "Mexique",
-    "regions": "Amérique du nord"
+    "nomReg": "Amérique du nord"
   },
   {
     "nomPays": "Argentine",
-    "regions": "Amérique Latine"
+    "nomReg": "Amérique Latine"
   },
   {
     "nomPays": "Brésil",
-    "regions": "Amérique Latine"
+    "nomReg": "Amérique Latine"
   },
   {
     "nomPays": "Colombie",
-    "regions": "Amérique Latine"
+    "nomReg": "Amérique Latine"
   },
   {
     "nomPays": "Chilie",
-    "regions": "Amérique Latine"
+    "nomReg": "Amérique Latine"
   },
   {
     "nomPays": "Arabie Saoudite",
-    "regions": "Moyen Orient"
+    "nomReg": "Moyen Orient"
   },
   {
     "nomPays": "Qatar",
-    "regions": "Moyen Orient"
+    "nomReg": "Moyen Orient"
   },
   {
     "nomPays": "Iran",
-    "regions": "Moyen Orient"
+    "nomReg": "Moyen Orient"
   },
   {
     "nomPays": "Irak",
-    "regions": "Moyen Orient"
+    "nomReg": "Moyen Orient"
   },
   {
     "nomPays": "Chine",
-    "regions": "Asie"
+    "nomReg": "Asie"
   },
   {
     "nomPays": "Japon",
-    "regions": "Asie"
+    "nomReg": "Asie"
   },
   {
     "nomPays": "Corée du Sud",
-    "regions": "Asie"
+    "nomReg": "Asie"
   },
   {
     "nomPays": "Inde",
-    "regions": "Asie"
+    "nomReg": "Asie"
   },
   {
     "nomPays": "Algérie",
-    "regions": "Maghreb"
+    "nomReg": "Maghreb"
   },
   {
     "nomPays": "Maroc",
-    "regions": "Maghreb"
+    "nomReg": "Maghreb"
   },
   {
     "nomPays": "Tunisie",
-    "regions": "Maghreb"
+    "nomReg": "Maghreb"
   },
   {
     "nomPays": "Sénégal",
-    "regions": "Afrique"
+    "nomReg": "Afrique"
   },
   {
     "nomPays": "Egypte",
-    "regions": "Afrique"
+    "nomReg": "Afrique"
   },
   {
     "nomPays": "Afrique du Sud",
-    "regions": "Afrique"
+    "nomReg": "Afrique"
   },
   {
     "nomPays": "Mali",
-    "regions": "Afrique"
+    "nomReg": "Afrique"
   },
   {
     "nomPays": "Réunion",
-    "regions": "Ile"
+    "nomReg": "Ile"
   },
   {
     "nomPays": "Singapour",
-    "regions": "Ile"
+    "nomReg": "Ile"
   },
   {
     "nomPays": "Caraïbes",
-    "regions": "Ile"
+    "nomReg": "Ile"
   },
   {
     "nomPays": "Madagascar",
-    "regions": "Ile"
+    "nomReg": "Ile"
   }
 ]
