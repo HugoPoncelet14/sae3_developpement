@@ -21,6 +21,19 @@ class RecetteRepository extends ServiceEntityRepository
         parent::__construct($registry, Recette::class);
     }
 
+    public function search($searchText = ''): array
+    {
+        $query = $this->createQueryBuilder('q');
+        $query->where($query->expr()->orX(
+            $query->expr()->like('q.nomRec', ':search'),
+        ))
+            ->setParameter('search', '%'.$searchText.'%')
+            ->orderBy('q.nomRec', 'ASC');
+        $res = $query->getQuery();
+
+        return $res->getResult();
+    }
+
 //    /**
 //     * @return Recette[] Returns an array of Recette objects
 //     */
