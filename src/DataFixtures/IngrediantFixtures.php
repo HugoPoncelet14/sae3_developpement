@@ -16,14 +16,12 @@ class IngrediantFixtures extends Fixture implements DependentFixtureInterface
         $file = "$dir/data/Ingrediant.json";
         $ingrediants = json_decode(file_get_contents($file), true);
         foreach ($ingrediants as $infoIngrediant) {
+            $ingrediant = ['nomIng' => $infoIngrediant['nomIng']];
 
-            $allergene = null;
             if (isset($infoIngrediant['nomAll'])) {
-                $allergene = AllergeneFactory::random(['nomAll' => $infoIngrediant['nomAll']]);
+                $ingrediant['allergene'] = AllergeneFactory::random(['nomAll' => $infoIngrediant['nomAll']]);
             }
 
-            $ingrediant = ['nomIng' => $infoIngrediant['nomIng'],
-                           'allergene' => $allergene];
             IngrediantFactory::createOne($ingrediant);
         }
     }
