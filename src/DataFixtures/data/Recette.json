@@ -7,34 +7,39 @@
     "tpsDePrep": "10",
     "tpsCuisson": "10",
     "nbrPers": "4",
-    "nomTpRec": "Plat"
+    "nomTpRec": "Plat",
+    "nomPays": "Italie"
   },
   {
     "nomRec": "Tartiflette",
     "tpsDePrep": "15",
     "tpsCuisson": "60",
     "nbrPers": "4",
-    "nomTpRec": "Plat"
+    "nomTpRec": "Plat",
+    "nomPays": "France"
   },
   {
     "nomRec": "Choucroute à l'alsacienne",
     "tpsDePrep": "15",
     "tpsCuisson": "120",
     "nbrPers": "4",
-    "nomTpRec": "Plat"
+    "nomTpRec": "Plat",
+    "nomPays": "France"
   },
   {
     "nomRec": "Gâteau au yaourt",
     "tpsDePrep": "15",
     "tpsCuisson": "30",
     "nbrPers": "4",
-    "nomTpRec": "Dessert"
+    "nomTpRec": "Dessert",
+    "nomPays": "Turquie"
   },
   {
     "nomRec": "Mousse au chocolat",
     "tpsDePrep": "10",
     "tpsCuisson": "5",
     "nbrPers": "4",
-    "nomTpRec": "Dessert"
+    "nomTpRec": "Dessert",
+    "nomPays": "Suisse"
   }
 ]
