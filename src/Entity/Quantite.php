@@ -16,7 +16,7 @@ class Quantite
     #[ORM\Column]
     private ?float $quantite = null;
 
-    #[ORM\Column(length: 15, nullable: true)]
+    #[ORM\Column(length: 30, nullable: true)]
     private ?string $unitMesure = null;
 
     #[ORM\ManyToOne(inversedBy: 'quantites')]
