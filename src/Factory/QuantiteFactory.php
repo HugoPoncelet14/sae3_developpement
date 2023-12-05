@@ -46,33 +46,9 @@ final class QuantiteFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
-        $n = self::faker()->numberBetween(1, 3);
-
-        if (1 == $n) {
-            $quantite = self::faker()->numberBetween(1, 5) * 100;
-            $unitMesure = 'g';
-
-            return [
-                'quantite' => $quantite,
-                'unitMesure' => $unitMesure,
-            ];
-        } elseif (2 == $n) {
-            $quantite = self::faker()->numberBetween(1, 5) * 20;
-            $unitMesure = 'cl';
-
-            return [
-                'quantite' => $quantite,
-                'unitMesure' => $unitMesure,
-            ];
-        } elseif (3 == $n) {
-            $quantite = self::faker()->numberBetween(1, 5);
-
-            return [
-                'quantite' => $quantite,
-            ];
-        }
-
-        return [];
+        return [
+            'quantite' => self::faker()->numberBetween(1, 5),
+        ];
     }
 
     /**
