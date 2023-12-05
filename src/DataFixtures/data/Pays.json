@@ -1,0 +1,142 @@
+[
+  {
+    "nomPays": "France",
+    "nomReg": "Europe"
+  },
+  {
+    "nomPays": "Espagne",
+    "nomReg": "Europe"
+  },
+  {
+    "nomPays": "Royaume-uni",
+    "nomReg": "Europe"
+  },
+  {
+    "nomPays": "Allemagne",
+    "nomReg": "Europe"
+  },
+  {
+    "nomPays": "Italie",
+    "nomReg": "Europe"
+  },
+  {
+    "nomPays": "Grèce",
+    "nomReg": "Europe"
+  },
+  {
+    "nomPays": "Belgique",
+    "nomReg": "Europe"
+  },
+  {
+    "nomPays": "Suisse",
+    "nomReg": "Europe"
+  },
+  {
+    "nomPays": "Turquie",
+    "nomReg": "Europe"
+  },
+  {
+    "nomPays": "Etat-unis",
+    "nomReg": "Amérique du nord"
+  },
+  {
+    "nomPays": "Canada",
+    "nomReg": "Amérique du nord"
+  },
+  {
+    "nomPays": "Mexique",
+    "nomReg": "Amérique du nord"
+  },
+  {
+    "nomPays": "Argentine",
+    "nomReg": "Amérique Latine"
+  },
+  {
+    "nomPays": "Brésil",
+    "nomReg": "Amérique Latine"
+  },
+  {
+    "nomPays": "Colombie",
+    "nomReg": "Amérique Latine"
+  },
+  {
+    "nomPays": "Chilie",
+    "nomReg": "Amérique Latine"
+  },
+  {
+    "nomPays": "Arabie Saoudite",
+    "nomReg": "Moyen Orient"
+  },
+  {
+    "nomPays": "Qatar",
+    "nomReg": "Moyen Orient"
+  },
+  {
+    "nomPays": "Iran",
+    "nomReg": "Moyen Orient"
+  },
+  {
+    "nomPays": "Irak",
+    "nomReg": "Moyen Orient"
+  },
+  {
+    "nomPays": "Chine",
+    "nomReg": "Asie"
+  },
+  {
+    "nomPays": "Japon",
+    "nomReg": "Asie"
+  },
+  {
+    "nomPays": "Corée du Sud",
+    "nomReg": "Asie"
+  },
+  {
+    "nomPays": "Inde",
+    "nomReg": "Asie"
+  },
+  {
+    "nomPays": "Algérie",
+    "nomReg": "Maghreb"
+  },
+  {
+    "nomPays": "Maroc",
+    "nomReg": "Maghreb"
+  },
+  {
+    "nomPays": "Tunisie",
+    "nomReg": "Maghreb"
+  },
+  {
+    "nomPays": "Sénégal",
+    "nomReg": "Afrique"
+  },
+  {
+    "nomPays": "Egypte",
+    "nomReg": "Afrique"
+  },
+  {
+    "nomPays": "Afrique du Sud",
+    "nomReg": "Afrique"
+  },
+  {
+    "nomPays": "Mali",
+    "nomReg": "Afrique"
+  },
+  {
+    "nomPays": "Réunion",
+    "nomReg": "Ile"
+  },
+  {
+    "nomPays": "Singapour",
+    "nomReg": "Ile"
+  },
+  {
+    "nomPays": "Caraïbes",
+    "nomReg": "Ile"
+  },
+  {
+    "nomPays": "Madagascar",
+    "nomReg": "Ile"
+  }
+]
