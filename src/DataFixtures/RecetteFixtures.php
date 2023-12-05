@@ -16,23 +16,24 @@ class RecetteFixtures extends Fixture implements DependentFixtureInterface
         $dir = __DIR__;
         $file = "$dir/data/Recette.json";
         $recettes = json_decode(file_get_contents($file), true);
+
         foreach ($recettes as $infoRecette) {
-            $typeRecette = null;
-            if (isset($infoRecette['nomTpRec'])) {
-                $typeRecette = TypeRecetteFactory::random(['nomTpRec' => $infoRecette['nomTpRec']]);
-            }
-
-            $pays = null;
-            if (isset($infoRecette['nomPays'])) {
-                $pays = PaysFactory::random(['nomPays' => $infoRecette['nomPays']]);
-            }
-
             $recette = ['nomRec' => $infoRecette['nomRec'],
-                        'tpsDePrep' => $infoRecette['tpsDePrep'],
-                        'tpsCuisson' => $infoRecette['tpsCuisson'],
-                        'nbrPers' => $infoRecette['nbrPers'],
-                        'typeRecette' => $typeRecette,
-                        'pays' => $pays];
+                'tpsDePrep' => $infoRecette['tpsDePrep'],
+                'nbrPers' => $infoRecette['nbrPers'],
+            ];
+            if (isset($infoRecette['tpsCuisson'])) {
+                $recette['tpsCuisson'] = $infoRecette['tpsCuisson'];
+            }
+
+            if (isset($infoRecette['nomTpRec'])) {
+                $recette['typeRecette'] = TypeRecetteFactory::random(['nomTpRec' => $infoRecette['nomTpRec']]);
+            }
+
+            if (isset($infoRecette['nomPays'])) {
+                $recette['pays'] = PaysFactory::random(['nomPays' => $infoRecette['nomPays']]);
+            }
+
             RecetteFactory::createOne($recette);
         }
     }

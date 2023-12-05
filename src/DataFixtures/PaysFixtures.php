@@ -7,7 +7,6 @@ use App\Factory\RegionFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-;
 
 class PaysFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -17,14 +16,12 @@ class PaysFixtures extends Fixture implements DependentFixtureInterface
         $file = "$dir/data/Pays.json";
         $infos = json_decode(file_get_contents($file), true);
         foreach ($infos as $infoPays) {
+            $pays = ['nomPays' => $infoPays['nomPays']];
 
-            $region = null;
             if (isset($infoPays['nomReg'])) {
-                $region = RegionFactory::random(['nomReg' => $infoPays['nomReg']]);
+                $pays['region'] = RegionFactory::random(['nomReg' => $infoPays['nomReg']]);
             }
 
-            $pays = ['nomPays' => $infoPays['nomPays'],
-                     'region' => $region];
             PaysFactory::createOne($pays);
         }
     }

@@ -13,10 +13,27 @@ class QuantiteFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        QuantiteFactory::createMany(20, function () {
-            return ['recette' => RecetteFactory::random(),
-                    'ingrediant' => IngrediantFactory::random()];
-        });
+        $dir = __DIR__;
+        $file = "$dir/data/Quantite.json";
+        $quantites = json_decode(file_get_contents($file), true);
+
+        foreach ($quantites as $infoQuantite) {
+            $quantite = ['quantite' => $infoQuantite['quantite']];
+
+            if (isset($infoQuantite['unitMesure'])) {
+                $quantite['unitMesure'] = $infoQuantite['unitMesure'];
+            }
+
+            if (isset($infoQuantite['nomRec'])) {
+                $quantite['recette'] = RecetteFactory::random(['nomRec' => $infoQuantite['nomRec']]);
+            }
+
+            if (isset($infoQuantite['nomIng'])) {
+                $quantite['ingrediant'] = IngrediantFactory::random(['nomIng' => $infoQuantite['nomIng']]);
+            }
+
+            QuantiteFactory::createOne($quantite);
+        }
     }
 
     public function getDependencies(): array

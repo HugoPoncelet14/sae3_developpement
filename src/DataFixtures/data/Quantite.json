@@ -1,0 +1,43 @@
+[
+  {"quantite": "1", "unitMesure": "cuillère à soupe", "nomRec": "Pâtes Carbonnara", "nomIng": "Huile d'olive"},
+  {"quantite": "1", "unitMesure": "pincée", "nomRec": "Pâtes Carbonnara", "nomIng": "Sel"},
+  {"quantite": "1", "unitMesure": "pincée", "nomRec": "Pâtes Carbonnara", "nomIng": "Poivre"},
+  {"quantite": "400", "unitMesure": "g", "nomRec": "Pâtes Carbonnara", "nomIng": "Spaghetti"},
+  {"quantite": "200", "unitMesure": "g", "nomRec": "Pâtes Carbonnara", "nomIng": "Pecorino romano"},
+  {"quantite": "150", "unitMesure": "g", "nomRec": "Pâtes Carbonnara", "nomIng": "Poitrine salée nature"},
+  {"quantite": "4", "nomRec": "Pâtes Carbonnara", "nomIng": "Jaune d'oeuf"},
+  {"quantite": "1", "nomRec": "Pâtes Carbonnara", "nomIng": "Oeuf"},
+
+  {"quantite": "1", "unitMesure": "pincée", "nomRec": "Tartiflette", "nomIng": "Sel"},
+  {"quantite": "1", "unitMesure": "pincée", "nomRec": "Tartiflette", "nomIng": "Poivre"},
+  {"quantite": "2", "unitMesure": "cuillère à soups", "nomRec": "Tartiflette", "nomIng": "Huile"},
+  {"quantite": "1", "nomRec": "Tartiflette", "nomIng": "Reblochon"},
+  {"quantite": "200", "unitMesure": "g", "nomRec": "Tartiflette", "nomIng": "Oignon"},
+  {"quantite": "1", "unitMesure": "kg", "nomRec": "Tartiflette", "nomIng": "Pomme de terre"},
+  {"quantite": "200", "unitMesure": "g", "nomRec": "Tartiflette", "nomIng": "Lardons fumés"},
+  {"quantite": "1", "nomRec": "Tartiflette", "nomIng": "Gousse d'ail"},
+
+  {"quantite": "1", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Oignon"},
+  {"quantite": "1", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Feuille de laurier"},
+  {"quantite": "350", "unitMesure": "g", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Lard fumé"},
+  {"quantite": "1", "unitMesure": "kg", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Choucroute"},
+  {"quantite": "350", "unitMesure": "g", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Palette"},
+  {"quantite": "1", "unitMesure": "cuillère à soupe", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Saindoux"},
+  {"quantite": "2", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Gousse d'ail"},
+  {"quantite": "10", "unitMesure": "grains", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Genièvre"},
+  {"quantite": "25", "unitMesure": "cl", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Riesling"},
+  {"quantite": "350", "unitMesure": "g", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Pomme de terre"},
+  {"quantite": "4", "nomRec": "Choucroute à l'alsacienne", "nomIng": "Saucisses de Strasbourg"},
+
+  {"quantite": "3", "unitMesure": "pots", "nomRec": "Gâteau au yaourt", "nomIng": "Farine"},
+  {"quantite": "2", "unitMesure": "pots", "nomRec": "Gâteau au yaourt", "nomIng": "Sucre"},
+  {"quantite": "0.5", "unitMesure": "paquet", "nomRec": "Gâteau au yaourt", "nomIng": "Levure chimique"},
+  {"quantite": "1", "unitMesure": "pot", "nomRec": "Gâteau au yaourt", "nomIng": "Yaourt nature"},
+  {"quantite": "0.5", "unitMesure": "pot", "nomRec": "Gâteau au yaourt", "nomIng": "Huile de colza"},
+  {"quantite": "2", "nomRec": "Gâteau au yaourt", "nomIng": "Oeuf"},
+  {"quantite": "1", "unitMesure": "zeste", "nomRec": "Gâteau au yaourt", "nomIng": "Citron jaune"},
+
+  {"quantite": "1", "unitMesure": "sachet", "nomRec": "Mousse au chocolat", "nomIng": "Sucre vanillé"},
+  {"quantite": "100", "unitMesure": "g", "nomRec": "Mousse au chocolat", "nomIng": "Chocolat noir"},
+  {"quantite": "3", "nomRec": "Mousse au chocolat", "nomIng": "Oeuf"}
+]
