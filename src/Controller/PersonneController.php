@@ -22,4 +22,18 @@ class PersonneController extends AbstractController
             'users' => $users,
         ]);
     }
+    #[Route('/admin', name: 'app_personne')]
+    public function admin(PersonneRepository $personneRepository): Response
+    {
+        $qb = $personneRepository->createQueryBuilder('p')
+            ->innerJoin('p.typePersonne', 't')
+            ->where("t.nomTpPers = 'Administrateur'");
+        $admins = $qb->getQuery()->execute();
+
+        return $this->render('personne/admin.html.twig', [
+            'controller_name' => 'AdminController',
+            'admins' => $admins,
+        ]);
+    }
+
 }
