@@ -38,7 +38,7 @@ class Personne
     #[ORM\JoinColumn(nullable: true)]
     private ?TypePersonne $typePersonne = null;
 
-    #[ORM\ManyToMany(targetEntity: allergene::class, inversedBy: 'personnes')]
+    #[ORM\ManyToMany(targetEntity: Allergene::class, inversedBy: 'personnes')]
     private Collection $allergenes;
 
     public function __construct()
