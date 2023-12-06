@@ -103,10 +103,6 @@ body {
     gap: 1rem;
 }
 
-.form-control.custom-size {
-    width: 20rem
-}
-
 .auth-button {
     height: 2rem;
     color: white;
@@ -168,4 +164,26 @@ hr {
     line-height: normal;
     padding-bottom: 15px;
 
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+label#indication {
+    font-size: 1rem;
+    color: #6f6f6f;
+}
+
+.small-gap {
+    gap: 0.5rem;
+}
+
+input[type="date"], .form-control {
+    color: #6f6f6f;
 }
