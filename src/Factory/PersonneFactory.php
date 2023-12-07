@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Personne>
  *
- * @method        Personne|Proxy create(array|callable $attributes = [])
- * @method static Personne|Proxy createOne(array $attributes = [])
- * @method static Personne|Proxy find(object|array|mixed $criteria)
- * @method static Personne|Proxy findOrCreate(array $attributes)
- * @method static Personne|Proxy first(string $sortedField = 'id')
- * @method static Personne|Proxy last(string $sortedField = 'id')
- * @method static Personne|Proxy random(array $attributes = [])
- * @method static Personne|Proxy randomOrCreate(array $attributes = [])
+ * @method        Personne|Proxy                     create(array|callable $attributes = [])
+ * @method static Personne|Proxy                     createOne(array $attributes = [])
+ * @method static Personne|Proxy                     find(object|array|mixed $criteria)
+ * @method static Personne|Proxy                     findOrCreate(array $attributes)
+ * @method static Personne|Proxy                     first(string $sortedField = 'id')
+ * @method static Personne|Proxy                     last(string $sortedField = 'id')
+ * @method static Personne|Proxy                     random(array $attributes = [])
+ * @method static Personne|Proxy                     randomOrCreate(array $attributes = [])
  * @method static PersonneRepository|RepositoryProxy repository()
- * @method static Personne[]|Proxy[] all()
- * @method static Personne[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Personne[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Personne[]|Proxy[] findBy(array $attributes)
- * @method static Personne[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Personne[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Personne[]|Proxy[]                 all()
+ * @method static Personne[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Personne[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Personne[]|Proxy[]                 findBy(array $attributes)
+ * @method static Personne[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Personne[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class PersonneFactory extends ModelFactory
 {
@@ -47,7 +47,7 @@ final class PersonneFactory extends ModelFactory
     protected function getDefaults(): array
     {
         $nom = self::faker()->lastName(50);
-        $pnom = self::faker()->lastName(50);
+        $pnom = self::faker()->firstName(50);
         $pseudo = "$pnom-$nom";
 
         return [
@@ -56,6 +56,7 @@ final class PersonneFactory extends ModelFactory
             'nomPers' => $nom,
             'pnomPers' => $pnom,
             'pseudo' => $pseudo,
+            'photoProfil' => file_get_contents(self::faker()->imageUrl(360, 360, 'avatar', true, 'avatar', false, 'jpg')),
         ];
     }
 
