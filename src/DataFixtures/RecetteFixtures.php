@@ -34,6 +34,10 @@ class RecetteFixtures extends Fixture implements DependentFixtureInterface
                 $recette['pays'] = PaysFactory::random(['nomPays' => $infoRecette['nomPays']]);
             }
 
+            if (isset($infoRecette['imgRec'])) {
+                $recette['imgRec'] = file_get_contents("$dir/img/recettes/{$infoRecette['imgRec']}.jpg");
+            }
+
             RecetteFactory::createOne($recette);
         }
     }

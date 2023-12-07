@@ -8,7 +8,8 @@
     "tpsCuisson": "10",
     "nbrPers": "4",
     "nomTpRec": "Plat",
-    "nomPays": "Italie"
+    "nomPays": "Italie",
+    "imgRec": "pates_carbonara"
   },
   {
     "nomRec": "Tartiflette",
@@ -16,7 +17,8 @@
     "tpsCuisson": "60",
     "nbrPers": "4",
     "nomTpRec": "Plat",
-    "nomPays": "France"
+    "nomPays": "France",
+    "imgRec": "tartiflette"
   },
   {
     "nomRec": "Choucroute à l'alsacienne",
@@ -24,7 +26,8 @@
     "tpsCuisson": "120",
     "nbrPers": "4",
     "nomTpRec": "Plat",
-    "nomPays": "France"
+    "nomPays": "France",
+    "imgRec": "choucroute"
   },
   {
     "nomRec": "Gâteau au yaourt",
@@ -32,7 +35,8 @@
     "tpsCuisson": "30",
     "nbrPers": "4",
     "nomTpRec": "Dessert",
-    "nomPays": "Turquie"
+    "nomPays": "Turquie",
+    "imgRec": "gateau_au_yaourt"
   },
   {
     "nomRec": "Mousse au chocolat",
@@ -40,6 +44,7 @@
     "tpsCuisson": "5",
     "nbrPers": "4",
     "nomTpRec": "Dessert",
-    "nomPays": "Suisse"
+    "nomPays": "Suisse",
+    "imgRec": "mousse_au_chocolat"
   }
 ]
