@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un compte{% endblock %}
+
+{% block body %}
+    <div class="main">
+        <h1>Créer un compte</h1>
+        <form method="post">
+            <div class="flex-row small-gap">
+                <input class="form-control " name="nomPers" placeholder="Nom"/>
+                <input class="form-control " name="pnomPers" placeholder="Prénom"/>
+            </div>
+            <div class="flex-column" id="birth">
+                <label id="indication" for="birth">Date de naissance:</label>
+                <input class="form-control" id="birth" type="date" name="datnaiss" placeholder="Date de naissance"/>
+            </div>
+            <input class="form-control" name="username" placeholder="Nom d'utilisateur"/>
+            <input class="form-control" name="identifiant" placeholder="Adresse mail"/>
+            <input class="form-control" name="password" type="password" placeholder="Mot de passe"/>
+            <button class="auth-button" type="submit">Créez votre compte</button>
+        </form>
+    </div>
+{% endblock %}
