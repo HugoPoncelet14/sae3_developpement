@@ -18,9 +18,6 @@ class Allergene
     #[ORM\Column(length: 50)]
     private ?string $nomAll = null;
 
-    #[ORM\ManyToMany(targetEntity: Personne::class, mappedBy: 'allergenes')]
-    private Collection $personnes;
-
     #[ORM\OneToMany(mappedBy: 'allergene', targetEntity: Ingrediant::class)]
     private Collection $ingrediants;
 
