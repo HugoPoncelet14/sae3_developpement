@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -26,6 +27,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\Column(length: 25)]
+    private ?string $nom = null;
+
+    #[ORM\Column(length: 25)]
+    private ?string $prenom = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateNais = null;
+
+    #[ORM\Column(length: 25)]
+    private ?string $pseudo = null;
+
+    #[ORM\Column(type: Types::BLOB, nullable: true)]
+    private $photoProfil = null;
 
     public function getId(): ?int
     {
@@ -95,5 +111,65 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): static
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getDateNais(): ?\DateTimeInterface
+    {
+        return $this->dateNais;
+    }
+
+    public function setDateNais(?\DateTimeInterface $dateNais): static
+    {
+        $this->dateNais = $dateNais;
+
+        return $this;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): static
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    public function getPhotoProfil()
+    {
+        return $this->photoProfil;
+    }
+
+    public function setPhotoProfil($photoProfil): static
+    {
+        $this->photoProfil = $photoProfil;
+
+        return $this;
     }
 }
