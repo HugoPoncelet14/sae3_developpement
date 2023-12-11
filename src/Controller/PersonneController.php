@@ -2,14 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\Personne;
 use App\Repository\PersonneRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PersonneController extends AbstractController
 {
-
     #[Route('/admin')]
     public function admin(PersonneRepository $personneRepository): Response
     {
@@ -38,4 +40,21 @@ class PersonneController extends AbstractController
         ]);
     }
 
+    #[Route('/user/create')]
+    public function create(EntityManagerInterface $entityManager, Request $request): Response
+    {
+        return $this->render('personne/create.html.twig');
+    }
+
+    #[Route('user/{id}/update', requirements: ['personneId' => '\d+'])]
+    public function update(EntityManagerInterface $entityManager, Personne $personne, Request $request): Response
+    {
+        return $this->render('personne/update.html.twig', ['contact' => $personne]);
+    }
+
+    #[Route('user/{id}/delete', requirements: ['personneId' => '\d+'])]
+    public function delete(EntityManagerInterface $entityManager, Personne $personne, Request $request): Response
+    {
+        return $this->render('personne/delete.html.twig', ['contact' => $personne]);
+    }
 }
