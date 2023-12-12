@@ -1,0 +1,20 @@
+[
+  {
+    "nom": "nomTest1",
+    "prenom": "prenomTest1",
+    "email": "root@example.com",
+    "pseudo": "pseudoTest1",
+    "password": "test",
+    "roles": [
+      "ROLE_ADMIN"
+    ]
+  },
+  {
+    "nom": "nomTest2",
+    "prenom": "prenomTest3",
+    "email": "user@example.com",
+    "pseudo": "pseudoTest2",
+    "password": "test",
+    "roles": ["ROLE_USER"]
+  }
+]
