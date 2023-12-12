@@ -17,5 +17,7 @@ class UserFixtures extends Fixture
         foreach ($users as $value) {
             UserFactory::createOne($value);
         }
+
+        UserFactory::createMany(8);
     }
 }
