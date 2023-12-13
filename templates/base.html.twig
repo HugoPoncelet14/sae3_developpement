@@ -25,13 +25,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-text">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/auth">S'authentifier</a>
+                        <a class="nav-link active" aria-current="page" href="{{ path('app_authentication_login') }}">S'authentifier</a>
                     </li>
                 </ul>
                 <form class="d-flex search_bar" role="search">
                     <input class="form-control me-2 no-border" type="search" placeholder="Rechercher une recette" aria-label="Search" name="search">
                     <button class="button" type="submit"><img class="search_button" src="https://cdn-icons-png.flaticon.com/512/694/694985.png" /></button>
                 </form>
+                {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
+                    <a class="ms-2 btn btn-primary" href="{{ path('app_login') }}" role="button">Login</a>
+                {% else %}
+                    <a class="ms-2 btn btn-primary" href="{{ path('app_logout') }}" role="button">Logout</a>
+                {% endif %}
             </div>
         </div>
     </nav>
