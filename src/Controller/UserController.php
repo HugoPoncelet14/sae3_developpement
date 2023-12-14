@@ -28,7 +28,7 @@ class UserController extends AbstractController
     #[Route('/user/{id}', requirements: ['userId' => '\d+'])]
     public function show(EntityManagerInterface $entityManager, Request $request): Response
     {
-        return $this->render('user/create.html.twig');
+        return $this->render('user/show.html.twig');
     }
 
     #[Route('user/{id}/update', requirements: ['userId' => '\d+'])]
