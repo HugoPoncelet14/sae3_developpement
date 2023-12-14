@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +35,9 @@ class UserController extends AbstractController
     #[Route('user/{id}/update', requirements: ['userId' => '\d+'])]
     public function update(EntityManagerInterface $entityManager, User $user, Request $request): Response
     {
-        return $this->render('user/update.html.twig', ['user' => $user]);
+        $form = $this->createForm(UserType::class, $user);
+
+        return $this->render('user/update.html.twig', ['user' => $user, 'form' => $form]);
     }
 
     #[Route('user/{id}/delete', requirements: ['userId' => '\d+'])]
