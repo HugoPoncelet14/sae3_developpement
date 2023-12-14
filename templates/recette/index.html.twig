@@ -1,20 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RecetteController!{% endblock %}
+{% block title %}Cuisinisi{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="main align-left">
+        <h1 class="title_small-padding">Nos recommandations</h1>
+        <div class="home_container">
+        {% for recette in recettes %}
+            <div class="recipe_container">
+                <div class="recipe_image-box"><img  src="https://img.freepik.com/photos-gra
+                tuite/pizza-pizza-remplie-tomates-salami-olives_140725-1200.jpg?w=740&t=st=170
+                2561701~exp=1702562301~hmac=277ab322c7edb6741c6c03c474fce0809174b3b8867ac1f36cfb2d4c45b55f25"
+                                                    alt="Image de {{ recette.nomRec }}"></div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/leoma/Desktop/S3/SAE/sae3_developpement/src/Controller/RecetteController.php'|file_link(0) }}">src/Controller/RecetteController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/leoma/Desktop/S3/SAE/sae3_developpement/templates/recette/index.html.twig'|file_link(0) }}">templates/recette/index.html.twig</a></code></li>
-    </ul>
-</div>
+                <div class="recipe_title-box"><h5>{{ recette.nomRec }}</h5></div>
+            </div>
+
+
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}
