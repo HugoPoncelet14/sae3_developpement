@@ -110,6 +110,15 @@ body {
     align-items: center;
 }
 
+.title_huge-padding {
+    padding-top: 8rem;
+    padding-bottom: 2.5rem;
+}
+
+.title_small-padding {
+    padding-top: 3rem;
+}
+
 .auth-button {
     height: 2rem;
     color: white;
@@ -193,4 +202,8 @@ label#indication {
 
 input[type="date"], .form-control {
     color: #6f6f6f;
+}
+
+.form-control.custom-size {
+    width: 20rem
 }
