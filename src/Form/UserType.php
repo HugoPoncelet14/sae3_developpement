@@ -6,7 +6,6 @@ use App\Entity\Allergene;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -21,10 +20,16 @@ class UserType extends AbstractType
         $builder
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class)
-            ->add('nom')
-            ->add('prenom')
+            ->add('nom', null, [
+                'empty_data' => '',
+            ])
+            ->add('prenom', null, [
+                'empty_data' => '',
+            ])
             ->add('dateNais', DateType::class)
-            ->add('pseudo')
+            ->add('pseudo', null, [
+                'empty_data' => '',
+            ])
             ->add('photoProfil', FileType::class)
             ->add('allergenes', EntityType::class, [
                         'class' => Allergene::class,
