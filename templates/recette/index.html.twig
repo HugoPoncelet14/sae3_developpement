@@ -6,19 +6,14 @@
 
     <div class="main align-left">
         <h1 class="title_small-padding">Nos recommandations</h1>
-        <div class="home_container">
-        {% for recette in recettes %}
-            <div class="recipe_container">
-                <div class="recipe_image-box"><img  src="https://img.freepik.com/photos-gra
-                tuite/pizza-pizza-remplie-tomates-salami-olives_140725-1200.jpg?w=740&t=st=170
-                2561701~exp=1702562301~hmac=277ab322c7edb6741c6c03c474fce0809174b3b8867ac1f36cfb2d4c45b55f25"
-                                                    alt="Image de {{ recette.nomRec }}"></div>
-
-                <div class="recipe_title-box"><h5>{{ recette.nomRec }}</h5></div>
-            </div>
-
-
-        {% endfor %}
+        <div class="recommandations_container">
+            {% for recette in recettes %}
+                <div class="recipe_container">
+                    <div class="recipe_image-box"><img  src="/recettes/{{ recette.id }}/image"
+                                                        alt="Image de {{ recette.nomRec }}"></div>
+                    <div class="recipe_title-box"><h5>{{ recette.nomRec }}</h5></div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
