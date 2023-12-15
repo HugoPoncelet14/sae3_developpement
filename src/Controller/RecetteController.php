@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Recette;
+use App\Repository\EtapeRepository;
 use App\Repository\QuantiteRepository;
 use App\Repository\RecetteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -36,7 +38,7 @@ class RecetteController extends AbstractController
         return $response;
     }
 
-    #[Route('/recette/{id}', name: 'app_recette_details')]
+    #[Route('/recettes/{id}', name: 'app_recette_details')]
     public function recetteDetails(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository, int $id): Response
     {
         $quantites = $quantiteRepository->AllQuantiteByRecetteId($id);
@@ -47,6 +49,18 @@ class RecetteController extends AbstractController
             'recette' => $recette,
             'quantites' => $quantites,
             'etapes' => $etapes,
+        ]);
+    }
+
+    #[Route('/recette_recherche', name: 'app_recette_search')]
+    public function search(RecetteRepository $recetteRepository, Request $request): Response
+    {
+        $recherche = $request->query->get('search', ' ');
+        $recettes = $recetteRepository->search($recherche);
+
+        return $this->render('recette/search.html.twig', [
+            'recettes' => $recettes,
+            'search' => $recherche,
         ]);
     }
 }
