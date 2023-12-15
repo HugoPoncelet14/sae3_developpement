@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Recette;
+use App\Repository\QuantiteRepository;
 use App\Repository\RecetteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +17,7 @@ class RecetteController extends AbstractController
         $recommandations = $recetteRepository->recommandation();
 
         return $this->render('recette/index.html.twig', [
+            'controller_name' => 'RecetteController',
             'recettes' => $recommandations,
         ]);
     }
@@ -31,5 +34,18 @@ class RecetteController extends AbstractController
         $response->headers->set('Content-Type', 'image/png');
 
         return $response;
+    }
+
+    #[Route('/recette/{id}', name: 'app_recette')]
+    public function recette(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository ,int $id): Response
+    {
+        $quantites = $quantiteRepository->AllQuantiteByRecetteId($id);
+        $etapes = $etapeRepository->getAllEtapeWithRecetteId($id);
+        dump(count($etapes));
+        return $this->render('recette/details.html.twig', [
+            'recette' => $recette,
+            'quantites' => $quantites,
+            'etapes' => $etapes,
+        ]);
     }
 }
