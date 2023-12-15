@@ -36,12 +36,13 @@ class RecetteController extends AbstractController
         return $response;
     }
 
-    #[Route('/recette/{id}', name: 'app_recette')]
-    public function recette(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository ,int $id): Response
+    #[Route('/recette/{id}', name: 'app_recette_details')]
+    public function recetteDetails(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository, int $id): Response
     {
         $quantites = $quantiteRepository->AllQuantiteByRecetteId($id);
         $etapes = $etapeRepository->getAllEtapeWithRecetteId($id);
         dump(count($etapes));
+
         return $this->render('recette/details.html.twig', [
             'recette' => $recette,
             'quantites' => $quantites,
