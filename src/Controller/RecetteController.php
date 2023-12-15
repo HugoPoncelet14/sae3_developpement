@@ -15,8 +15,21 @@ class RecetteController extends AbstractController
         $recommandations = $recetteRepository->recommandation();
 
         return $this->render('recette/index.html.twig', [
-            'controller_name' => 'RecetteController',
             'recettes' => $recommandations,
         ]);
+    }
+
+    #[Route('/recettes/{id}/image', name: 'app_recettes_image')]
+    public function showRecetteImage(int $id, RecetteRepository $recetteRepository)
+    {
+        $recette = $recetteRepository->findOneBy(['id' => $id]);
+
+        $response = new Response($this->renderView('recette/image.html.twig', [
+            'image' => base64_encode(stream_get_contents($recette->getImgRec())),
+            ]));
+
+        $response->headers->set('Content-Type', 'image/png');
+
+        return $response;
     }
 }
