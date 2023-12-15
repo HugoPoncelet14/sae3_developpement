@@ -11,14 +11,21 @@
                                 <p> {{ recette.descRec }}</p>
                         </div>
                 </div>
-        <ul>
-        {% for quantite in quantites %}
-                <ol>
-                        {{ quantite.quantite }}
-                        {{ quantite.unitMesure }}
-                        {{ quantite.ingrediant.nomIng }}
-                </ol>
-        {% endfor %}
-        </ul>
+                <ul>
+                {% for quantite in quantites %}
+                        <ol>
+                                {{ quantite.quantite }}
+                                {{ quantite.unitMesure }}
+                                {{ quantite.ingrediant.nomIng }}
+                        </ol>
+                {% endfor %}
+                </ul>
+                <h2>Etape</h2>
+                {% for etape in etapes %}
+                        <ol>
+                                <h3> {{ etape.numEtape }}</h3>
+                                <p> {{ etape.descEtape }}</p>
+                        </ol>
+                {% endfor %}
         </div>
 {% endblock %}
