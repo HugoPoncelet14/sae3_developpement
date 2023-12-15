@@ -1,15 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RecetteController!{% endblock %}
+{% block title %}{{ recette.nomRec }}{% endblock %}
 
 {% block body %}
-        <div name="detail">
-                <img src="https://www.margxt.fr/wp-content/uploads/2023/07/Pokemon-Sleep-Salade-Mixte.png">
-                <div>
-                        <h1> {{ recette.nomRec }}</h1>
-                        <p> {{ recette.descRec }}</p>
+        <div name="recette">
+                <div name="detail">
+                        <img src="https://www.margxt.fr/wp-content/uploads/2023/07/Pokemon-Sleep-Salade-Mixte.png">
+                        <div>
+                                <h1> {{ recette.nomRec }}</h1>
+                                <p> {{ recette.descRec }}</p>
+                        </div>
                 </div>
-
+        <ul>
+        {% for quantite in quantites %}
+                <ol>
+                        {{ quantite.quantite }}
+                        {{ quantite.unitMesure }}
+                        {{ quantite.ingrediant.nomIng }}
+                </ol>
+        {% endfor %}
+        </ul>
         </div>
-
 {% endblock %}
