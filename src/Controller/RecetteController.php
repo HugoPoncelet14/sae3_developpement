@@ -15,6 +15,7 @@ class RecetteController extends AbstractController
         $recommandations = $recetteRepository->recommandation();
 
         return $this->render('recette/index.html.twig', [
+            'controller_name' => 'RecetteController',
             'recettes' => $recommandations,
         ]);
     }
@@ -31,5 +32,13 @@ class RecetteController extends AbstractController
         $response->headers->set('Content-Type', 'image/png');
 
         return $response;
+    }
+
+    #[Route('/recette/{id}', name: 'app_recette')]
+    public function recette(Recette $recette): Response
+    {
+        return $this->render('recette/details.html.twig', [
+            'recette' => $recette,
+        ]);
     }
 }
