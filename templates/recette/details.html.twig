@@ -26,11 +26,13 @@
                         </ul>
                 </div>
                 <h2>Etape</h2>
+                <ul>
                 {% for etape in etapes %}
-                        <ol>
+                        <li>
                                 <h3> {{ etape.numEtape }}</h3>
                                 <p> {{ etape.descEtape }}</p>x
-                        </ol>
+                        </li>
                 {% endfor %}
+                </ul>
         </div>
 {% endblock %}
