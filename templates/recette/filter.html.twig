@@ -9,6 +9,14 @@
                 {% include 'recette/_filter.html.twig' with {form: form} only %}
             </div>
             <div class="col-md-9">
+                <div class="d-flex jusitfy-content-ent mb-2">
+                    <button>
+                        {{ knp_pagination_sortable(recettes,'Calories','r.nbrCallo') }}
+                    </button>
+                    <button>
+                        {{ knp_pagination_sortable(recettes,'Temps','r.tpsDePrep') }}
+                    </button>
+                </div>
                 <div class="grid">
                     {% for recette in recettes %}
                         {% include 'recette/_recette.html.twig' with {recette: recette} only %}
