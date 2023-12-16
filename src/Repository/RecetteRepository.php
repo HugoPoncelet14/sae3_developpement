@@ -24,7 +24,7 @@ class RecetteRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Recette::class);
-        $this->$paginator = $paginator;
+        $this->paginator = $paginator;
     }
 
     public function search($searchText = ''): array
@@ -49,7 +49,7 @@ class RecetteRepository extends ServiceEntityRepository
         return $query->execute();
     }
 
-    public function findSearch(SearchData $search): array
+    public function findSearch(SearchData $search): PaginationInterface
     {
         $query = $this->createQueryBuilder('r')
                 ->innerJoin('r.pays', 'p')
@@ -73,7 +73,11 @@ class RecetteRepository extends ServiceEntityRepository
         }
         $query = $query->getQuery();
 
-        return $this->paginator->paginate
+        return $this->paginator->paginate(
+            $query,
+            1,
+            3,
+        );
     }
 
     //    /**
