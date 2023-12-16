@@ -44,6 +44,10 @@ class UserController extends AbstractController
             $form = $this->createForm(UserTypeAdmin::class, $user);
         } else {
             $form = $this->createForm(UserType::class, $user);
+            $currentUser = $this->getUser();
+            if ($currentUser !== $user) {
+                throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation de modifier ces informations.');
+            }
         }
         $lastpp = $user->getPhotoProfil();
         $form->handleRequest($request);
