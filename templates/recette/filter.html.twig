@@ -3,5 +3,9 @@
 {% block title %}Filtre des recettes{% endblock %}
 
 {% block body %}
-
+    <div class="recettes">
+        {% for recette in recettes %}
+                {% include 'recette/_recette.html.twig' with {recette: recette} only %}
+        {% endfor %}
+    </div>
 {% endblock %}
