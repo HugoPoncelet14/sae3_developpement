@@ -64,7 +64,7 @@ class RecetteRepository extends ServiceEntityRepository
         if (!empty($search->typeRecette)) {
             $query = $query
                 ->andWhere('t.id IN (:typeRecette)')
-                ->setParameter('typeRecette', $search->region);
+                ->setParameter('typeRecette', $search->typeRecette);
         }
         $query = $query->getQuery();
 
