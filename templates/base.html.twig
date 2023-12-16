@@ -31,6 +31,9 @@
                             <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
                         {% endif %}
                     </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="{{ path('app_recette_filter') }}">Filtre</a>
+                    </li>
                 </ul>
                 <form class="d-flex search_bar" role="search" action="{{path('app_recette_search')}}">
                     <input class="form-control me-2 no-border" type="search" value="{{search|default('')}}"  placeholder="Rechercher une recette" aria-label="Search" name="search">
