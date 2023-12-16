@@ -4,11 +4,15 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\UserTypeAdmin;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class UserController extends AbstractController
 {
@@ -32,10 +36,23 @@ class UserController extends AbstractController
         return $this->render('user/show.html.twig');
     }
 
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('user/{id}/update', requirements: ['userId' => '\d+'])]
-    public function update(EntityManagerInterface $entityManager, User $user, Request $request): Response
+    public function update(EntityManagerInterface $entityManager, User $user, Request $request, UserPasswordHasherInterface $passwordHasher, AuthorizationCheckerInterface $authorizationChecker): Response
     {
-        $form = $this->createForm(UserType::class, $user);
+        if ($authorizationChecker->isGranted('ROLE_ADMIN')) {
+            $form = $this->createForm(UserTypeAdmin::class, $user);
+        } else {
+            $form = $this->createForm(UserType::class, $user);
+        }
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_user_update', ['id' => $user->getId()]);
+        }
 
         return $this->render('user/update.html.twig', ['user' => $user, 'form' => $form]);
     }
