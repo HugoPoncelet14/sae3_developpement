@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Form;
 
 use App\Entity\Pays;
+use App\Entity\Region;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,7 +22,15 @@ class SearchForm extends AbstractType
                 'class' => Pays::class,
                 'expanded' => false,
                 'multiple' => true,
+                ])
+            ->add('region', EntityType::class, [
+                'label' => false,
+                'required' => false,
+                'class' => Region::class,
+                'expanded' => false,
+                'multiple' => true,
                 ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
