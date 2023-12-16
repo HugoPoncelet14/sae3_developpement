@@ -40,11 +40,18 @@ class UserController extends AbstractController
     #[Route('user/{id}/update', requirements: ['userId' => '\d+'])]
     public function update(EntityManagerInterface $entityManager, User $user, Request $request, UserPasswordHasherInterface $passwordHasher, AuthorizationCheckerInterface $authorizationChecker): Response
     {
+        $currentUser = $this->getUser();
+
         if ($authorizationChecker->isGranted('ROLE_ADMIN')) {
             $form = $this->createForm(UserTypeAdmin::class, $user);
+            if ($currentUser !== $user) {
+                if (in_array('ROLE_ADMIN', $user->getRoles())) {
+                    throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation de modifier les informations d\'un autre administrateur.');
+                }
+            }
         } else {
             $form = $this->createForm(UserType::class, $user);
-            $currentUser = $this->getUser();
+
             if ($currentUser !== $user) {
                 throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation de modifier ces informations.');
             }
