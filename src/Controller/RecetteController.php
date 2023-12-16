@@ -66,7 +66,7 @@ class RecetteController extends AbstractController
         ]);
     }
 
-    #[Route('/recettes/filter', name: 'app_recette_filter')]
+    #[Route('/filter', name: 'app_recette_filter')]
     public function recettesFilter(RecetteRepository $recetteRepository): Response
     {
         $data = new SearchData();
