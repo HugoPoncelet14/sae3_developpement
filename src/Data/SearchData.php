@@ -6,6 +6,8 @@ namespace App\Form;
 
 class SearchData
 {
+    public int $page = 1;
+
     public array $pays = [];
 
     public array $region = [];
