@@ -6,6 +6,8 @@ use App\Entity\Recette;
 use App\Form\SearchData;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @extends ServiceEntityRepository<Recette>
@@ -17,9 +19,12 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class RecetteRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private PaginationInterface $paginator;
+
+    public function __construct(ManagerRegistry $registry, PaginationInterface $paginator)
     {
         parent::__construct($registry, Recette::class);
+        $this->$paginator = $paginator;
     }
 
     public function search($searchText = ''): array
