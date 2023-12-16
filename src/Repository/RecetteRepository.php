@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Recette;
+use App\Form\SearchData;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -43,9 +44,31 @@ class RecetteRepository extends ServiceEntityRepository
         return $query->execute();
     }
 
-    public function findSearch(): array
+    public function findSearch(SearchData $search): array
     {
-        return $this->findAll();
+        $query = $this->createQueryBuilder('r')
+                ->innerJoin('r.pays', 'p')
+                ->innerJoin('r.typeRecette', 't');
+
+        if (!empty($search->pays)) {
+            $query = $query
+                ->andWhere('p.id IN (:pays)')
+                ->setParameter('pays', $search->pays);
+        }
+        if (!empty($search->region)) {
+            $query = $query
+                ->innerJoin('p.region', 're')
+                ->andWhere('re.id IN (:region)')
+                ->setParameter('region', $search->region);
+        }
+        if (!empty($search->typeRecette)) {
+            $query = $query
+                ->andWhere('t.id IN (:typeRecette)')
+                ->setParameter('typeRecette', $search->region);
+        }
+        $query = $query->getQuery();
+
+        return $query->getResult();
     }
 
     //    /**
