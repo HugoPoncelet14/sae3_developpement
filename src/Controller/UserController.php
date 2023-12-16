@@ -45,10 +45,18 @@ class UserController extends AbstractController
         } else {
             $form = $this->createForm(UserType::class, $user);
         }
+        $lastpp = $user->getPhotoProfil();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $form->getData();
+
+            if (null !== $form->get('photoProfil')->getData()) {
+                $imageFile = $form->get('photoProfil')->getData();
+                $user->setPhotoProfil(file_get_contents($imageFile->getPathname()));
+            } else {
+                $user->setPhotoProfil($lastpp);
+            }
             $entityManager->flush();
 
             return $this->redirectToRoute('app_user_update', ['id' => $user->getId()]);
