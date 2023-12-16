@@ -31,12 +31,8 @@ class RecetteController extends AbstractController
     {
         $recette = $recetteRepository->findOneBy(['id' => $id]);
 
-        $response = new Response($this->renderView('recette/image.html.twig', [
-            'image' => base64_encode(stream_get_contents($recette->getImgRec())),
-            ]));
-
+        $response = new Response(stream_get_contents($recette->getImgRec()));
         $response->headers->set('Content-Type', 'image/png');
-
         return $response;
     }
 
