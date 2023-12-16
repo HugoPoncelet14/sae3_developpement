@@ -6,12 +6,14 @@ use App\Entity\Allergene;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class UserType extends AbstractType
 {
@@ -19,7 +21,6 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            ->add('password', PasswordType::class)
             ->add('nom', null, [
                 'empty_data' => '',
             ])
@@ -30,12 +31,31 @@ class UserType extends AbstractType
             ->add('pseudo', null, [
                 'empty_data' => '',
             ])
-            ->add('photoProfil', FileType::class)
+            ->add('photoProfil', FileType::class, [
+                'required' => false,
+                'mapped' => false,
+                'constraints' => [
+                    new File([
+                        'mimeTypes' => ['image/jpeg', 'image/png'],
+                        'mimeTypesMessage' => 'Veuillez entrer un type mime valide (JPEG,PNG)',
+                    ]),
+                ],
+            ])
             ->add('allergenes', EntityType::class, [
                         'class' => Allergene::class,
                         'choice_label' => 'nomAll',
                         'multiple' => true,
                         'expanded' => true,
+            ])
+            ->add('password', PasswordType::class, [
+                'empty_data' => '',
+                'required' => false,
+            ])
+            ->add('roles', ChoiceType::class, [
+                'multiple' => true,
+                'choices' => ['Admin' => 'ROLE_ADMIN'],
+                'expanded' => true,
+                'label' => 'Rôle',
             ])
         ;
     }

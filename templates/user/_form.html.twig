@@ -1,12 +1,16 @@
 {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    {% if form.password is defined %}
+        {{ form_row(form.password) }}
+    {% endif %}
     {{ form_row(form.nom) }}
     {{ form_row(form.prenom) }}
-    {{ form_row(form.email) }}
     {{ form_row(form.pseudo) }}
-    {{ form_row(form.password) }}
     {{ form_row(form.dateNais) }}
     {{ form_row(form.photoProfil) }}
     {{ form_row(form.allergenes) }}
-
+    {% if form.roles is defined %}
+        {{ form_row(form.roles) }}
+    {% endif %}
 <input class="w-100 btn btn-primary" type="submit" value={{ submit_label }}>
-{{ form_end(form) }}
+{{ form_end(form)}}
