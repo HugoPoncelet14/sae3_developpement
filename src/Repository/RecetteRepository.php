@@ -19,9 +19,9 @@ use Knp\Component\Pager\PaginatorInterface;
  */
 class RecetteRepository extends ServiceEntityRepository
 {
-    private PaginationInterface $paginator;
+    private PaginatorInterface $paginator;
 
-    public function __construct(ManagerRegistry $registry, PaginationInterface $paginator)
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Recette::class);
         $this->$paginator = $paginator;
@@ -73,7 +73,7 @@ class RecetteRepository extends ServiceEntityRepository
         }
         $query = $query->getQuery();
 
-        return $query->getResult();
+        return $this->paginator->paginate
     }
 
     //    /**
