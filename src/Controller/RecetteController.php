@@ -70,6 +70,7 @@ class RecetteController extends AbstractController
     public function recettesFilter(RecetteRepository $recetteRepository, Request $request): Response
     {
         $data = new SearchData();
+        $data->page = $request->get('page', 1);
         $form = $this->createForm(SearchForm::class, $data);
         $form->handleRequest($request);
         $recettes = $recetteRepository->findSearch($data);
