@@ -75,7 +75,7 @@ class RecetteRepository extends ServiceEntityRepository
 
         return $this->paginator->paginate(
             $query,
-            1,
+            $search->page,
             3,
         );
     }
