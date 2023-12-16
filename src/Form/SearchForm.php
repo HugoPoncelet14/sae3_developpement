@@ -14,6 +14,14 @@ class SearchForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder
+            ->add('pays', EntityType::class, [
+               'label' => false,
+                'required' => false,
+                'class' => Pays::class,
+                'expanded' => false,
+                'multiple' => true,
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
