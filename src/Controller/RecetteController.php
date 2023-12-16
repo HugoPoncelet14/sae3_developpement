@@ -65,6 +65,8 @@ class RecetteController extends AbstractController
             'search' => $recherche,
         ]);
     }
+
+    #[Route('/recette/filter', name: 'app_recette_filter')]
     public function recetteFilter(RecetteRepository $recetteRepository): Response
     {
         $data = new SearchData();
