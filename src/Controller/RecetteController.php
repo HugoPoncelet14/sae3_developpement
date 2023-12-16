@@ -63,4 +63,13 @@ class RecetteController extends AbstractController
             'search' => $recherche,
         ]);
     }
+
+    public function recetteFilter(RecetteRepository $recetteRepository): Response
+    {
+        $recettes = $recetteRepository->findSearch();
+
+        return $this->render('recette/filter.html.twig', [
+            'recettes' => $recettes,
+        ]);
+    }
 }
