@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}page{% endblock %}
+
+{% block body %}
+    <div class="resultat">
+    <h3> Resultats pour "{{ search }}": </h3>
+        <ul>
+        {% for recette in recettes %}
+            <a href="/recettes/{{ recette.id }}">
+            <button>
+            <div class="recette">
+                <img src="/recettes/1/image" alt="Image de la recette">
+                <p>{{ recette.nomRec }}</p>
+                <p>{{ recette.descRec }}</p>
+            </div>
+            </button>
+            </a>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+    <h4>Pays</h4>
+    {{ form_row(form.pays) }}
+
+    <h4>Région</h4>
+    {{ form_row(form.region) }}
+
+    <h4>Type</h4>
+    {{ form_row(form.typeRecette) }}
+<button type="submit" class="btn btn-primary w-100">Filtrer</button>
+{{ form_end(form) }}

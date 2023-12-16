@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Recette;
+use App\Form\SearchData;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @extends ServiceEntityRepository<Recette>
@@ -16,9 +19,12 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class RecetteRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private PaginatorInterface $paginator;
+
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Recette::class);
+        $this->paginator = $paginator;
     }
 
     public function search($searchText = ''): array
@@ -41,6 +47,37 @@ class RecetteRepository extends ServiceEntityRepository
         $query = $qb->getQuery();
 
         return $query->execute();
+    }
+
+    public function findSearch(SearchData $search): PaginationInterface
+    {
+        $query = $this->createQueryBuilder('r')
+                ->innerJoin('r.pays', 'p')
+                ->innerJoin('r.typeRecette', 't');
+
+        if (!empty($search->pays)) {
+            $query = $query
+                ->andWhere('p.id IN (:pays)')
+                ->setParameter('pays', $search->pays);
+        }
+        if (!empty($search->region)) {
+            $query = $query
+                ->innerJoin('p.region', 're')
+                ->andWhere('re.id IN (:region)')
+                ->setParameter('region', $search->region);
+        }
+        if (!empty($search->typeRecette)) {
+            $query = $query
+                ->andWhere('t.id IN (:typeRecette)')
+                ->setParameter('typeRecette', $search->typeRecette);
+        }
+        $query = $query->getQuery();
+
+        return $this->paginator->paginate(
+            $query,
+            $search->page,
+            3,
+        );
     }
 
     //    /**
