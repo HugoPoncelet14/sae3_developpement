@@ -67,11 +67,12 @@ class RecetteController extends AbstractController
     }
 
     #[Route('/filter', name: 'app_recette_filter')]
-    public function recettesFilter(RecetteRepository $recetteRepository): Response
+    public function recettesFilter(RecetteRepository $recetteRepository, Request $request): Response
     {
         $data = new SearchData();
         $form = $this->createForm(SearchForm::class, $data);
-        $recettes = $recetteRepository->findSearch();
+        $form->handleRequest($request);
+        $recettes = $recetteRepository->findSearch($data);
 
         return $this->render('recette/filter.html.twig', [
             'recettes' => $recettes,
