@@ -43,6 +43,11 @@ class RecetteRepository extends ServiceEntityRepository
         return $query->execute();
     }
 
+    public function findSearch(): array
+    {
+        return $this->findAll();
+    }
+
     //    /**
     //     * @return Recette[] Returns an array of Recette objects
     //     */
