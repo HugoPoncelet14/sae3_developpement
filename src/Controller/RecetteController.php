@@ -66,8 +66,8 @@ class RecetteController extends AbstractController
         ]);
     }
 
-    #[Route('/recette/filter', name: 'app_recette_filter')]
-    public function recetteFilter(RecetteRepository $recetteRepository): Response
+    #[Route('/recettes/filter', name: 'app_recette_filter')]
+    public function recettesFilter(RecetteRepository $recetteRepository): Response
     {
         $data = new SearchData();
         $form = $this->createForm(SearchForm::class, $data);
