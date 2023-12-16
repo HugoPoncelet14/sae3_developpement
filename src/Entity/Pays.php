@@ -103,7 +103,6 @@ class Pays
     /**
      * @return Collection<int, Region>
      */
-
     public function getRegion(): ?Region
     {
         return $this->region;
@@ -116,8 +115,8 @@ class Pays
         return $this;
     }
 
-
-
-
-
+    public function __toString(): string
+    {
+        return $this->nomPays;
+    }
 }
