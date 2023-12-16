@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Recette;
+use App\Form\SearchData;
+use App\Form\SearchForm;
 use App\Repository\EtapeRepository;
 use App\Repository\QuantiteRepository;
 use App\Repository\RecetteRepository;
@@ -63,13 +65,15 @@ class RecetteController extends AbstractController
             'search' => $recherche,
         ]);
     }
-
     public function recetteFilter(RecetteRepository $recetteRepository): Response
     {
+        $data = new SearchData();
+        $form = $this->createForm(SearchForm::class, $data);
         $recettes = $recetteRepository->findSearch();
 
         return $this->render('recette/filter.html.twig', [
             'recettes' => $recettes,
+            'form' => $form->createView(),
         ]);
     }
 }
