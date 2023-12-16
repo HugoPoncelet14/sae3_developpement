@@ -6,6 +6,7 @@ namespace App\Form;
 
 use App\Entity\Pays;
 use App\Entity\Region;
+use App\Entity\TypeRecette;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,8 +30,14 @@ class SearchForm extends AbstractType
                 'class' => Region::class,
                 'expanded' => false,
                 'multiple' => true,
-                ]);
-
+                ])
+            ->add('typeRecette', EntityType::class, [
+                'label' => false,
+                'required' => false,
+                'class' => TypeRecette::class,
+                'expanded' => false,
+                'multiple' => true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
