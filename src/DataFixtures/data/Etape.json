@@ -153,5 +153,595 @@
     "numEtape": "9",
     "descEtape": "Déguster.",
     "nomRec": "Mousse au chocolat"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "A préparer la veille au soir. Mélanger la farine,le sel, le sucre, les oeufs entiers, le beurre fondu, la levure délayée dans l'eau fraîche. Bien travailler la pâte en la battant (si elle colle rajouter un peu de farine). Elle doit rester souple.",
+    "nomRec": "Brioche maison"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Placer le récipient couvert et bien fermé dans le réfrigérateur.",
+    "nomRec": "Brioche maison"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Le lendemain matin, fariner le plan de travail, travailler la pâte en boule, puis l'étaler avec un rouleau à pâtisserie",
+    "nomRec": "Brioche maison"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "pour former un carré, la plier en quatre et l'étaler à nouveau. Rouler ensuite en boudin et couper en 8 morceaux.Les mettre dans un grand moule à cheminée beurré et fariné.",
+    "nomRec": "Brioche maison"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Laisser lever dans un endroit tiède environ une heure.",
+    "nomRec": "Brioche maison"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Lorsque la pâte remplit le moule, enfourner à four chaud (faites préchauffer le four une dizaine de minutes avant), soit 250°C (thermostat 8). Sortez la brioche une fois qu'elle est bien dorée.",
+    "nomRec": "Brioche maison"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Faire revenir la viande dans un peu de beurre doux jusqu'à ce que les morceaux soient un peu dorés.",
+    "nomRec": "Blanquette de veau"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Saupoudrer de 2 cuillères de farine. Bien remuer.",
+    "nomRec": "Blanquette de veau"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Ajouter 2 ou 3 verres d'eau, les cubes de bouillon, le vin et remuer. Ajouter de l'eau si nécessaire pour couvrir.",
+    "nomRec": "Blanquette de veau"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Couper les carottes en rondelles et émincer les oignons puis les incorporer à la viande, ainsi que les champignons.",
+    "nomRec": "Blanquette de veau"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Laisser mijoter à feu très doux environ 1h30 à 2h00 en remuant.",
+    "nomRec": "Blanquette de veau"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Si nécessaire, ajouter de l'eau de temps en temps.",
+    "nomRec": "Blanquette de veau"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Dans un bol, bien mélanger la crème fraîche, le jaune d’oeuf et le jus de citron. Ajouter ce mélange au dernier moment, bien remuer et servir tout de suite.",
+    "nomRec": "Blanquette de veau"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Battre grossièrement l'oeuf et le sucre dans un saladier.",
+    "nomRec": "Pancakes"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Y rajouter le beurre fondu ou l'huile.",
+    "nomRec": "Pancakes"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Mélanger à part la farine et la levure, puis en mélanger la moitié avec la préparation.",
+    "nomRec": "Pancakes"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Délayer progressivement avec le lait tout en rajoutant l'autre moitié de farine petit à petit (cela évitera de créer des grumeaux).",
+    "nomRec": "Pancakes"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Aucun temps de repos n'est nécessaire, si ce n'est juste le temps de faire chauffer votre poêle à feu moyen. Huilez ou beurrez la poêle à l'aide de papier essuie-tout.",
+    "nomRec": "Pancakes"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "A l'aide d'une petite louche ou d'une grosse cuillère à sauce, déposer des \"ronds\" dans la poêle.",
+    "nomRec": "Pancakes"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Lorsque les bulles apparaissent et éclatent, retourner les pancakes et ne pas les laisser plus d'une min sur l'autre face.",
+    "nomRec": "Pancakes"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Peler, et laver les pommes de terre, et les sécher individuellement.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Dresser un essuie-tout sur la table de travail, et couper de larges tranches de 1 cm d'épaisseur dans chaque pommes de terre. Sécher chaque tranche individuellement.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Couper ensuite les frites en bâtonnets de 1 cm de côté.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Pendant ce temps, faire chauffer l'huile à 160°C.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Plonger la moitié des frites dans l'huile, et laisser cuire pendant 8 min, en secouant régulièrement, pour éviter que les frites ne collent.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Après cuisson, égouter les frites en les secouant au-dessus de la friteuse, et déposer une couche sur du papier absorbant. Recommencer la même opération, avec l'autre moitié des frites.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Remonter la température de la friteuse à 190°C, quelques minutes avant de servir.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "8",
+    "descEtape": "Plonger alors les frites pré-cuites, pendant 4 min, dans l'huile brûlante, pour bien les colorer. Secouer régulièrement.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "9",
+    "descEtape": "Travailler, à nouveau, avec la moitié des frites, par bains de cuisson.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "10",
+    "descEtape": "Une fois cuites, égoutter à nouveau vos frites, en les secouant au dessus de la friteuse.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "11",
+    "descEtape": "Verser les immédiatement dans un plat couvert de papier absorbant, et saler avant de servir.",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "12",
+    "descEtape": "Secouer encore vos frites une dernière fois!",
+    "nomRec": "Frites belges"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Hacher les oignons. Peler l'ail.",
+    "nomRec": "Boeuf Bourguignon"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Dans une cocotte minute, faire roussir la viande et les lardons dans l’huile ou le beurre.",
+    "nomRec": "Boeuf Bourguignon"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Ajouter les oignons, les champignons égouttés et saupoudrer de fariner. Mélanger et laisser dorer un instant.",
+    "nomRec": "Boeuf Bourguignon"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Mouiller avec le vin rouge qui doit recouvrir la viande.",
+    "nomRec": "Boeuf Bourguignon"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Saler et poivrer.",
+    "nomRec": "Boeuf Bourguignon"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Ajouter l’ail et le bouquet garni.",
+    "nomRec": "Boeuf Bourguignon"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Fermer la cocotte minute.",
+    "nomRec": "Boeuf Bourguignon"
+  },
+  {
+    "numEtape": "8",
+    "descEtape": "Laisser cuire doucement 60 min à partir de la mise en rotation de la soupape.",
+    "nomRec": "Boeuf Bourguignon"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Détailler le chocolat en pépites.",
+    "nomRec": "Cookies maison"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Préchauffer le four à 180°C (thermostat 6). Dans un saladier, mettre 75 g de beurre, le sucre, l'oeuf entier, la vanille et mélanger le tout avec une cuillère en bois.",
+    "nomRec": "Cookies maison"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Ajouter petit à petit la farine mélangée à la levure, le sel et le chocolat.",
+    "nomRec": "Cookies maison"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Avec une feuille de papier essuie-tout, beurrer une plaque allant au four et former les cookies sur la plaque.",
+    "nomRec": "Cookies maison"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Pour former les cookies, utiliser 2 cuillères à soupe et faire des petits tas espacés les uns des autres; ils grandiront à la cuisson.",
+    "nomRec": "Cookies maison"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Enfourner pour 10 minutes de cuisson.",
+    "nomRec": "Cookies maison"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Dans une grande jatte, mélanger le sel avec la farine.",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Mettre un peu d'eau dans un bol et y délayer la levure.",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Verser le reste de l'eau petit à petit sur la farine tout en pétrissant.",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Ajouter la levure. Pétrir jusqu'à l'obtention d'une pâte souple qui ne colle plus aux doigts.",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Placer un torchon humide sur la jatte et laisser lever la pâte 3 à 4 heures dans un endroit tempéré.",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Après la levée, verser la pâte sur le plan de travail fariné. Pétrir à nouveau en repliant la pâte plusieurs fois sur elle même (pour enlever l'air). Former une boule.",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Placer dans une corbeille un torchon sec et fariné. Placer la boule de pâte dans la corbeille",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "8",
+    "descEtape": "Laisser lever environ 2 heures dans un endroit tempéré.",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "9",
+    "descEtape": "Préchauffer le four à thermostat 6 (180°C).",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "10",
+    "descEtape": "Renverser la boule levée sur la plaque du four (anti-adhésive, de préférence).",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "11",
+    "descEtape": "Pratiquer des incisions au couteau sur le dessus.",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "12",
+    "descEtape": "Enfourner et cuire 1 heure.",
+    "nomRec": "Pain"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Préchauffer le four à 180°C (thermostat 6).",
+    "nomRec": "Chili con carne"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Hacher l'oignon et l'ail.",
+    "nomRec": "Chili con carne"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Dans une cocotte en fonte, faire fondre le beurre, et ensuite dorer doucement l'oignon et l’ail.",
+    "nomRec": "Chili con carne"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Incorporer le boeuf haché et laisser cuire doucement 10 min.",
+    "nomRec": "Chili con carne"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Mélanger le chili, le cumin, le concentré de tomates, et incorporer le tout au boeuf. Ajouter les haricots, le bouillon, du sel et du poivre.",
+    "nomRec": "Chili con carne"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Couvrir et cuire 25 min au four.",
+    "nomRec": "Chili con carne"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Préchauffer le four à 210°C (thermostat 7).",
+    "nomRec": "Crumble aux pommes"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Peler, évider et découper les pommes en cubes grossiers, les répartir dans un plat allant au four.",
+    "nomRec": "Crumble aux pommes"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Les arroser de jus du citron et les saupoudrer de cannelle et de sucre vanillé.",
+    "nomRec": "Crumble aux pommes"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Dans un saladier, mélanger la farine et la cassonade. Puis ajouter le beurre en petits cubes et mélanger à la main de façon à former une pâte grumeleuse.",
+    "nomRec": "Crumble aux pommes"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Émietter cette pâte au dessus des pommes de façon à les recouvrir.",
+    "nomRec": "Crumble aux pommes"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Enfourner pour 30 minutes de cuisson.",
+    "nomRec": "Crumble aux pommes"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Servir tiède avec de la crème fouettée ou de la glace à la vanille.",
+    "nomRec": "Crumble aux pommes"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Lavez et épluchez les carottes, les navets et les tomates et les couper en cubes.",
+    "nomRec": "Couscous"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Dans un autocuiseur, versez 3 cuillères à soupe d'huile d'olive. Mettez à chauffer et faites-y dorer les pilons de poulet. Quand ils sont dorés, versez l'équivalent d'1 litre d'eau et ajouter les cubes de bouillon de boeuf, le concentré de tomate, les carottes, navets et tomates, les épices à couscous et l'harissa.",
+    "nomRec": "Couscous"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Fermez votre autocuiseur et compter 25 mn de cuisson une fois que celui-ci est monté en pression.",
+    "nomRec": "Couscous"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "En attendant, lavez et coupez les courgettes en cubes et égouttez les pois chiches.",
+    "nomRec": "Couscous"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Une fois les 25 mn écoulées, évacuez la vapeur de votre autocuiseur, ouvrez et rajouter les courgettes et les pois chiches.",
+    "nomRec": "Couscous"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Remettez au feu : comptez 10 mn de cuisson une fois votre autocuiseur sous pression.",
+    "nomRec": "Couscous"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Faites cuire vos merguez sur un grill ou à la poêle, mais pas avec les légumes.",
+    "nomRec": "Couscous"
+  },
+  {
+    "numEtape": "8",
+    "descEtape": "Servez accompagné d'une semoule fine.",
+    "nomRec": "Couscous"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Il ne faut pas laisser le chocolat trop cuire, sinon ce serait un peu sec, c'est comme un fondant mais avec une pâte.",
+    "nomRec": "Tarte au chocolat fondant"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Beurrer un plat à tarte démontable de 20 cm de diamètre environ, et disposer la pâte dedans, et laisser reposer environ 1 h au réfrigérateur.",
+    "nomRec": "Tarte au chocolat fondant"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Préchauffer le four à 200°C (thermostat 6-7), et cuire le fond de tarte pendant 10 min.",
+    "nomRec": "Tarte au chocolat fondant"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Pendant ce temps, couper le chocolat en très petits morceaux et faire bouillir la crème et le lait dans une casserole.",
+    "nomRec": "Tarte au chocolat fondant"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Ajouter le chocolat en morceaux, retirer du feu, et mélanger au fouet pour obtenir une masse bien lisse. Ajouter ensuite un œuf entier battu, et bien mélanger.",
+    "nomRec": "Tarte au chocolat fondant"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Verser cette préparation sur le fond de tarte précuit.",
+    "nomRec": "Tarte au chocolat fondant"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Faire cuire 15 à 18 min dans le four préchauffé à 150°C (th 5), la crème devant être légèrement prise, mais encore tremblotante.",
+    "nomRec": "Tarte au chocolat fondant"
+  },
+  {
+    "numEtape": "8",
+    "descEtape": "Pour servir, retirer le cercle et éventuellement la plaque à tarte. Servir tiède ou froide.",
+    "nomRec": "Tarte au chocolat fondant"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Faire revenir gousses hachées d'ail et les oignons émincés dans un peu d'huile d'olive.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Ajouter la carotte et la branche de céleri hachée puis la viande et faire revenir le tout.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Au bout de quelques minutes, ajouter le vin rouge. Laisser cuire jusqu'à évaporation.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Ajouter la purée de tomates, l'eau et les herbes. Saler, poivrer, puis laisser mijoter à feu doux 45 minutes.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Préparer la béchamel : faire fondre 100 g de beurre.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Hors du feu, ajouter la farine d'un coup.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Remettre sur le feu et remuer avec un fouet jusqu'à l'obtention d'un mélange bien lisse.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "8",
+    "descEtape": "Ajouter le lait peu à peu.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "9",
+    "descEtape": "Remuer sans cesse, jusqu'à ce que le mélange s'épaississe.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "10",
+    "descEtape": "Ensuite, parfumer avec la muscade, saler, poivrer. Laisser cuire environ 5 minutes, à feu très doux, en remuant. Réserver.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "11",
+    "descEtape": "Préchauffer le four à 200°C (thermostat 6-7). Huiler le plat à lasagnes. Poser une fine couche de béchamel puis des feuilles de lasagnes, de la bolognaise, de la béchamel et du parmesan. Répéter l'opération 3 fois de suite.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "12",
+    "descEtape": "Sur la dernière couche de lasagnes, ne mettre que de la béchamel et recouvrir de fromage râpé. Parsemer quelques noisettes de beurre.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "13",
+    "descEtape": "Enfourner pour environ 25 minutes de cuisson.",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "14",
+    "descEtape": "Déguster",
+    "nomRec": "Lasagnes à la bolognaise"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Mélanger les jaunes d'oeuf avec le sucre. Battre au fouet jusqu'à que le mélange blanchisse.",
+    "nomRec": "Crème pâtissière"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Ajouter la farine et bien mélanger avec le mélange sucre/oeufs. Ajouter 1/2 verre de lait pour que le mélange soit plus liquide.",
+    "nomRec": "Crème pâtissière"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Mettre à chauffer le lait. Lorsque le lait est tiède (au bout de 3-4 min) ajouter le mélange oeufs/farine/sucre/lait et la gousse de vanille fendue et grattée avec ses graines.",
+    "nomRec": "Crème pâtissière"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Mélanger au fouet jusqu'à ébullition.",
+    "nomRec": "Crème pâtissière"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "A ce moment là, votre crème sera déjà bien épaisse et vous pouvez arrêter la cuisson.",
+    "nomRec": "Crème pâtissière"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Préchauffez le four à 200°C.",
+    "nomRec": "Poulet mariné au citron et aux épices"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Pressez le jus de citron dans un bol et ajoutez-y le paprika, l'ail en poudre, l'oignon en poudre, le sel et le poivre noir. Mélangez bien.",
+    "nomRec": "Poulet mariné au citron et aux épices"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Placez les filets de poulet dans un plat allant au four et versez la marinade sur le poulet. Assurez-vous que les filets sont bien enrobés de marinade.",
+    "nomRec": "Poulet mariné au citron et aux épices"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Couvrez le plat avec du papier d'aluminium et mettez-le au four pendant 25 minutes.",
+    "nomRec": "Poulet mariné au citron et aux épices"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Retirez le papier d'aluminium et poursuivez la cuisson pendant environ 10 minutes, ou jusqu'à ce que le poulet soit bien cuit et doré.",
+    "nomRec": "Poulet mariné au citron et aux épices"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Servez le poulet chaud avec des légumes grillés ou une salade.",
+    "nomRec": "Poulet mariné au citron et aux épices"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Placer une pâte feuilletée dans un moule à tarte, piquer la pâte avec une fourchette.",
+    "nomRec": "Galette des rois à la frangipane"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Dans un saladier, mélanger la poudre d'amandes, le sucre, les 2 oeufs et le beurre mou.",
+    "nomRec": "Galette des rois à la frangipane"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Placer la pâte obtenue dans le moule à tarte et y cacher la fève.",
+    "nomRec": "Galette des rois à la frangipane"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Recouvrir avec la 2ème pâte feuilletée, en collant bien les bords.",
+    "nomRec": "Galette des rois à la frangipane"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Faire des dessins sur le couvercle et badigeonner avec le jaune d'oeuf.",
+    "nomRec": "Galette des rois à la frangipane"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Enfourner pendant 20 à 30 min à 200°C (thermostat 6-7); vérifier régulièrement la cuisson !",
+    "nomRec": "Galette des rois à la frangipane"
   }
 ]
