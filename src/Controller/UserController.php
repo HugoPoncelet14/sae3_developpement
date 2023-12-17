@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Form\UserTypeAdmin;
+use App\Form\UserTypeCreate;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,9 +26,29 @@ class UserController extends AbstractController
     }
 
     #[Route('/user/create')]
-    public function create(EntityManagerInterface $entityManager, Request $request): Response
+    public function create(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
-        return $this->render('user/create.html.twig');
+        $user = new User();
+
+        $form = $this->createForm(UserTypeCreate::class, $user);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+
+            $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
+            if (null !== $form->get('photoProfil')->getData()) {
+                $imageFile = $form->get('photoProfil')->getData();
+                $user->setPhotoProfil(file_get_contents($imageFile->getPathname()));
+            }
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_user_update', ['id' => $user->getId()]);
+        }
+
+        return $this->render('user/create.html.twig', ['form' => $form]);
     }
 
     #[Route('/user/{id}', requirements: ['userId' => '\d+'])]
@@ -53,7 +74,7 @@ class UserController extends AbstractController
             $form = $this->createForm(UserType::class, $user);
 
             if ($currentUser !== $user) {
-                throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation de modifier ces informations.');
+                throw $this->createAccessDeniedException('Vous ne pouvez modifier que vos informations personelles.');
             }
         }
         $lastpp = $user->getPhotoProfil();
