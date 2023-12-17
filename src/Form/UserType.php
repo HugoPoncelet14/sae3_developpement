@@ -25,7 +25,10 @@ class UserType extends AbstractType
             ->add('prenom', null, [
                 'empty_data' => '',
             ])
-            ->add('dateNais', DateType::class)
+            ->add('dateNais', DateType::class, [
+                'required' => false,
+                'years' => range(date('Y') - 100, date('Y')),
+            ])
             ->add('pseudo', null, [
                 'empty_data' => '',
             ])
