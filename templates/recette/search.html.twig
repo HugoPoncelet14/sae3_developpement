@@ -4,17 +4,11 @@
 
 {% block body %}
     <div class="resultat">
-    <h3> Resultats pour "{{ search }}": </h3>
+        <h1 class="title_small-padding" id="home-page"> Resultats pour "{{ search }}": </h1>
         <ul>
         {% for recette in recettes %}
             <a href="/recettes/{{ recette.id }}">
-            <button>
-            <div class="recette">
-                <img src="/recettes/1/image" alt="Image de la recette">
-                <p>{{ recette.nomRec }}</p>
-                <p>{{ recette.descRec }}</p>
-            </div>
-            </button>
+                {% include 'recette/_recette.html.twig' with {recette: recette} only %}
             </a>
         {% endfor %}
         </ul>

@@ -43,15 +43,19 @@
         </div>
     </nav>
 
-    {% block body %}
-    {% endblock %}
-    <div class="foot">
-        <div class="social_media">
-            <img class="social_media__img" src="https://static.vecteezy.com/system/resources/previews/023/986/520/original/facebook-logo-facebook-logo-transparent-facebook-icon-transparent-free-free-png.png" />
-            <img class="social_media__img" src="https://www.iconpacks.net/icons/2/free-instagram-logo-icon-3286-thumb.png" />
-            <img class="social_media__img" src="https://www.freepnglogos.com/x-logo-twitter-transparent-logo-download-3.png" />
-        </div>
-        <div class="footer_credits">Tous droits réservés Cuisinisi 2023<br/>Paramétrer les cookies - Recrutement - Mentions légales - Conditions Générales d’utilisation - Conditions générales d’abonnement - Contact - FAQ - Politique de protection des données personnelles </div>
+    <div class="main">
+        {% block body %}
+        {% endblock %}
     </div>
     </body>
+    <footer>
+        <div class="foot">
+            <div class="social_media">
+                <img class="social_media__img" src="https://static.vecteezy.com/system/resources/previews/023/986/520/original/facebook-logo-facebook-logo-transparent-facebook-icon-transparent-free-free-png.png" />
+                <img class="social_media__img" src="https://www.iconpacks.net/icons/2/free-instagram-logo-icon-3286-thumb.png" />
+                <img class="social_media__img" src="https://www.freepnglogos.com/x-logo-twitter-transparent-logo-download-3.png" />
+            </div>
+            <div class="footer_credits">Tous droits réservés Cuisinisi 2023<br/>Paramétrer les cookies - Recrutement - Mentions légales - Conditions Générales d’utilisation - Conditions générales d’abonnement - Contact - FAQ - Politique de protection des données personnelles </div>
+        </div>
+    </footer>
 </html>

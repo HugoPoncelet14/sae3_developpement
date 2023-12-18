@@ -4,16 +4,14 @@
 
 {% block body %}
 
-    <div class="main align-left">
-        <h1 class="title_small-padding">Nos recommandations</h1>
-        <div class="recommandations_container">
-            {% for recette in recettes %}
-                <div class="recipe_container">
-                    <div class="recipe_image-box"><img  src="/recettes/{{ recette.id }}/image"
+    <h1 class="title_small-padding" id="home-page">Nos recommandations</h1>
+    <div class="recommandations_container" id="home-page">
+    {% for recette in recettes %}
+        <a class="recipe_container" href="/recettes/{{ recette.id }}">
+            <div class="recipe_image-box"><img  src="/recettes/{{ recette.id }}/image"
                                                         alt="Image de {{ recette.nomRec }}"></div>
                     <div class="recipe_title-box"><h5>{{ recette.nomRec }}</h5></div>
-                </div>
+                </a>
             {% endfor %}
         </div>
-    </div>
 {% endblock %}
