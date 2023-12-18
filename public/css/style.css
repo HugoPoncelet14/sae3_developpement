@@ -299,3 +299,9 @@ input[type="date"], .form-control {
 .details_title {
     padding-top: 2rem;
 }
+
+.details_cooking-time{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
