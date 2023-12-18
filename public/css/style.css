@@ -88,8 +88,7 @@ body {
 }
 
 .main {
-    height: 100%;
-    width: 75%;
+    width: 1000px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -98,7 +97,7 @@ body {
     gap: 0.25rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    padding-bottom: 3rem;
+    padding: 0 2rem 1rem 2rem;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
 }
@@ -223,7 +222,7 @@ input[type="date"], .form-control {
     width: 90%
 }
 
-.main > * {
+.main #home-page {
     padding-left: 10%;
 }
 
