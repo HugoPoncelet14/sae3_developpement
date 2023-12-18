@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Form\UserTypeAdmin;
 use App\Form\UserTypeCreate;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +24,16 @@ class UserController extends AbstractController
         return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
         ]);
+    }
+
+    #[Route('/user/{id}/image', name: 'app_user_image')]
+    public function showUserImage(int $id, UserRepository $userRepository)
+    {
+        $user = $userRepository->findOneBy(['id' => $id]);
+
+        $response = new Response(stream_get_contents($user->getPhotoProfil()));
+        $response->headers->set('Content-Type', 'image/png');
+        return $response;
     }
 
     #[Route('/user/create')]
