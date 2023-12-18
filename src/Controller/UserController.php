@@ -29,10 +29,16 @@ class UserController extends AbstractController
     #[Route('/user/{id}/image', name: 'app_user_image')]
     public function showUserImage(int $id, UserRepository $userRepository)
     {
+        $dir = __DIR__;
         $user = $userRepository->findOneBy(['id' => $id]);
-
-        $response = new Response(stream_get_contents($user->getPhotoProfil()));
+        $response = new Response();
+        if (null === $user->getPhotoProfil()) {
+            $response = new Response(file_get_contents("$dir/../DataFixtures/img/icone/profile_base.png"));
+        } else {
+            $response = new Response(stream_get_contents($user->getPhotoProfil()));
+        }
         $response->headers->set('Content-Type', 'image/png');
+
         return $response;
     }
 
