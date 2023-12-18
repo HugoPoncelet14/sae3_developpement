@@ -36,8 +36,9 @@ class RecetteController extends AbstractController
         return $response;
     }
 
-    #[Route('/recettes/{id}', name: 'app_recette_details')]
-    public function recetteDetails(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository, int $id): Response
+    #[Route('/recettes/{id}', name: 'app_recette_show')]
+    public function show(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository ,int $id): Response
+
     {
         $quantites = $quantiteRepository->AllQuantiteByRecetteId($id);
         $etapes = $etapeRepository->getAllEtapeWithRecetteId($id);
