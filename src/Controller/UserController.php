@@ -6,8 +6,10 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Form\UserTypeAdmin;
 use App\Form\UserTypeCreate;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -25,9 +27,28 @@ class UserController extends AbstractController
         ]);
     }
 
+    #[Route('/user/{id}/image', name: 'app_user_image')]
+    public function showUserImage(int $id, UserRepository $userRepository)
+    {
+        $dir = __DIR__;
+        $user = $userRepository->findOneBy(['id' => $id]);
+        $response = new Response();
+        if (null === $user->getPhotoProfil()) {
+            $response = new Response(file_get_contents("$dir/../DataFixtures/img/icone/profile_base.png"));
+        } else {
+            $response = new Response(stream_get_contents($user->getPhotoProfil()));
+        }
+        $response->headers->set('Content-Type', 'image/png');
+
+        return $response;
+    }
+
     #[Route('/user/create')]
     public function create(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException('Vous êtes déja connecté, vous ne pouvez pas recréer un compte.');
+        }
         $user = new User();
 
         $form = $this->createForm(UserTypeCreate::class, $user);
@@ -52,9 +73,9 @@ class UserController extends AbstractController
     }
 
     #[Route('/user/{id}', requirements: ['userId' => '\d+'])]
-    public function show(EntityManagerInterface $entityManager, Request $request): Response
+    public function show(User $user): Response
     {
-        return $this->render('user/show.html.twig');
+        return $this->render('user/show.html.twig', ['user' => $user]);
     }
 
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
@@ -91,7 +112,7 @@ class UserController extends AbstractController
             }
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_user_update', ['id' => $user->getId()]);
+            return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
         }
 
         return $this->render('user/update.html.twig', ['user' => $user, 'form' => $form]);
@@ -100,6 +121,23 @@ class UserController extends AbstractController
     #[Route('user/{id}/delete', requirements: ['userId' => '\d+'])]
     public function delete(EntityManagerInterface $entityManager, User $user, Request $request): Response
     {
-        return $this->render('user/delete.html.twig', ['user' => $user]);
+        $form = $this->createFormBuilder()
+            ->add('delete', SubmitType::class)
+            ->add('cancel', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('delete')->isClicked()) {
+                $entityManager->remove($user);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('app_home');
+            } else {
+                return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
+            }
+        }
+
+        return $this->render('user/delete.html.twig', ['user' => $user, 'form' => $form]);
     }
 }

@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Modification du profil de {{ user.nom }} {{ user.prenom }}{% endblock %}
 
 {% block body %}
+    <h1>Modification du profil de {{ user.nom }} {{ user.prenom }}</h1>
 
     {{ include('user/_form.html.twig', {'form': form, submit_label : "Modifier"}, with_context = false) }}
 
