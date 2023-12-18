@@ -9,6 +9,7 @@ use App\Form\UserTypeCreate;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -111,7 +112,7 @@ class UserController extends AbstractController
             }
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_user_update', ['id' => $user->getId()]);
+            return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
         }
 
         return $this->render('user/update.html.twig', ['user' => $user, 'form' => $form]);
@@ -120,6 +121,23 @@ class UserController extends AbstractController
     #[Route('user/{id}/delete', requirements: ['userId' => '\d+'])]
     public function delete(EntityManagerInterface $entityManager, User $user, Request $request): Response
     {
-        return $this->render('user/delete.html.twig', ['user' => $user]);
+        $form = $this->createFormBuilder()
+            ->add('delete', SubmitType::class)
+            ->add('cancel', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('delete')->isClicked()) {
+                $entityManager->remove($user);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('app_home');
+            } else {
+                return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
+            }
+        }
+
+        return $this->render('user/delete.html.twig', ['user' => $user, 'form' => $form]);
     }
 }
