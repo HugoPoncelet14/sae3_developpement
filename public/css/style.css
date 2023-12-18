@@ -308,6 +308,7 @@ input[type="date"], .form-control {
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
+    gap: 25%;
 }
 
 .recipe_info-container {
