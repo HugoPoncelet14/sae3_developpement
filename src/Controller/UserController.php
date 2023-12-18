@@ -28,6 +28,9 @@ class UserController extends AbstractController
     #[Route('/user/create')]
     public function create(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException('Vous êtes déja connecté, vous ne pouvez pas recréer un compte.');
+        }
         $user = new User();
 
         $form = $this->createForm(UserTypeCreate::class, $user);
