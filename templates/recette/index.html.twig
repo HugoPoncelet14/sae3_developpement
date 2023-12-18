@@ -4,10 +4,9 @@
 
 {% block body %}
 
-    <div class="main align-left">
-        <h1 class="title_small-padding">Nos recommandations</h1>
-        <div class="recommandations_container">
-            {% for recette in recettes %}
+    <h1 class="title_small-padding" id="home-page">Nos recommandations</h1>
+    <div class="recommandations_container" id="home-page">
+    {% for recette in recettes %}
                 <div class="recipe_container">
                     <div class="recipe_image-box"><img  src="/recettes/{{ recette.id }}/image"
                                                         alt="Image de {{ recette.nomRec }}"></div>
@@ -15,5 +14,4 @@
                 </div>
             {% endfor %}
         </div>
-    </div>
 {% endblock %}
