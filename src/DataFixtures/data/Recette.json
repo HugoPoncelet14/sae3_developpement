@@ -1,6 +1,3 @@
-
-
-
 [
   {
     "nomRec": "Pâtes carbonnara",
@@ -46,5 +43,140 @@
     "nomTpRec": "Dessert",
     "nomPays": "Suisse",
     "imgRec": "mousse_au_chocolat"
+  },
+  {
+    "nomRec": "Brioche maison",
+    "tpsDePrep": "15",
+    "tpsCuisson": "35",
+    "nbrPers": "4",
+    "nomTpRec": "Dessert",
+    "nomPays": "France",
+    "imgRec": "brioche_maison"
+  },
+  {
+    "nomRec": "Blanquette de veau",
+    "tpsDePrep": "15",
+    "tpsCuisson": "120",
+    "nbrPers": "4",
+    "nomTpRec": "Plat",
+    "nomPays": "France",
+    "imgRec": "blanquette_de_veau"
+  },
+  {
+    "nomRec": "Pancakes",
+    "tpsDePrep": "5",
+    "tpsCuisson": "10",
+    "nbrPers": "4",
+    "nomTpRec": "Dessert",
+    "nomPays": "Royaume-uni",
+    "imgRec": "pancakes"
+  },
+  {
+    "nomRec": "Frites belges",
+    "tpsDePrep": "40",
+    "tpsCuisson": "12",
+    "nbrPers": "4",
+    "nomTpRec": "Plat",
+    "nomPays": "Belgique",
+    "imgRec": "frites_belges"
+  },
+  {
+    "nomRec": "Boeuf Bourguignon",
+    "tpsDePrep": "10",
+    "tpsCuisson": "60",
+    "nbrPers": "4",
+    "nomTpRec": "Plat",
+    "nomPays": "France",
+    "imgRec": "boeuf_bourguignon"
+  },
+  {
+    "nomRec": "Cookies maison",
+    "tpsDePrep": "15",
+    "tpsCuisson": "20",
+    "nbrPers": "4",
+    "nomTpRec": "Dessert",
+    "nomPays": "Etat-unis",
+    "imgRec": "cookies_maison"
+  },
+  {
+    "nomRec": "Pain",
+    "tpsDePrep": "300",
+    "tpsCuisson": "60",
+    "nbrPers": "4",
+    "nomTpRec": "Accompagnement",
+    "nomPays": "France",
+    "imgRec": "pain"
+  },
+  {
+    "nomRec": "Chili con carne",
+    "tpsDePrep": "10",
+    "tpsCuisson": "25",
+    "nbrPers": "4",
+    "nomTpRec": "Plat",
+    "nomPays": "Etat-unis",
+    "imgRec": "chili_con_carne"
+  },
+  {
+    "nomRec": "Crumble aux pommes",
+    "tpsDePrep": "25",
+    "tpsCuisson": "30",
+    "nbrPers": "4",
+    "nomTpRec": "Dessert",
+    "nomPays": "Royaume-uni",
+    "imgRec": "crumble_aux_pommes"
+  },
+  {
+    "nomRec": "Couscous",
+    "tpsDePrep": "30",
+    "tpsCuisson": "35",
+    "nbrPers": "4",
+    "nomTpRec": "Plat",
+    "nomPays": "Maroc",
+    "imgRec": "couscous"
+  },
+  {
+    "nomRec": "Tarte au chocolat fondant",
+    "tpsDePrep": "60",
+    "tpsCuisson": "25",
+    "nbrPers": "4",
+    "nomTpRec": "Dessert",
+    "nomPays": "Autriche",
+    "imgRec": "tarte_au_chocolat_fondant"
+  },
+  {
+    "nomRec": "Lasagnes à la bolognaise",
+    "tpsDePrep": "30",
+    "tpsCuisson": "95",
+    "nbrPers": "4",
+    "nomTpRec": "Plat",
+    "nomPays": "Italie",
+    "imgRec": "lasagnes_a_la_bolognaise"
+  },
+  {
+    "nomRec": "Crème pâtissière",
+    "tpsDePrep": "5",
+    "tpsCuisson": "15",
+    "nbrPers": "4",
+    "nomTpRec": "Dessert",
+    "nomPays": "France",
+    "imgRec": "creme_patissiere"
+  },
+  {
+    "nomRec": "Poulet mariné au citron et aux épices",
+    "tpsDePrep": "40",
+    "tpsCuisson": "35",
+    "nbrPers": "4",
+    "nomTpRec": "Plat",
+    "nomPays": "Chine",
+    "imgRec": "poulet_marine_au_citron_et_aux_epices"
+  },
+  {
+    "nomRec": "Galette des rois à la frangipane",
+    "tpsDePrep": "10",
+    "tpsCuisson": "20",
+    "nbrPers": "4",
+    "nomTpRec": "Dessert",
+    "nomPays": "Italie",
+    "imgRec": "galette_des_rois_a_la_frangipane"
   }
 ]
