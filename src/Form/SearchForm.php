@@ -21,21 +21,21 @@ class SearchForm extends AbstractType
                'label' => false,
                 'required' => false,
                 'class' => Pays::class,
-                'expanded' => false,
+                'expanded' => true,
                 'multiple' => true,
                 ])
             ->add('region', EntityType::class, [
                 'label' => false,
                 'required' => false,
                 'class' => Region::class,
-                'expanded' => false,
+                'expanded' => true,
                 'multiple' => true,
                 ])
             ->add('typeRecette', EntityType::class, [
                 'label' => false,
                 'required' => false,
                 'class' => TypeRecette::class,
-                'expanded' => false,
+                'expanded' => true,
                 'multiple' => true,
             ]);
     }
