@@ -42,7 +42,6 @@ class RecetteController extends AbstractController
     {
         $quantites = $quantiteRepository->AllQuantiteByRecetteId($id);
         $etapes = $etapeRepository->getAllEtapeWithRecetteId($id);
-        dump(count($etapes));
 
         return $this->render('recette/details.html.twig', [
             'recette' => $recette,
