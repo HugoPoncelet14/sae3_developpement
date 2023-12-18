@@ -11,6 +11,10 @@ html {
     align-items: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 .bg-custom {
     background-color: #AD4F09;
 }
@@ -304,4 +308,19 @@ input[type="date"], .form-control {
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
+}
+
+.recipe_info-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    color: black;
+    background-color: #f3f3f3;
+    text-decoration: none;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+}
+
+.recipe_info-container:hover {
+    background-color: #eeeeee;
 }
