@@ -281,4 +281,21 @@ input[type="date"], .form-control {
     width: 100%;
 }
 
-.details_container >
+.details_container {
+    display:flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+
+.recipe_image-container {
+    position: relative;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 0.5rem;
+}
+
+.details_title {
+    padding-top: 2rem;
+}
