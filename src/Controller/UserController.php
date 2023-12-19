@@ -72,9 +72,24 @@ class UserController extends AbstractController
         return $this->render('user/create.html.twig', ['form' => $form]);
     }
 
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('/user/{id}', requirements: ['userId' => '\d+'])]
     public function show(User $user): Response
     {
+        $currentUser = $this->getUser();
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            if ($currentUser !== $user) {
+                if (in_array('ROLE_ADMIN', $user->getRoles())) {
+                    throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation d\'acceder aux informations d\'un autre administrateur.');
+                }
+            }
+        } else {
+            if ($currentUser !== $user) {
+                throw $this->createAccessDeniedException('Vous ne pouvez consulter que vos informations personelles.');
+            }
+        }
+
         return $this->render('user/show.html.twig', ['user' => $user]);
     }
 
