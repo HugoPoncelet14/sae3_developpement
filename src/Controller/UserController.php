@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class UserController extends AbstractController
@@ -134,7 +135,7 @@ class UserController extends AbstractController
 
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('user/{id}/delete', requirements: ['userId' => '\d+'])]
-    public function delete(EntityManagerInterface $entityManager, User $user, Request $request): Response
+    public function delete(EntityManagerInterface $entityManager, User $user, Request $request, TokenStorageInterface $tokenStorage): Response
     {
         $currentUser = $this->getUser();
 
@@ -160,8 +161,11 @@ class UserController extends AbstractController
             if ($form->get('delete')->isClicked()) {
                 $entityManager->remove($user);
                 $entityManager->flush();
-
+                if ($currentUser === $user) {
+                    $tokenStorage->setToken(null);
+                }
                 return $this->redirectToRoute('app_home');
+
             } else {
                 return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
             }
