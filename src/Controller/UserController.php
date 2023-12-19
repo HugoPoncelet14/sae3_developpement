@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class UserController extends AbstractController
@@ -66,25 +66,40 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_user_update', ['id' => $user->getId()]);
+            return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
         }
 
         return $this->render('user/create.html.twig', ['form' => $form]);
     }
 
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('/user/{id}', requirements: ['userId' => '\d+'])]
     public function show(User $user): Response
     {
+        $currentUser = $this->getUser();
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            if ($currentUser !== $user) {
+                if (in_array('ROLE_ADMIN', $user->getRoles())) {
+                    throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation d\'acceder aux informations d\'un autre administrateur.');
+                }
+            }
+        } else {
+            if ($currentUser !== $user) {
+                throw $this->createAccessDeniedException('Vous ne pouvez consulter que vos informations personelles.');
+            }
+        }
+
         return $this->render('user/show.html.twig', ['user' => $user]);
     }
 
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('user/{id}/update', requirements: ['userId' => '\d+'])]
-    public function update(EntityManagerInterface $entityManager, User $user, Request $request, UserPasswordHasherInterface $passwordHasher, AuthorizationCheckerInterface $authorizationChecker): Response
+    public function update(EntityManagerInterface $entityManager, User $user, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         $currentUser = $this->getUser();
 
-        if ($authorizationChecker->isGranted('ROLE_ADMIN')) {
+        if ($this->isGranted('ROLE_ADMIN')) {
             $form = $this->createForm(UserTypeAdmin::class, $user);
             if ($currentUser !== $user) {
                 if (in_array('ROLE_ADMIN', $user->getRoles())) {
@@ -118,9 +133,24 @@ class UserController extends AbstractController
         return $this->render('user/update.html.twig', ['user' => $user, 'form' => $form]);
     }
 
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('user/{id}/delete', requirements: ['userId' => '\d+'])]
-    public function delete(EntityManagerInterface $entityManager, User $user, Request $request): Response
+    public function delete(EntityManagerInterface $entityManager, User $user, Request $request, TokenStorageInterface $tokenStorage): Response
     {
+        $currentUser = $this->getUser();
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            if ($currentUser !== $user) {
+                if (in_array('ROLE_ADMIN', $user->getRoles())) {
+                    throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation de supprimmer le compte d\'un autre administrateur.');
+                }
+            }
+        } else {
+            if ($currentUser !== $user) {
+                throw $this->createAccessDeniedException('Vous ne pouvez supprmier que votre propre compte.');
+            }
+        }
+
         $form = $this->createFormBuilder()
             ->add('delete', SubmitType::class)
             ->add('cancel', SubmitType::class)
@@ -131,8 +161,11 @@ class UserController extends AbstractController
             if ($form->get('delete')->isClicked()) {
                 $entityManager->remove($user);
                 $entityManager->flush();
-
+                if ($currentUser === $user) {
+                    $tokenStorage->setToken(null);
+                }
                 return $this->redirectToRoute('app_home');
+
             } else {
                 return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
             }
