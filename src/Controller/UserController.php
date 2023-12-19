@@ -95,11 +95,11 @@ class UserController extends AbstractController
 
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('user/{id}/update', requirements: ['userId' => '\d+'])]
-    public function update(EntityManagerInterface $entityManager, User $user, Request $request, UserPasswordHasherInterface $passwordHasher, AuthorizationCheckerInterface $authorizationChecker): Response
+    public function update(EntityManagerInterface $entityManager, User $user, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         $currentUser = $this->getUser();
 
-        if ($authorizationChecker->isGranted('ROLE_ADMIN')) {
+        if ($this->isGranted('ROLE_ADMIN')) {
             $form = $this->createForm(UserTypeAdmin::class, $user);
             if ($currentUser !== $user) {
                 if (in_array('ROLE_ADMIN', $user->getRoles())) {
