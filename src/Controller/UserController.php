@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class UserController extends AbstractController
@@ -133,9 +132,24 @@ class UserController extends AbstractController
         return $this->render('user/update.html.twig', ['user' => $user, 'form' => $form]);
     }
 
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('user/{id}/delete', requirements: ['userId' => '\d+'])]
     public function delete(EntityManagerInterface $entityManager, User $user, Request $request): Response
     {
+        $currentUser = $this->getUser();
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            if ($currentUser !== $user) {
+                if (in_array('ROLE_ADMIN', $user->getRoles())) {
+                    throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation de supprimmer le compte d\'un autre administrateur.');
+                }
+            }
+        } else {
+            if ($currentUser !== $user) {
+                throw $this->createAccessDeniedException('Vous ne pouvez supprmier que votre propre compte.');
+            }
+        }
+
         $form = $this->createFormBuilder()
             ->add('delete', SubmitType::class)
             ->add('cancel', SubmitType::class)
