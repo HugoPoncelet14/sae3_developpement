@@ -26,6 +26,7 @@ class UserType extends AbstractType
                 'empty_data' => '',
             ])
             ->add('dateNais', DateType::class, [
+                'label' => 'Date de naissance',
                 'required' => false,
                 'years' => range(date('Y') - 100, date('Y')),
             ])
@@ -35,7 +36,7 @@ class UserType extends AbstractType
             ->add('photoProfil', FileType::class, [
                 'required' => false,
                 'mapped' => false,
-                'label' => 'Nouvelle photo de profil',
+                'label' => 'Photo de profil',
                 'constraints' => [
                     new File([
                         'mimeTypes' => ['image/jpeg', 'image/png'],
