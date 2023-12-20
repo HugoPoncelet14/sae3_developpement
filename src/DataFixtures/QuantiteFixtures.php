@@ -15,9 +15,6 @@ class QuantiteFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-
-
-
         $dir = __DIR__;
         $file = "$dir/data/Quantite.json";
         $quantites = json_decode(file_get_contents($file), true);

@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Allergene>
  *
- * @method        Allergene|Proxy create(array|callable $attributes = [])
- * @method static Allergene|Proxy createOne(array $attributes = [])
- * @method static Allergene|Proxy find(object|array|mixed $criteria)
- * @method static Allergene|Proxy findOrCreate(array $attributes)
- * @method static Allergene|Proxy first(string $sortedField = 'id')
- * @method static Allergene|Proxy last(string $sortedField = 'id')
- * @method static Allergene|Proxy random(array $attributes = [])
- * @method static Allergene|Proxy randomOrCreate(array $attributes = [])
+ * @method        Allergene|Proxy                     create(array|callable $attributes = [])
+ * @method static Allergene|Proxy                     createOne(array $attributes = [])
+ * @method static Allergene|Proxy                     find(object|array|mixed $criteria)
+ * @method static Allergene|Proxy                     findOrCreate(array $attributes)
+ * @method static Allergene|Proxy                     first(string $sortedField = 'id')
+ * @method static Allergene|Proxy                     last(string $sortedField = 'id')
+ * @method static Allergene|Proxy                     random(array $attributes = [])
+ * @method static Allergene|Proxy                     randomOrCreate(array $attributes = [])
  * @method static AllergeneRepository|RepositoryProxy repository()
- * @method static Allergene[]|Proxy[] all()
- * @method static Allergene[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Allergene[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Allergene[]|Proxy[] findBy(array $attributes)
- * @method static Allergene[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Allergene[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Allergene[]|Proxy[]                 all()
+ * @method static Allergene[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Allergene[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Allergene[]|Proxy[]                 findBy(array $attributes)
+ * @method static Allergene[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Allergene[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class AllergeneFactory extends ModelFactory
 {
@@ -47,6 +47,7 @@ final class AllergeneFactory extends ModelFactory
     protected function getDefaults(): array
     {
         $all = self::faker()->word();
+
         return [
             'nomAll' => "Allergene $all",
         ];

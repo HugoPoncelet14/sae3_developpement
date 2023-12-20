@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<TypeRecette>
  *
- * @method        TypeRecette|Proxy create(array|callable $attributes = [])
- * @method static TypeRecette|Proxy createOne(array $attributes = [])
- * @method static TypeRecette|Proxy find(object|array|mixed $criteria)
- * @method static TypeRecette|Proxy findOrCreate(array $attributes)
- * @method static TypeRecette|Proxy first(string $sortedField = 'id')
- * @method static TypeRecette|Proxy last(string $sortedField = 'id')
- * @method static TypeRecette|Proxy random(array $attributes = [])
- * @method static TypeRecette|Proxy randomOrCreate(array $attributes = [])
+ * @method        TypeRecette|Proxy                     create(array|callable $attributes = [])
+ * @method static TypeRecette|Proxy                     createOne(array $attributes = [])
+ * @method static TypeRecette|Proxy                     find(object|array|mixed $criteria)
+ * @method static TypeRecette|Proxy                     findOrCreate(array $attributes)
+ * @method static TypeRecette|Proxy                     first(string $sortedField = 'id')
+ * @method static TypeRecette|Proxy                     last(string $sortedField = 'id')
+ * @method static TypeRecette|Proxy                     random(array $attributes = [])
+ * @method static TypeRecette|Proxy                     randomOrCreate(array $attributes = [])
  * @method static TypeRecetteRepository|RepositoryProxy repository()
- * @method static TypeRecette[]|Proxy[] all()
- * @method static TypeRecette[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static TypeRecette[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static TypeRecette[]|Proxy[] findBy(array $attributes)
- * @method static TypeRecette[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static TypeRecette[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static TypeRecette[]|Proxy[]                 all()
+ * @method static TypeRecette[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static TypeRecette[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static TypeRecette[]|Proxy[]                 findBy(array $attributes)
+ * @method static TypeRecette[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static TypeRecette[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class TypeRecetteFactory extends ModelFactory
 {

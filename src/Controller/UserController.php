@@ -47,7 +47,7 @@ class UserController extends AbstractController
     public function create(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
-            throw $this->createAccessDeniedException('Vous êtes déja connecté, vous ne pouvez pas recréer un compte.');
+            return $this->redirectToRoute('app_home');
         }
         $user = new User();
 
@@ -81,12 +81,12 @@ class UserController extends AbstractController
         if ($this->isGranted('ROLE_ADMIN')) {
             if ($currentUser !== $user) {
                 if (in_array('ROLE_ADMIN', $user->getRoles())) {
-                    throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation d\'acceder aux informations d\'un autre administrateur.');
+                    return $this->redirectToRoute('app_home');
                 }
             }
         } else {
             if ($currentUser !== $user) {
-                throw $this->createAccessDeniedException('Vous ne pouvez consulter que vos informations personelles.');
+                return $this->redirectToRoute('app_user_show', ['id' => $currentUser->getId()]);
             }
         }
 
@@ -103,14 +103,14 @@ class UserController extends AbstractController
             $form = $this->createForm(UserTypeAdmin::class, $user);
             if ($currentUser !== $user) {
                 if (in_array('ROLE_ADMIN', $user->getRoles())) {
-                    throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation de modifier les informations d\'un autre administrateur.');
+                    return $this->redirectToRoute('app_home');
                 }
             }
         } else {
             $form = $this->createForm(UserType::class, $user);
 
             if ($currentUser !== $user) {
-                throw $this->createAccessDeniedException('Vous ne pouvez modifier que vos informations personelles.');
+                return $this->redirectToRoute('app_user_update', ['id' => $currentUser->getId()]);
             }
         }
         $lastpp = $user->getPhotoProfil();
@@ -142,12 +142,12 @@ class UserController extends AbstractController
         if ($this->isGranted('ROLE_ADMIN')) {
             if ($currentUser !== $user) {
                 if (in_array('ROLE_ADMIN', $user->getRoles())) {
-                    throw $this->createAccessDeniedException('Vous n\'avez pas l\'autorisation de supprimmer le compte d\'un autre administrateur.');
+                    return $this->redirectToRoute('app_home');
                 }
             }
         } else {
             if ($currentUser !== $user) {
-                throw $this->createAccessDeniedException('Vous ne pouvez supprmier que votre propre compte.');
+                return $this->redirectToRoute('app_user_delete', ['id' => $currentUser->getId()]);
             }
         }
 
@@ -164,8 +164,8 @@ class UserController extends AbstractController
                 if ($currentUser === $user) {
                     $tokenStorage->setToken(null);
                 }
-                return $this->redirectToRoute('app_home');
 
+                return $this->redirectToRoute('app_home');
             } else {
                 return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
             }

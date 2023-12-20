@@ -13,6 +13,5 @@ class HomeController extends AbstractController
     public function index(RecetteRepository $recetteRepository): Response
     {
         return $this->redirectToRoute('app_recettes_index');
-
     }
 }

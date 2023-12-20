@@ -30,8 +30,8 @@ class UserFixtures extends Fixture
             for ($i = 0; $i < $nbr_All; ++$i) {
                 $list_All[] = AllergeneFactory::random();
             }
-            return ['allergenes' => $list_All];
 
+            return ['allergenes' => $list_All];
         });
     }
 }
