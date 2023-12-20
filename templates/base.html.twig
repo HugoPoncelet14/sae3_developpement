@@ -26,9 +26,9 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-text">
                     <li class="nav-item">
                         {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
-                            <a class="nav-link active" aria-current="page" href="{{path('app_login') }}">Connexion</a>
+                            <a class="nav-link active" aria-current="page" href="{{path('app_login') }}"><img src="{{ asset('/img/icone/profile_base.png') }}" alt="Photo de profil par default" width = 30px height = 30px> Connexion</a>
                         {% else %}
-                            <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}"><img src="/user/{{ app.user.id ?? 0 }}/image" alt="Photo de profil par default" width = 30px height = 30px> Déconnexion</a>
                         {% endif %}
                     </li>
                     <li>

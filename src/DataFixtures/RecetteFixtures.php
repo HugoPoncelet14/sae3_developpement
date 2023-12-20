@@ -8,6 +8,8 @@ use App\Factory\TypeRecetteFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class RecetteFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -16,6 +18,10 @@ class RecetteFixtures extends Fixture implements DependentFixtureInterface
         $dir = __DIR__;
         $file = "$dir/data/Recette.json";
         $recettes = json_decode(file_get_contents($file), true);
+
+        $output = new ConsoleOutput();
+        $progressBar = new ProgressBar($output, count($recettes));
+        $progressBar->setFormat('verbose');
 
         foreach ($recettes as $infoRecette) {
             $recette = ['nomRec' => $infoRecette['nomRec'],
@@ -39,7 +45,10 @@ class RecetteFixtures extends Fixture implements DependentFixtureInterface
             }
 
             RecetteFactory::createOne($recette);
+            $progressBar->advance();
         }
+
+        $progressBar->finish();
     }
 
     public function getDependencies(): array

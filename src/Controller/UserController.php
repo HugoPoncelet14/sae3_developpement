@@ -34,7 +34,7 @@ class UserController extends AbstractController
         $user = $userRepository->findOneBy(['id' => $id]);
         $response = new Response();
         if (null === $user->getPhotoProfil()) {
-            $response = new Response(file_get_contents("$dir/../DataFixtures/img/icone/profile_base.png"));
+            $response = new Response(file_get_contents("$dir/../../public/img/icone/profile_base.png"));
         } else {
             $response = new Response(stream_get_contents($user->getPhotoProfil()));
         }

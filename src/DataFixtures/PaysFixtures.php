@@ -7,6 +7,8 @@ use App\Factory\RegionFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class PaysFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -15,6 +17,11 @@ class PaysFixtures extends Fixture implements DependentFixtureInterface
         $dir = __DIR__;
         $file = "$dir/data/Pays.json";
         $infos = json_decode(file_get_contents($file), true);
+
+        $output = new ConsoleOutput();
+        $progressBar = new ProgressBar($output, count($infos));
+        $progressBar->setFormat('verbose');
+
         foreach ($infos as $infoPays) {
             $pays = ['nomPays' => $infoPays['nomPays']];
 
@@ -23,7 +30,10 @@ class PaysFixtures extends Fixture implements DependentFixtureInterface
             }
 
             PaysFactory::createOne($pays);
+            $progressBar->advance();
         }
+
+        $progressBar->finish();
     }
 
     public function getDependencies(): array
