@@ -46,4 +46,24 @@ class DeleteCest
         $I->seeCurrentRouteIs('app_recettes_index');
     }
 
+    public function accessIsRestrictedToAdminUsersOnUserUsers(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'root@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+
+        UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+
+        $I->amLoggedInAs($realuser);
+        $I->amOnPage('/user/2/delete');
+        $I->seeResponseCodeIsSuccessful();
+    }
 }
