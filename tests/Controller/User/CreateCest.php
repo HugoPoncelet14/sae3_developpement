@@ -2,11 +2,12 @@
 
 namespace App\Tests\Controller\User;
 
+use App\Factory\UserFactory;
 use App\Tests\Support\ControllerTester;
 
 class CreateCest
 {
-    public function form(ControllerTester $I): void
+    public function testStructure(ControllerTester $I): void
     {
         $I->amOnPage('/user/create');
         $I->seeResponseCodeIsSuccessful();
@@ -21,5 +22,19 @@ class CreateCest
         $I->see('Date de naissance', 'legend');
         $I->see('Photo de profil', 'label');
         $I->see('Allergenes', 'legend');
+    }
+
+    public function accessIsRestrictedToNotAuthenticatedUsers(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne([
+            'prenom' => 'Homer',
+            'nom' => 'Simpson',
+        ]);
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('user/create');
+        $I->seeCurrentRouteIs('app_recettes_index');
     }
 }
