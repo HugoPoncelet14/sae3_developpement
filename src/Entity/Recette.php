@@ -23,7 +23,7 @@ class Recette
     private ?string $descRec = null;
 
     #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $imgRec = null;
+    private $imgRec;
 
     #[ORM\Column]
     private ?int $tpsDePrep = null;
@@ -49,8 +49,6 @@ class Recette
 
     #[ORM\OneToMany(mappedBy: 'recette', targetEntity: Etape::class)]
     private Collection $etapes;
-
-
 
     public function __construct()
     {

@@ -8,8 +8,6 @@ use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-;
-
 class AllergeneFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void

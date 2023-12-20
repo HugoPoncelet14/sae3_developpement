@@ -53,7 +53,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $pseudo = null;
 
     #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $photoProfil = null;
+    private $photoProfil;
 
     #[ORM\ManyToMany(targetEntity: Allergene::class, inversedBy: 'users')]
     private Collection $allergenes;

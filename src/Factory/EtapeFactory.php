@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Etape>
  *
- * @method        Etape|Proxy create(array|callable $attributes = [])
- * @method static Etape|Proxy createOne(array $attributes = [])
- * @method static Etape|Proxy find(object|array|mixed $criteria)
- * @method static Etape|Proxy findOrCreate(array $attributes)
- * @method static Etape|Proxy first(string $sortedField = 'id')
- * @method static Etape|Proxy last(string $sortedField = 'id')
- * @method static Etape|Proxy random(array $attributes = [])
- * @method static Etape|Proxy randomOrCreate(array $attributes = [])
+ * @method        Etape|Proxy                     create(array|callable $attributes = [])
+ * @method static Etape|Proxy                     createOne(array $attributes = [])
+ * @method static Etape|Proxy                     find(object|array|mixed $criteria)
+ * @method static Etape|Proxy                     findOrCreate(array $attributes)
+ * @method static Etape|Proxy                     first(string $sortedField = 'id')
+ * @method static Etape|Proxy                     last(string $sortedField = 'id')
+ * @method static Etape|Proxy                     random(array $attributes = [])
+ * @method static Etape|Proxy                     randomOrCreate(array $attributes = [])
  * @method static EtapeRepository|RepositoryProxy repository()
- * @method static Etape[]|Proxy[] all()
- * @method static Etape[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Etape[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Etape[]|Proxy[] findBy(array $attributes)
- * @method static Etape[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Etape[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Etape[]|Proxy[]                 all()
+ * @method static Etape[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Etape[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Etape[]|Proxy[]                 findBy(array $attributes)
+ * @method static Etape[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Etape[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class EtapeFactory extends ModelFactory
 {

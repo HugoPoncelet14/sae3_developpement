@@ -164,8 +164,8 @@ class UserController extends AbstractController
                 if ($currentUser === $user) {
                     $tokenStorage->setToken(null);
                 }
-                return $this->redirectToRoute('app_home');
 
+                return $this->redirectToRoute('app_home');
             } else {
                 return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
             }
