@@ -85,13 +85,17 @@
         "test:cs" : "php vendor/bin/php-cs-fixer fix --dry-run --diff",
         "fix:cs" : "php vendor/bin/php-cs-fixer fix",
         "start" : ["Composer\\Config::disableProcessTimeout","symfony serve"],
-        "db" : ["Composer\\Config::disableProcessTimeout","php bin/console doctrine:database:drop --force --if-exists","php bin/console doctrine:database:create","php bin/console doctrine:migrations:migrate --no-interaction","php bin/console doctrine:fixtures:load --no-interaction"]
+        "db" : ["Composer\\Config::disableProcessTimeout","php bin/console doctrine:database:drop --force --if-exists","php bin/console doctrine:database:create","php bin/console doctrine:migrations:migrate --no-interaction","php bin/console doctrine:fixtures:load --no-interaction"],
+        "test:codeception" : ["php vendor/bin/codecept clean","php bin/console doctrine:database:drop --force --quiet --env=test","php bin/console doctrine:database:create --quiet --env=test","php bin/console doctrine:schema:create --quiet --env=test","php vendor/bin/codecept run"],
+        "test" : ["@test:cs","@test:codeception"]
     },
     "scripts-descriptions": {
         "test:cs": "retourne les fichiers a fixer",
         "fix:cs": "fixe les fichiers a fixer",
         "start": "lance les serveur de tests symfony",
-        "db" : "Reset de la BD et generation des données factices"
+        "db" : "Reset de la BD et generation des données factices",
+        "test:codeception": "Reset de la BD et lancement des tests Codeception",
+        "test": "lance les tests de mise en forme du code et les tests de Codeception"
     },
     "conflict": {
         "symfony/symfony": "*"
