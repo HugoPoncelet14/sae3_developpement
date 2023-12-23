@@ -19,8 +19,8 @@ a {
     background-color: #AD4F09;
 }
 .cuisinisi_logo {
-    width: 2em;
-    height: 2em;
+    width: 2.5em;
+    height: 2.5em;
     object-fit: cover;
 }
 
@@ -339,4 +339,10 @@ input[type="date"], .form-control {
 
 .recipe_info-container:hover {
     background-color: #eeeeee;
+}
+
+#icon-placeholder {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
 }

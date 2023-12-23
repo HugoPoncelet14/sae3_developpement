@@ -17,7 +17,7 @@
     <body>
     <nav class="navbar navbar-expand-lg bg-custom max-width">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand nav-link active" href="/">
                 <img class="cuisinisi_logo" src="{{ asset('/img/cuisinisi_white.png') }}" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,9 +27,9 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-text">
                     <li class="nav-item">
                         {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
-                            <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}"><img src="{{ asset('/img/icone/profile_base.png') }}" alt="Photo de profil par default" width = 60px height = 60px></a>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}"><img id="icon-placeholder" src="{{ asset('/img/icone/placeholder_profile_photo.png') }}" alt="Photo de profil par default"></a>
                         {% else %}
-                            <a class="nav-link active" aria-current="page" href="{{ path('app_user_show', {'id': app.user.id}) }}"><img src="/user/{{ app.user.id ?? 0 }}/image" alt="Photo de profil par default" width = 60px height = 60px> </a>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_user_show', {'id': app.user.id}) }}"><img id="icon-placeholder" src="/user/{{ app.user.id ?? 0 }}/image" alt="Photo de profil par default" width = 60px height = 60px> </a>
                         {% endif %}
                     </li>
                     <li class="nav-item">
