@@ -7,6 +7,8 @@ use App\Factory\RecetteFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class EtapeFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -15,6 +17,11 @@ class EtapeFixtures extends Fixture implements DependentFixtureInterface
         $dir = __DIR__;
         $file = "$dir/data/Etape.json";
         $etapes = json_decode(file_get_contents($file), true);
+
+        $output = new ConsoleOutput();
+        $progressBar = new ProgressBar($output, count($etapes));
+        $progressBar->setFormat('verbose');
+
         foreach ($etapes as $infoEtape) {
             $etape = ['numEtape' => $infoEtape['numEtape'],
                 'descEtape' => $infoEtape['descEtape']];
@@ -24,7 +31,10 @@ class EtapeFixtures extends Fixture implements DependentFixtureInterface
             }
 
             EtapeFactory::createOne($etape);
+            $progressBar->advance();
         }
+
+        $progressBar->finish();
     }
 
     public function getDependencies(): array

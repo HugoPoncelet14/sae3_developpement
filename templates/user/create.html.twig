@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
+    <h1>Inscription</h1>
 
     {{ include('user/_form.html.twig', {'form': form, submit_label : "S'inscrire"}, with_context = false) }}
 

@@ -33,16 +33,15 @@ class RecetteController extends AbstractController
 
         $response = new Response(stream_get_contents($recette->getImgRec()));
         $response->headers->set('Content-Type', 'image/png');
+
         return $response;
     }
 
     #[Route('/recettes/{id}', name: 'app_recette_show')]
-    public function show(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository ,int $id): Response
-
+    public function show(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository, int $id): Response
     {
         $quantites = $quantiteRepository->AllQuantiteByRecetteId($id);
         $etapes = $etapeRepository->getAllEtapeWithRecetteId($id);
-        dump(count($etapes));
 
         return $this->render('recette/details.html.twig', [
             'recette' => $recette,

@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Pays>
  *
- * @method        Pays|Proxy create(array|callable $attributes = [])
- * @method static Pays|Proxy createOne(array $attributes = [])
- * @method static Pays|Proxy find(object|array|mixed $criteria)
- * @method static Pays|Proxy findOrCreate(array $attributes)
- * @method static Pays|Proxy first(string $sortedField = 'id')
- * @method static Pays|Proxy last(string $sortedField = 'id')
- * @method static Pays|Proxy random(array $attributes = [])
- * @method static Pays|Proxy randomOrCreate(array $attributes = [])
+ * @method        Pays|Proxy                     create(array|callable $attributes = [])
+ * @method static Pays|Proxy                     createOne(array $attributes = [])
+ * @method static Pays|Proxy                     find(object|array|mixed $criteria)
+ * @method static Pays|Proxy                     findOrCreate(array $attributes)
+ * @method static Pays|Proxy                     first(string $sortedField = 'id')
+ * @method static Pays|Proxy                     last(string $sortedField = 'id')
+ * @method static Pays|Proxy                     random(array $attributes = [])
+ * @method static Pays|Proxy                     randomOrCreate(array $attributes = [])
  * @method static PaysRepository|RepositoryProxy repository()
- * @method static Pays[]|Proxy[] all()
- * @method static Pays[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Pays[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Pays[]|Proxy[] findBy(array $attributes)
- * @method static Pays[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Pays[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Pays[]|Proxy[]                 all()
+ * @method static Pays[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Pays[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Pays[]|Proxy[]                 findBy(array $attributes)
+ * @method static Pays[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Pays[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class PaysFactory extends ModelFactory
 {

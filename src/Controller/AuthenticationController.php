@@ -21,5 +21,4 @@ class AuthenticationController extends AbstractController
     {
         return $this->render('authentication/signup.html.twig');
     }
-
 }
