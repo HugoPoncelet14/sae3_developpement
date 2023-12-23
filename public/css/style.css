@@ -109,7 +109,7 @@ body {
 .auth-form__container {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     flex: 2;
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -137,6 +137,10 @@ body {
 .title_small-padding {
     padding-top: 3rem;
     padding-bottom: 2rem;
+}
+
+form#auth {
+    gap: 0.5rem;
 }
 
 .auth-button {
