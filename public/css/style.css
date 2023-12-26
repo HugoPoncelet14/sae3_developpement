@@ -92,7 +92,6 @@ body {
 }
 
 .main {
-    min-height: 90%;
     width: 1000px;
     background-color: white;
     display: flex;
@@ -114,7 +113,7 @@ body {
     flex: 2;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    padding: 0 2rem 1rem 2rem;
+    padding: 8.5rem 2rem 8.5rem 2rem;
     gap: 1rem;
 }
 
