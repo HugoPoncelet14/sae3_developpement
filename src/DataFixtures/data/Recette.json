@@ -6,7 +6,14 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "Italie",
-    "imgRec": "pates_carbonara"
+    "imgRec": "pates_carbonara",
+    "ustensiles":
+      {
+        "ust1": "casserole",
+        "ust2": "bol",
+        "ust3": "pôele",
+        "ust4": "saladier"
+      }
   },
   {
     "nomRec": "Tartiflette",

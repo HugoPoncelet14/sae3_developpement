@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Factory\PaysFactory;
 use App\Factory\RecetteFactory;
 use App\Factory\TypeRecetteFactory;
+use App\Factory\UstensileFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -44,15 +45,22 @@ class RecetteFixtures extends Fixture implements DependentFixtureInterface
                 $recette['imgRec'] = file_get_contents("$dir/img/recettes/{$infoRecette['imgRec']}.jpg");
             }
 
+            if (isset($infoRecette['ustensiles'])) {
+                $ustensiles = $infoRecette['ustensiles'];
+                $list = [];
+                foreach ($ustensiles as $ustensile) {
+                    $list[] = UstensileFactory::random(['name' => $ustensile]);
+                }
+                $recette['ustensiles'] = $list;
+            }
             RecetteFactory::createOne($recette);
             $progressBar->advance();
         }
-
         $progressBar->finish();
     }
 
     public function getDependencies(): array
     {
-        return [TypeRecetteFixtures::class, PaysFixtures::class];
+        return [TypeRecetteFixtures::class, PaysFixtures::class, UstensilesFixtures::class];
     }
 }
