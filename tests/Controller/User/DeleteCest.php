@@ -7,11 +7,29 @@ use App\Tests\Support\ControllerTester;
 
 class DeleteCest
 {
+    public function testStructure(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne([
+            'prenom' => 'Homer',
+            'nom' => 'Simpson',
+        ]);
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('/user/1/delete');
+        $I->seeResponseCodeIsSuccessful();
+        $I->seeInTitle('Suppression de Simpson, Homer');
+        $I->see('Suppression de Simpson, Homer', 'h1');
+        $I->see('Confirmer la supression', 'button');
+        $I->see('Annuler', 'button');
+    }
+
     public function form(ControllerTester $I): void
     {
         $user = UserFactory::createOne(['prenom' => 'Tony',
                 'nom' => 'Stark',
-                'email' => 'root@example.com',
+                'email' => 'ironman@example.com',
                 'roles' => ['ROLE_ADMIN']]
         );
 
@@ -27,13 +45,13 @@ class DeleteCest
     {
         $user = UserFactory::createOne(['prenom' => 'Tony',
                 'nom' => 'Stark',
-                'email' => 'root@example.com',
+                'email' => 'ironman@example.com',
                 'roles' => ['ROLE_ADMIN']]
         );
 
-        UserFactory::createOne(['prenom' => 'Tony',
-                'nom' => 'Stark',
-                'email' => 'ironman@example.com',
+        UserFactory::createOne(['prenom' => 'Peter',
+                'nom' => 'Parker',
+                'email' => 'spiderman@example.com',
                 'roles' => ['ROLE_ADMIN']]
         );
 
@@ -50,13 +68,13 @@ class DeleteCest
     {
         $user = UserFactory::createOne(['prenom' => 'Tony',
                 'nom' => 'Stark',
-                'email' => 'root@example.com',
+                'email' => 'ironman@example.com',
                 'roles' => ['ROLE_ADMIN']]
         );
 
-        UserFactory::createOne(['prenom' => 'Tony',
-                'nom' => 'Stark',
-                'email' => 'ironman@example.com',
+        UserFactory::createOne(['prenom' => 'Peter',
+                'nom' => 'Parker',
+                'email' => 'spiderman@example.com',
                 'roles' => ['ROLE_USER']]
         );
 
@@ -66,4 +84,5 @@ class DeleteCest
         $I->amOnPage('/user/2/delete');
         $I->seeResponseCodeIsSuccessful();
     }
+
 }
