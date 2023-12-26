@@ -22,6 +22,7 @@ class CreateCest
         $I->see('Date de naissance', 'legend');
         $I->see('Photo de profil', 'label');
         $I->see('Allergenes', 'legend');
+        $I->seeElement('input[type="submit"]');
     }
 
     public function accessIsRestrictedToNotAuthenticatedUsers(ControllerTester $I): void
