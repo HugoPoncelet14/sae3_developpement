@@ -50,10 +50,14 @@ class Recette
     #[ORM\OneToMany(mappedBy: 'recette', targetEntity: Etape::class)]
     private Collection $etapes;
 
+    #[ORM\ManyToMany(targetEntity: Ustensile::class, inversedBy: 'recettes')]
+    private Collection $ustensiles;
+
     public function __construct()
     {
         $this->quantites = new ArrayCollection();
         $this->etapes = new ArrayCollection();
+        $this->ustensiles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -261,6 +265,30 @@ class Recette
     public function setTpsCuisson(?int $tpsCuisson): static
     {
         $this->tpsCuisson = $tpsCuisson;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ustensile>
+     */
+    public function getUstensiles(): Collection
+    {
+        return $this->ustensiles;
+    }
+
+    public function addUstensile(Ustensile $ustensile): static
+    {
+        if (!$this->ustensiles->contains($ustensile)) {
+            $this->ustensiles->add($ustensile);
+        }
+
+        return $this;
+    }
+
+    public function removeUstensile(Ustensile $ustensile): static
+    {
+        $this->ustensiles->removeElement($ustensile);
 
         return $this;
     }

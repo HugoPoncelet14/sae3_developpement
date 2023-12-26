@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\Ustensiles;
+use App\Entity\Ustensile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Ustensiles>
+ * @extends ServiceEntityRepository<Ustensile>
  *
- * @method Ustensiles|null find($id, $lockMode = null, $lockVersion = null)
- * @method Ustensiles|null findOneBy(array $criteria, array $orderBy = null)
- * @method Ustensiles[]    findAll()
- * @method Ustensiles[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Ustensile|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Ustensile|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Ustensile[]    findAll()
+ * @method Ustensile[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UstensilesRepository extends ServiceEntityRepository
+class UstensileRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Ustensiles::class);
+        parent::__construct($registry, Ustensile::class);
     }
 
 //    /**
-//     * @return Ustensiles[] Returns an array of Ustensiles objects
+//     * @return Ustensile[] Returns an array of Ustensile objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class UstensilesRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Ustensiles
+//    public function findOneBySomeField($value): ?Ustensile
 //    {
 //        return $this->createQueryBuilder('u')
 //            ->andWhere('u.exampleField = :val')
