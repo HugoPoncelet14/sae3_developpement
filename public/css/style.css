@@ -397,6 +397,11 @@ details#allergies {
     background-color: royalblue;
 }
 
+.profile_update-button:hover {
+    background-color: #0504aa;
+    color: white
+}
+
 .profile_update-button-container {
     display: flex;
     justify-content: space-between;
