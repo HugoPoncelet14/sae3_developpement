@@ -22,7 +22,10 @@
             </div>
             <dt>Email</dt><dd>{{ user.email }}</dd>
             <dt>Pseudo</dt><dd>{{ user.pseudo }}</dd>
-            <dt>Date de naissance</dt><dd>{{user.dateNais|date('d/m/Y')}}</dd>
+            <div class="profile_update-button-container">
+                <span><dt>Date de naissance</dt><dd>{{user.dateNais|date('d/m/Y')}}</dd></span>
+                <a class="profile_update-button btn btn-lg" href="{{ path('app_user_update', {'id': user.id}) }}" role="button">Modifier</a>
+            </div>
         </div>
     </div>
         <details id="allergies">
