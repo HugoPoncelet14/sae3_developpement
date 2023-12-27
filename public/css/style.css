@@ -401,3 +401,17 @@ details#allergies {
     display: flex;
     justify-content: space-between;
 }
+
+.profile_delete-button {
+    font-size: 1.07rem;
+    width: 9rem;
+    height: 3rem;
+    color: white;
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+}
+
+.profile_delete-button-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
