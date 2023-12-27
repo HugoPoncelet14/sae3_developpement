@@ -3,18 +3,28 @@
 {% block title %}Profil de {{ user.nom }} {{ user.prenom }}{% endblock %}
 
 {% block body %}
-    <h1>Profil de {{ user.nom }} {{ user.prenom }}</h1>
-    <div class="recipe_image-container" id="profile">
-        <div class="recipe_image-box" id="profile">
-            <img  src="/user/{{ user.id }}/image" alt="Photo de profil">
+    <h1 class="title_small-padding">Profil de {{ user.nom }} {{ user.prenom }}</h1>
+    <div class="profile_info-container">
+        <div class="recipe_image-container" id="profile">
+            <div class="recipe_image-box" id="profile">
+                <img  src="/user/{{ user.id }}/image" alt="Photo de profil">
+            </div>
+        </div>
+        <span style="display: inline-block; width:1px; height:100%; background:lightgray; margin: 0 2px;"></span>
+        <div class="user_info-container">
+            <div class="user_names-container">
+                <dl>
+                    <dt>Prénom</dt><dd>{{ user.prenom }}</dd>
+                </dl>
+                <dl>
+                    <dt>Nom</dt><dd>{{ user.nom }}</dd>
+                </dl>
+            </div>
+            <dt>Email</dt><dd>{{ user.email }}</dd>
+            <dt>Pseudo</dt><dd>{{ user.pseudo }}</dd>
+            <dt>Date de naissance</dt><dd>{{user.dateNais|date('d/m/Y')}}</dd>
         </div>
     </div>
-    <dl>
-        <dt>Prénom</dt><dd>{{ user.prenom }}</dd>
-        <dt>Nom</dt><dd>{{ user.nom }}</dd>
-        <dt>Email</dt><dd>{{ user.email }}</dd>
-        <dt>Pseudo</dt><dd>{{ user.pseudo }}</dd>
-        <dt>Date de naissance</dt><dd>{{user.dateNais|date('d/m/Y')}}</dd>
         <dt>Allergenes</dt><dd>
             <ul>
                 {% for element in user.allergenes %}
