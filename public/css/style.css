@@ -362,6 +362,7 @@ input[type="date"], .form-control {
 
 .profile_info-container{
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 50px;
     margin-top: 5px;
@@ -375,8 +376,16 @@ input[type="date"], .form-control {
 }
 
 .user_names-container {
-
     display: flex;
     gap: 25%
 }
 
+summary#allergies {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+details#allergies {
+    padding-left: 10%;
+    margin-bottom: 35px;
+}
