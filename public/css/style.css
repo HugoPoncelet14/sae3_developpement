@@ -360,3 +360,21 @@ input[type="date"], .form-control {
     border-radius: 50%;
 }
 
+.profile_info-container{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.user_info-container{
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.user_names-container {
+
+    display: flex;
+    gap: 25%
+}
+
