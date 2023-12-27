@@ -37,8 +37,9 @@
                 </ul>
         </details>
     </dl>
-    <a class="w-100 btn btn-lg btn-primary" href="{{ path('app_user_update', {'id': user.id}) }}" role="button">Modifier</a>
-    <a class="w-100 btn btn-lg btn-secondary" href="{{ path('app_user_delete', {'id': user.id}) }}" role="button">Supprimer</a>
+    <div class="profile_delete-button-container">
+        <a class="profile_delete-button btn btn-lg btn-danger" href="{{ path('app_user_delete', {'id': user.id}) }}" role="button">Supprimer</a>
+    </div>
 {% endblock %}
 
 
