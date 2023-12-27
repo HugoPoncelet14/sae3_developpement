@@ -364,6 +364,8 @@ input[type="date"], .form-control {
     display: flex;
     align-items: center;
     gap: 50px;
+    margin-top: 5px;
+    margin-bottom: 35px;
 }
 
 .user_info-container{
