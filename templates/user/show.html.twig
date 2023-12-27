@@ -3,26 +3,43 @@
 {% block title %}Profil de {{ user.nom }} {{ user.prenom }}{% endblock %}
 
 {% block body %}
-    <h1>Profil de {{ user.nom }} {{ user.prenom }}</h1>
-
-    <dl>
-        <dt>Prénom</dt><dd>{{ user.prenom }}</dd>
-        <dt>Nom</dt><dd>{{ user.nom }}</dd>
-        <dt>Email</dt><dd>{{ user.email }}</dd>
-        <dt>Pseudo</dt><dd>{{ user.pseudo }}</dd>
-        <dt>Date de naissance</dt><dd>{{user.dateNais|date('d/m/Y')}}</dd>
-        <dt>Photo de profil</dt><dd>
-            <img  src="/user/{{ user.id }}/image" alt="Photo de profil de {{ user.nom }} {{ user.prenom }}" width = 80px height = 80px></dd>
-        <dt>Allergenes</dt><dd>
-            <ul>
-                {% for element in user.allergenes %}
-                <li>{{ element.nomAll }}</li>
-                {% endfor %}
-            </ul>
-        </dd>
+    <h1 class="title_small-padding">Profil de {{ user.nom }} {{ user.prenom }}</h1>
+    <div class="profile_info-container">
+        <div class="recipe_image-container" id="profile">
+            <div class="recipe_image-box" id="profile">
+                <img  src="/user/{{ user.id }}/image" alt="Photo de profil">
+            </div>
+        </div>
+        <span style="display: inline-block; width:1px; height:100%; background:lightgray; margin: 0 2px;"></span>
+        <div class="user_info-container">
+            <div class="user_names-container">
+                <dl>
+                    <dt>Prénom</dt><dd>{{ user.prenom }}</dd>
+                </dl>
+                <dl>
+                    <dt>Nom</dt><dd>{{ user.nom }}</dd>
+                </dl>
+            </div>
+            <dt>Email</dt><dd>{{ user.email }}</dd>
+            <dt>Pseudo</dt><dd>{{ user.pseudo }}</dd>
+            <div class="profile_update-button-container">
+                <span><dt>Date de naissance</dt><dd>{{user.dateNais|date('d/m/Y')}}</dd></span>
+                <a class="profile_update-button btn btn-lg" href="{{ path('app_user_update', {'id': user.id}) }}" role="button">Modifier</a>
+            </div>
+        </div>
+    </div>
+        <details id="allergies">
+            <summary id="allergies">Allergies</summary>
+                <ul>
+                    {% for element in user.allergenes %}
+                    <li>{{ element.nomAll }}</li>
+                    {% endfor %}
+                </ul>
+        </details>
     </dl>
-    <a class="w-100 btn btn-lg btn-primary" href="{{ path('app_user_update', {'id': user.id}) }}" role="button">Modifier</a>
-    <a class="w-100 btn btn-lg btn-secondary" href="{{ path('app_user_delete', {'id': user.id}) }}" role="button">Supprimer</a>
+    <div class="profile_delete-button-container">
+        <a class="profile_delete-button btn btn-lg btn-danger" href="{{ path('app_user_delete', {'id': user.id}) }}" role="button">Supprimer</a>
+    </div>
 {% endblock %}
 
 
