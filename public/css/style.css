@@ -388,3 +388,16 @@ details#allergies {
     padding-left: 10%;
     margin-bottom: 35px;
 }
+
+.profile_update-button {
+    font-size: 1.07rem;
+    width: 9rem;
+    height: 3rem;
+    color: white;
+    background-color: royalblue;
+}
+
+.profile_update-button-container {
+    display: flex;
+    justify-content: space-between;
+}
