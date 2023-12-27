@@ -25,13 +25,14 @@
             <dt>Date de naissance</dt><dd>{{user.dateNais|date('d/m/Y')}}</dd>
         </div>
     </div>
-        <dt>Allergenes</dt><dd>
-            <ul>
-                {% for element in user.allergenes %}
-                <li>{{ element.nomAll }}</li>
-                {% endfor %}
-            </ul>
-        </dd>
+        <details id="allergies">
+            <summary id="allergies">Allergies</summary>
+                <ul>
+                    {% for element in user.allergenes %}
+                    <li>{{ element.nomAll }}</li>
+                    {% endfor %}
+                </ul>
+        </details>
     </dl>
     <a class="w-100 btn btn-lg btn-primary" href="{{ path('app_user_update', {'id': user.id}) }}" role="button">Modifier</a>
     <a class="w-100 btn btn-lg btn-secondary" href="{{ path('app_user_delete', {'id': user.id}) }}" role="button">Supprimer</a>
