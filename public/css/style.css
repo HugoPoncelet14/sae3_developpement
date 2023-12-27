@@ -345,3 +345,18 @@ input[type="date"], .form-control {
     width: 2.5rem;
     border-radius: 50%;
 }
+
+.recipe_image-container#profile {
+    position: relative;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+}
+
+.recipe_image-box#profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
