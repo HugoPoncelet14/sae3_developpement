@@ -59,4 +59,27 @@ class UpdateCest
         $I->dontSee('Rôle', 'legend');
         $I->seeElement('//input[@type="submit" and @value="Modifier"]');
     }
+
+    public function accessIsRestrictedToAdminUsersOnAdminUsers(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+
+        UserFactory::createOne(['prenom' => 'Peter',
+                'nom' => 'Parker',
+                'email' => 'spiderman@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+
+        $realuser = $user->object();
+
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('/user/2/update');
+
+        $I->seeCurrentRouteIs('app_recettes_index');
+    }
 }
