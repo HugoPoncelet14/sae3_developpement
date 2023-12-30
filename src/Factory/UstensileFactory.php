@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Ustensile>
  *
- * @method        Ustensile|Proxy create(array|callable $attributes = [])
- * @method static Ustensile|Proxy createOne(array $attributes = [])
- * @method static Ustensile|Proxy find(object|array|mixed $criteria)
- * @method static Ustensile|Proxy findOrCreate(array $attributes)
- * @method static Ustensile|Proxy first(string $sortedField = 'id')
- * @method static Ustensile|Proxy last(string $sortedField = 'id')
- * @method static Ustensile|Proxy random(array $attributes = [])
- * @method static Ustensile|Proxy randomOrCreate(array $attributes = [])
+ * @method        Ustensile|Proxy                     create(array|callable $attributes = [])
+ * @method static Ustensile|Proxy                     createOne(array $attributes = [])
+ * @method static Ustensile|Proxy                     find(object|array|mixed $criteria)
+ * @method static Ustensile|Proxy                     findOrCreate(array $attributes)
+ * @method static Ustensile|Proxy                     first(string $sortedField = 'id')
+ * @method static Ustensile|Proxy                     last(string $sortedField = 'id')
+ * @method static Ustensile|Proxy                     random(array $attributes = [])
+ * @method static Ustensile|Proxy                     randomOrCreate(array $attributes = [])
  * @method static UstensileRepository|RepositoryProxy repository()
- * @method static Ustensile[]|Proxy[] all()
- * @method static Ustensile[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Ustensile[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Ustensile[]|Proxy[] findBy(array $attributes)
- * @method static Ustensile[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Ustensile[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Ustensile[]|Proxy[]                 all()
+ * @method static Ustensile[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Ustensile[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Ustensile[]|Proxy[]                 findBy(array $attributes)
+ * @method static Ustensile[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Ustensile[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class UstensileFactory extends ModelFactory
 {

@@ -20,7 +20,7 @@ class Ustensile
     private ?string $name = null;
 
     #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $imgRec = null;
+    private $imgUst;
 
     #[ORM\ManyToMany(targetEntity: Recette::class, mappedBy: 'ustensile')]
     private Collection $recettes;
@@ -47,14 +47,14 @@ class Ustensile
         return $this;
     }
 
-    public function getImgRec()
+    public function getImgUst()
     {
-        return $this->imgRec;
+        return $this->imgUst;
     }
 
-    public function setImgRec($imgRec): static
+    public function setImgUst($imgUst): static
     {
-        $this->imgRec = $imgRec;
+        $this->imgUst = $imgUst;
 
         return $this;
     }
