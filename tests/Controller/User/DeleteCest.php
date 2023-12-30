@@ -25,6 +25,17 @@ class DeleteCest
         $I->see('Annuler', 'button');
     }
 
+    public function accessIsRestrictedToAuthenticatedUsers(ControllerTester $I): void
+    {
+        UserFactory::createOne([
+            'prenom' => 'Homer',
+            'nom' => 'Simpson',
+        ]);
+
+        $I->amOnPage('/user/1/delete');
+        $I->seeCurrentRouteIs('app_login');
+    }
+
     public function accessIsRestrictedToAdminUsersOnAdminUsers(ControllerTester $I): void
     {
         $user = UserFactory::createOne(['prenom' => 'Tony',
