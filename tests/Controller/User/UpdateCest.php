@@ -60,6 +60,17 @@ class UpdateCest
         $I->seeElement('//input[@type="submit" and @value="Modifier"]');
     }
 
+    public function accessIsRestrictedToAuthenticatedUsers(ControllerTester $I): void
+    {
+        UserFactory::createOne([
+            'prenom' => 'Homer',
+            'nom' => 'Simpson',
+        ]);
+
+        $I->amOnPage('/user/1/update');
+        $I->seeCurrentRouteIs('app_login');
+    }
+
     public function accessIsRestrictedToAdminUsersOnAdminUsers(ControllerTester $I): void
     {
         $user = UserFactory::createOne(['prenom' => 'Tony',
