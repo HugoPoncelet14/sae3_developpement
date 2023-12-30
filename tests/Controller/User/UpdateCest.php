@@ -93,4 +93,25 @@ class UpdateCest
 
         $I->seeCurrentRouteIs('app_recettes_index');
     }
+
+    public function accessIsRestrictedToAdminUsersOnUserUsers(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+
+        UserFactory::createOne(['prenom' => 'Peter',
+                'nom' => 'Parker',
+                'email' => 'spiderman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+
+        $I->amLoggedInAs($realuser);
+        $I->amOnPage('/user/2/update');
+        $I->seeResponseCodeIsSuccessful();
+    }
 }
