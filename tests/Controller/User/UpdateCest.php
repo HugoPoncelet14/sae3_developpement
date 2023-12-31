@@ -145,4 +145,33 @@ class UpdateCest
         $allergenes = $I->grabMultiple('details ul li');
         $I->assertEquals($allergenes, ['Céleri']);
     }
+
+    public function updateAllergenes(ControllerTester $I): void
+    {
+        AllergeneFactory::createOne(['nomAll' => 'Céleri']);
+        AllergeneFactory::createOne(['nomAll' => 'Arachide']);
+        AllergeneFactory::createOne(['nomAll' => 'Poisson']);
+
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'pseudo' => 'StarkTony',
+                'allergenes' => [AllergeneFactory::random(['nomAll' => 'Arachide'])],
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('user/1/update');
+        $I->submitForm('form[name="user"]', [
+            'user[allergenes][1]' => true,
+        ], 'input[type="submit"]');
+        $I->seeCurrentRouteIs('app_user_show', ['id' => 1]);
+        $I->seeResponseCodeIsSuccessful();
+        $infos = $I->grabMultiple('dd');
+        $I->assertEquals($infos, ['Tony', 'Stark', 'ironman@example.com', 'StarkTony', 'Aucune date de naissance renseignée']);
+        $allergenes = $I->grabMultiple('details ul li');
+        $I->assertEquals($allergenes, ['Céleri', 'Arachide']);
+    }
 }
