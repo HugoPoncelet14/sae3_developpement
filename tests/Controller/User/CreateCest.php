@@ -38,4 +38,24 @@ class CreateCest
         $I->amOnPage('user/create');
         $I->seeCurrentRouteIs('app_recettes_index');
     }
+
+    public function createUser(ControllerTester $I): void
+    {
+        $I->amOnPage('user/create');
+        $I->submitForm('form[name="user_type_create"]', [
+            'user_type_create[prenom]' => 'Homer',
+            'user_type_create[nom]' => 'Simpson',
+            'user_type_create[email]' => 'test@gmail.com',
+            'user_type_create[password][first]' => 'test',
+            'user_type_create[password][second]' => 'test',
+            'user_type_create[pseudo]' => 'hs',
+        ], 'input[type="submit"]');
+        $I->seeCurrentRouteIs('app_login');
+        $I->submitForm('form[id="auth"]', [
+            'email' => 'test@gmail.com',
+            'password' => 'test',
+        ], 'button[type="submit"]');
+        $I->seeCurrentRouteIs('app_user_show', ['id' => 1]);
+        $I->seeResponseCodeIsSuccessful();
+    }
 }
