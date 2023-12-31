@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Controller\User;
 
+use App\Factory\AllergeneFactory;
 use App\Factory\UserFactory;
 use App\Tests\Support\ControllerTester;
 
@@ -113,5 +114,35 @@ class UpdateCest
         $I->amLoggedInAs($realuser);
         $I->amOnPage('/user/2/update');
         $I->seeResponseCodeIsSuccessful();
+    }
+
+    public function updateStrings(ControllerTester $I): void
+    {
+        AllergeneFactory::createOne(['nomAll' => 'Céleri']);
+
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'pseudo' => 'StarkTony',
+                'allergenes' => [AllergeneFactory::random(['nomAll' => 'Céleri'])],
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('user/1/update');
+        $I->submitForm('form[name="user"]', [
+            'user[nom]' => 'testNom',
+            'user[prenom]' => 'testPrenom',
+            'user[email]' => 'test@email.com',
+            'user[pseudo]' => 'testPseudo',
+        ], 'input[type="submit"]');
+        $I->seeCurrentRouteIs('app_user_show', ['id' => 1]);
+        $I->seeResponseCodeIsSuccessful();
+        $infos = $I->grabMultiple('dd');
+        $I->assertEquals($infos, ['testPrenom', 'testNom', 'test@email.com', 'testPseudo', 'Aucune date de naissance renseignée']);
+        $allergenes = $I->grabMultiple('details ul li');
+        $I->assertEquals($allergenes, ['Céleri']);
     }
 }
