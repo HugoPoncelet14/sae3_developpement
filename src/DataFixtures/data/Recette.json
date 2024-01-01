@@ -22,7 +22,17 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "France",
-    "imgRec": "tartiflette"
+    "imgRec": "tartiflette",
+    "ustensiles":
+    {
+      "ust1": "couteau",
+      "ust2": "économe",
+      "ust3": "poêle",
+      "ust4": "four",
+      "ust5": "plat à gratin",
+      "ust6": "planche à découper",
+      "ust7": "plat"
+    }
   },
   {
     "nomRec": "Choucroute à l'alsacienne",
@@ -31,7 +41,11 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "France",
-    "imgRec": "choucroute"
+    "imgRec": "choucroute",
+    "ustensiles":
+    {
+      "ust1": "mijoteuse électrique"
+    }
   },
   {
     "nomRec": "Gâteau au yaourt",
@@ -40,7 +54,18 @@
     "nbrPers": "4",
     "nomTpRec": "Dessert",
     "nomPays": "Turquie",
-    "imgRec": "gateau_au_yaourt"
+    "imgRec": "gateau_au_yaourt",
+    "ustensiles":
+    {
+      "ust1": "grille à pâtisserie",
+      "ust2": "moule à manqué",
+      "ust3": "four",
+      "ust4": "cuillère en bois",
+      "ust5": "couteau",
+      "ust6": "saladier",
+      "ust7": "casserole",
+      "ust8": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Mousse au chocolat",
@@ -49,7 +74,18 @@
     "nbrPers": "4",
     "nomTpRec": "Dessert",
     "nomPays": "Suisse",
-    "imgRec": "mousse_au_chocolat"
+    "imgRec": "mousse_au_chocolat",
+    "ustensiles":
+    {
+      "ust1": "casserole",
+      "ust2": "fouet",
+      "ust3": "spatule",
+      "ust4": "saladier",
+      "ust5": "râpe",
+      "ust6": "lot de verrines",
+      "ust7": "batteur électrique",
+      "ust8": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Brioche maison",
@@ -58,7 +94,17 @@
     "nbrPers": "4",
     "nomTpRec": "Dessert",
     "nomPays": "France",
-    "imgRec": "brioche_maison"
+    "imgRec": "brioche_maison",
+    "ustensiles":
+    {
+      "ust1": "moule brioche",
+      "ust2": "rouleau à pâtisserie",
+      "ust3": "cuillère en bois",
+      "ust4": "couteau",
+      "ust5": "four",
+      "ust6": "frigo",
+      "ust7": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Blanquette de veau",
@@ -67,7 +113,17 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "France",
-    "imgRec": "blanquette_de_veau"
+    "imgRec": "blanquette_de_veau",
+    "ustensiles":
+    {
+      "ust1": "cuillère en bois",
+      "ust2": "couteau",
+      "ust3": "bol",
+      "ust4": "cocotte",
+      "ust5": "planche à découper",
+      "ust6": "louche",
+      "ust7": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Pancakes",
@@ -76,7 +132,16 @@
     "nbrPers": "4",
     "nomTpRec": "Dessert",
     "nomPays": "Royaume-uni",
-    "imgRec": "pancakes"
+    "imgRec": "pancakes",
+    "ustensiles":
+    {
+      "ust1": "saladier",
+      "ust2": "fouet",
+      "ust3": "cuillère en bois",
+      "ust4": "louche",
+      "ust5": "poêle à crêpes",
+      "ust6": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Frites belges",
@@ -85,7 +150,13 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "Belgique",
-    "imgRec": "frites_belges"
+    "imgRec": "frites_belges",
+    "ustensiles":
+    {
+      "ust1": "friteuse",
+      "ust2": "couteau",
+      "ust3": "plat"
+    }
   },
   {
     "nomRec": "Boeuf Bourguignon",
@@ -94,16 +165,33 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "France",
-    "imgRec": "boeuf_bourguignon"
+    "imgRec": "boeuf_bourguignon",
+    "ustensiles":
+    {
+      "ust1": "cocotte",
+      "ust2": "cuillère en bois",
+      "ust3": "couteau",
+      "ust4": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Cookies maison",
     "tpsDePrep": "15",
-    "tpsCuisson": "20",
+    "tpsCuisson": "10",
     "nbrPers": "4",
     "nomTpRec": "Dessert",
     "nomPays": "Etat-unis",
-    "imgRec": "cookies_maison"
+    "imgRec": "cookies_maison",
+    "ustensiles":
+    {
+      "ust1": "couteau",
+      "ust2": "four",
+      "ust3": "saladier",
+      "ust4": "cuillère en bois",
+      "ust5": "planche à découper",
+      "ust6": "grille à pâtisserie",
+      "ust7": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Pain",
@@ -112,7 +200,16 @@
     "nbrPers": "4",
     "nomTpRec": "Accompagnement",
     "nomPays": "France",
-    "imgRec": "pain"
+    "imgRec": "pain",
+    "ustensiles":
+    {
+      "ust1": "cuillère en bois",
+      "ust2": "bol",
+      "ust3": "fouet",
+      "ust4": "four",
+      "ust5": "couteau",
+      "ust6": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Chili con carne",
@@ -121,7 +218,16 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "Etat-unis",
-    "imgRec": "chili_con_carne"
+    "imgRec": "chili_con_carne",
+    "ustensiles":
+    {
+      "ust1": "four",
+      "ust2": "cocotte",
+      "ust3": "cuillère en bois",
+      "ust4": "couteau",
+      "ust5": "planche à découper",
+      "ust6": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Crumble aux pommes",
@@ -130,7 +236,18 @@
     "nbrPers": "4",
     "nomTpRec": "Dessert",
     "nomPays": "Royaume-uni",
-    "imgRec": "crumble_aux_pommes"
+    "imgRec": "crumble_aux_pommes",
+    "ustensiles":
+    {
+      "ust1": "four",
+      "ust2": "couteau",
+      "ust3": "saladier",
+      "ust4": "cuillère en bois",
+      "ust5": "fouet",
+      "ust6": "planche à découper",
+      "ust7": "balance de cuisine",
+      "ust8": "plat"
+    }
   },
   {
     "nomRec": "Couscous",
@@ -139,7 +256,13 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "Maroc",
-    "imgRec": "couscous"
+    "imgRec": "couscous",
+    "ustensiles":
+    {
+      "ust1": "couteau",
+      "ust2": "autocuiseur",
+      "ust3": "cuillère en bois"
+    }
   },
   {
     "nomRec": "Tarte au chocolat fondant",
@@ -148,7 +271,18 @@
     "nbrPers": "4",
     "nomTpRec": "Dessert",
     "nomPays": "Autriche",
-    "imgRec": "tarte_au_chocolat_fondant"
+    "imgRec": "tarte_au_chocolat_fondant",
+    "ustensiles":
+    {
+      "ust1": "moule à tarte",
+      "ust2": "four",
+      "ust3": "casserole",
+      "ust4": "couteau",
+      "ust5": "fouet",
+      "ust6": "cuillère en bois",
+      "ust7": "frigo",
+      "ust8": "plat à tarte"
+    }
   },
   {
     "nomRec": "Lasagnes à la bolognaise",
@@ -157,7 +291,21 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "Italie",
-    "imgRec": "lasagnes_a_la_bolognaise"
+    "imgRec": "lasagnes_a_la_bolognaise",
+    "ustensiles":
+    {
+      "ust1": "bol",
+      "ust2": "plat à gratin",
+      "ust3": "couteau",
+      "ust4": "casserole",
+      "ust5": "fouet",
+      "ust6": "saladier",
+      "ust7": "cuillère en bois",
+      "ust8": "four",
+      "ust9": "râpe",
+      "ust10": "balance de cuisine",
+      "ust11": "plat"
+    }
   },
   {
     "nomRec": "Crème pâtissière",
@@ -166,7 +314,15 @@
     "nbrPers": "4",
     "nomTpRec": "Dessert",
     "nomPays": "France",
-    "imgRec": "creme_patissiere"
+    "imgRec": "creme_patissiere",
+    "ustensiles":
+    {
+      "ust1": "fouet",
+      "ust2": "saladier",
+      "ust3": "cuillère en bois",
+      "ust4": "casserole",
+      "ust5": "balance de cuisine"
+    }
   },
   {
     "nomRec": "Poulet mariné au citron et aux épices",
@@ -175,7 +331,14 @@
     "nbrPers": "4",
     "nomTpRec": "Plat",
     "nomPays": "Chine",
-    "imgRec": "poulet_marine_au_citron_et_aux_epices"
+    "imgRec": "poulet_marine_au_citron_et_aux_epices",
+    "ustensiles":
+    {
+      "ust1": "aluminium",
+      "ust2": "four",
+      "ust3": "bol",
+      "ust4": "plat"
+    }
   },
   {
     "nomRec": "Galette des rois à la frangipane",
@@ -184,6 +347,17 @@
     "nbrPers": "4",
     "nomTpRec": "Dessert",
     "nomPays": "Italie",
-    "imgRec": "galette_des_rois_a_la_frangipane"
+    "imgRec": "galette_des_rois_a_la_frangipane",
+    "ustensiles":
+    {
+      "ust1": "four",
+      "ust2": "moule à tarte",
+      "ust3": "fourchette",
+      "ust4": "saladier",
+      "ust5": "cuillère en bois",
+      "ust6": "pinceau",
+      "ust7": "fève",
+      "ust8": "balance de cuisine"
+    }
   }
 ]
