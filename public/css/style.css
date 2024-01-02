@@ -79,6 +79,8 @@ a {
 .search_bar {
     background-color: white;
     border-radius: 0.375rem;
+    width: 40%;
+    height: 50%;
 }
 
 body {
