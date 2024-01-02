@@ -27,7 +27,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-text">
                     <li class="nav-item">
                         {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
-                            <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}"><img id="icon-placeholder" src="{{ asset('/img/icone/placeholder_profile_photo.png') }}" alt="Photo de profil par default"></a>
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}"><img id="icon-placeholder" src="{{ asset('img/icone/profile_base.png') }}"></a>
                         {% else %}
                             <a class="nav-link active" aria-current="page" href="{{ path('app_user_show', {'id': app.user.id}) }}"><img id="icon-placeholder" src="/user/{{ app.user.id ?? 0 }}/image" alt="Photo de profil par default" width = 60px height = 60px> </a>
                         {% endif %}
