@@ -1,6 +1,7 @@
 [
   {
     "nomRec": "Pâtes carbonnara",
+    "descRec": "Les pâtes carbonara, emblématiques de l'Italie, marient savamment des spaghettis al dente avec une sauce crémeuse. Préparée avec des lardons croustillants, du pecorino ou du parmesan, des jaunes d'œufs et du poivre noir, cette recette exquise évoque un équilibre subtil entre simplicité et saveurs riches. Un délice réconfortant, cette préparation incarne la perfection de la cuisine italienne traditionnelle.",
     "tpsDePrep": "10",
     "tpsCuisson": "10",
     "nbrPers": "4",
@@ -17,6 +18,7 @@
   },
   {
     "nomRec": "Tartiflette",
+    "descRec": "La tartiflette, plat montagnard français, combine pommes de terre, lardons, oignons et reblochon. Ce fromage fondant recouvre les couches de pommes de terre préalablement cuites avec les lardons dorés et les oignons sautés. Au four, le reblochon gratine le tout, créant une texture fondante et un goût riche. Réconfortante et chaleureuse, cette recette incarne la cuisine montagnarde française.",
     "tpsDePrep": "15",
     "tpsCuisson": "60",
     "nbrPers": "4",
@@ -36,6 +38,7 @@
   },
   {
     "nomRec": "Choucroute à l'alsacienne",
+    "descRec": "La choucroute à l'alsacienne est un plat typique composé de chou fermenté, accompagné de saucisses, de lard fumé, de jambon et parfois de pommes de terre. Cuit lentement avec du vin blanc d'Alsace et des épices, ce mets révèle des saveurs riches et une texture tendre. Emblème de la cuisine alsacienne, elle évoque convivialité et tradition culinaire régionale.",
     "tpsDePrep": "15",
     "tpsCuisson": "120",
     "nbrPers": "4",
@@ -49,6 +52,7 @@
   },
   {
     "nomRec": "Gâteau au yaourt",
+    "descRec": "Le gâteau au yaourt, classique et facile à préparer, nécessite yaourt, farine, sucre, œufs et huile. Sa recette simple consiste à mélanger ces ingrédients pour obtenir une pâte homogène, cuite au four. Souvent personnalisé avec vanille ou zestes d'agrumes, ce gâteau offre une texture moelleuse et un goût subtil. Par sa simplicité et sa versatilité, il reste un incontournable des desserts maison.",
     "tpsDePrep": "15",
     "tpsCuisson": "30",
     "nbrPers": "4",
@@ -69,6 +73,7 @@
   },
   {
     "nomRec": "Mousse au chocolat",
+    "descRec": "La mousse au chocolat, un nuage gourmand, marie l'onctuosité du chocolat fondu à la légèreté des blancs d'œufs montés en neige. Ce délice, né en France, séduit par sa texture aérienne et son goût riche. Sa préparation exige précision et délicatesse pour obtenir cette consistance veloutée et cette saveur intense. Servie fraîche, elle enchante les papilles et évoque le divin en quelques cuillerées.",
     "tpsDePrep": "10",
     "tpsCuisson": "5",
     "nbrPers": "4",
@@ -89,6 +94,7 @@
   },
   {
     "nomRec": "Brioche maison",
+    "descRec": "La brioche maison incarne l'art de la pâtisserie française. Sa préparation minutieuse allie farine, beurre, œufs et une touche de tendresse. Sa pâte moelleuse, légèrement sucrée, se pare d'une croûte dorée et d'une mie aérienne. Le pétrissage et le repos patient offrent cette texture délicate. Parfumée à la vanille ou à l'orange, elle embaume la maison d'un parfum réconfortant, invitant à la gourmandise.",
     "tpsDePrep": "15",
     "tpsCuisson": "35",
     "nbrPers": "4",
@@ -108,6 +114,7 @@
   },
   {
     "nomRec": "Blanquette de veau",
+    "descRec": "La blanquette de veau, plat emblématique de la cuisine française, mêle tendreté et saveurs subtiles. Des morceaux de veau mijotent lentement dans une sauce veloutée à base de bouillon, de crème, et de champignons. L'ensemble est relevé par une pointe de citron, créant un équilibre délicat. Servie avec du riz ou des pommes de terre, elle évoque chaleur et tradition.",
     "tpsDePrep": "15",
     "tpsCuisson": "120",
     "nbrPers": "4",
@@ -127,6 +134,7 @@
   },
   {
     "nomRec": "Pancakes",
+    "descRec": "Les pancakes, délices moelleux du petit-déjeuner, se préparent en mélangeant farine, lait, œufs, et levure. Cuits à la poêle, ils offrent une texture aérienne et légèrement dorée. Leur simplicité permet des variantes infinies, avec des ajouts comme des pépites de chocolat, des fruits ou du sirop d'érable. Symboles d'un réveil gourmand, les pancakes sont appréciés pour leur simplicité et leur adaptabilité.",
     "tpsDePrep": "5",
     "tpsCuisson": "10",
     "nbrPers": "4",
@@ -145,6 +153,7 @@
   },
   {
     "nomRec": "Frites belges",
+    "descRec": "Les frites belges, une icône culinaire, se distinguent par leur extérieur croustillant et intérieur moelleux. Préparées à partir de pommes de terre fraîches coupées en bâtonnets, elles sont généralement frites deux fois pour obtenir cette texture parfaite. Servies dans un cornet avec une multitude de sauces, elles incarnent l'art de la friture belge, un régal à déguster dans les friteries ou sur les marchés.",
     "tpsDePrep": "40",
     "tpsCuisson": "12",
     "nbrPers": "4",
@@ -160,6 +169,7 @@
   },
   {
     "nomRec": "Boeuf Bourguignon",
+    "descRec": "Le bœuf bourguignon, plat français emblématique, marie morceaux de bœuf mijotés avec vin rouge, légumes et bouquet garni. Cuit lentement, ce plat révèle des saveurs riches et profondes, imprégnées du vin et des arômes des ingrédients. La viande tendre et fondante, accompagnée de champignons et de lardons, crée une harmonie gustative subtile. Symbole de convivialité et de tradition, il incarne la cuisine française raffinée.",
     "tpsDePrep": "10",
     "tpsCuisson": "60",
     "nbrPers": "4",
@@ -176,6 +186,7 @@
   },
   {
     "nomRec": "Cookies maison",
+    "descRec": "Les cookies maison allient farine, sucre, beurre, œuf et pépites de chocolat pour créer des petits biscuits irrésistibles. Leur pâte est façonnée en petites boules puis cuites au four, libérant des arômes réconfortants de chocolat et de vanille. Ces délices gourmands peuvent accueillir divers ajouts comme des noix, des fruits secs, ou se décliner en versions vegan ou sans gluten pour satisfaire toutes les envies.",
     "tpsDePrep": "15",
     "tpsCuisson": "10",
     "nbrPers": "4",
@@ -195,6 +206,7 @@
   },
   {
     "nomRec": "Pain",
+    "descRec": "Le pain, symbole universel de l'alimentation, résulte du mélange de farine, eau, levure et sel. Pétri puis façonné, il lève et acquiert sa texture aérée avant d’être cuit au four. Ses variétés innombrables, du croustillant baguette français au dense pain de seigle, reflètent les traditions locales. Véritable pilier de l'alimentation mondiale, le pain est une source de réconfort et de partage.",
     "tpsDePrep": "300",
     "tpsCuisson": "60",
     "nbrPers": "4",
@@ -213,6 +225,7 @@
   },
   {
     "nomRec": "Chili con carne",
+    "descRec": "Le chili con carne, plat tex-mex, réunit viande hachée, haricots rouges, tomates et épices. Cuisiné lentement, il offre des saveurs épicées et riches, relevées de cumin, piment et paprika. Ce mélange généreux et consistant peut être agrémenté de maïs ou de poivrons. Servi traditionnellement avec du riz ou des tortillas, ce plat incarne chaleur et convivialité, parfait pour les repas réconfortants.",
     "tpsDePrep": "10",
     "tpsCuisson": "25",
     "nbrPers": "4",
@@ -231,6 +244,7 @@
   },
   {
     "nomRec": "Crumble aux pommes",
+    "descRec": "Le crumble aux pommes, dessert britannique classique, marie pommes coupées en dés avec sucre et cannelle. Sur ce mélange, une couche de pâte sablée à base de farine, beurre et sucre est émiettée. Après cuisson, le crumble révèle une texture croustillante et dorée, contrastant avec la douceur fondante des pommes. Ce dessert simple et réconfortant se déguste généralement avec de la crème fouettée ou de la glace à la vanille.",
     "tpsDePrep": "25",
     "tpsCuisson": "30",
     "nbrPers": "4",
@@ -251,6 +265,7 @@
   },
   {
     "nomRec": "Couscous",
+    "descRec": "Le couscous, plat berbère et maghrébin, associe semoule de blé dur et légumes (carottes, courgettes, pois chiches), parfois agrémentés de viandes (agneau, poulet). Cuits à la vapeur, ces ingrédients créent une texture légère et parfumée. Servi avec une sauce parfumée aux épices comme le ras-el-hanout, ce plat emblématique est un symbole de convivialité et de partage dans la cuisine nord-africaine.",
     "tpsDePrep": "30",
     "tpsCuisson": "35",
     "nbrPers": "4",
@@ -266,6 +281,7 @@
   },
   {
     "nomRec": "Tarte au chocolat fondant",
+    "descRec": "La tarte au chocolat fondant allie une croûte croustillante à une ganache riche et onctueuse. Faite de chocolat noir fondu, crème et parfois beurre, cette garniture est coulante à cœur une fois refroidie. Servie souvent avec une pointe de crème fouettée ou de fruits frais, cette gourmandise délectable offre une combinaison parfaite entre croquant et fondant, séduisant les amoureux du chocolat.",
     "tpsDePrep": "60",
     "tpsCuisson": "25",
     "nbrPers": "4",
@@ -286,6 +302,7 @@
   },
   {
     "nomRec": "Lasagnes à la bolognaise",
+    "descRec": "Les lasagnes à la bolognaise combinent des couches de pâtes, de sauce bolognaise (viande hachée, tomates, oignons, céleri) et de béchamel, superposées et cuites au four. Entre chaque strate, le fromage râpé ajoute une touche de fondant. Ce plat italien réconfortant, riche en saveurs et en textures, incarne l'harmonie entre viande savoureuse, sauce tomate et onctuosité fromagère.",
     "tpsDePrep": "30",
     "tpsCuisson": "95",
     "nbrPers": "4",
@@ -309,6 +326,7 @@
   },
   {
     "nomRec": "Crème pâtissière",
+    "descRec": "La crème pâtissière, base de nombreux desserts, combine lait, jaunes d'œufs, sucre, farine ou fécule de maïs, et vanille. Cuite à feu doux, elle épaissit pour former une texture onctueuse. Cette crème vanillée, utilisée dans les éclairs, tartes et choux à la crème, offre un équilibre parfait entre douceur, richesse lactée et parfum subtil de vanille, sublimant les pâtisseries.",
     "tpsDePrep": "5",
     "tpsCuisson": "15",
     "nbrPers": "4",
@@ -326,6 +344,7 @@
   },
   {
     "nomRec": "Poulet mariné au citron et aux épices",
+    "descRec": "Le poulet mariné au citron et aux épices combine des morceaux de poulet avec un mélange d'épices (comme le cumin, le paprika, le gingembre) et du jus de citron pour une marinade parfumée. Reposant pour absorber les saveurs, il est ensuite grillé, rôti ou sauté. Cette recette offre un mariage équilibré entre acidité citronnée et parfums d'épices, sublimant la tendreté du poulet.",
     "tpsDePrep": "40",
     "tpsCuisson": "35",
     "nbrPers": "4",
@@ -342,6 +361,7 @@
   },
   {
     "nomRec": "Galette des rois à la frangipane",
+    "descRec": "La galette des rois à la frangipane est une pâtisserie traditionnelle française. Composée de deux couches de pâte feuilletée enfermant une crème d'amande, beurre, sucre, œufs et parfois de la crème pâtissière, elle est cuite jusqu'à obtenir une belle dorure. Célébrant l'Épiphanie, une fève est cachée à l'intérieur, celui qui la découvre devient le roi ou la reine du jour.",
     "tpsDePrep": "10",
     "tpsCuisson": "20",
     "nbrPers": "4",
