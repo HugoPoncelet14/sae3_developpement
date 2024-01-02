@@ -50,4 +50,80 @@ class ShowCest
         $I->see('Modifier', '//a[@role="button" and @href="/user/1/update"]');
         $I->see('Supprimer', '//a[@role="button" and @href="/user/1/delete"]');
     }
+
+    public function accessIsRestrictedToAuthenticatedUsers(ControllerTester $I): void
+    {
+        UserFactory::createOne([
+            'prenom' => 'Homer',
+            'nom' => 'Simpson',
+        ]);
+
+        $I->amOnPage('/user/1');
+        $I->seeCurrentRouteIs('app_login');
+    }
+
+    public function accessIsRestrictedToAdminUsersOnAdminUsers(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+
+        UserFactory::createOne(['prenom' => 'Peter',
+                'nom' => 'Parker',
+                'email' => 'spiderman@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+
+        $realuser = $user->object();
+
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('/user/2');
+
+        $I->seeCurrentRouteIs('app_recettes_index');
+    }
+
+    public function accessIsRestrictedToAdminUsersOnUserUsers(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+
+        UserFactory::createOne(['prenom' => 'Peter',
+                'nom' => 'Parker',
+                'email' => 'spiderman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+
+        $I->amLoggedInAs($realuser);
+        $I->amOnPage('/user/2');
+        $I->seeResponseCodeIsSuccessful();
+    }
+
+    public function accessIsRestrictedToUserUsersOnUserUsers(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        UserFactory::createOne(['prenom' => 'Peter',
+                'nom' => 'Parker',
+                'email' => 'spiderman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+
+        $I->amLoggedInAs($realuser);
+        $I->amOnPage('/user/2');
+        $I->seeCurrentRouteIs('app_user_show', ['id' => $realuser->getId()]);
+    }
 }
