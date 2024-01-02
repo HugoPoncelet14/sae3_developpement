@@ -126,4 +126,36 @@ class ShowCest
         $I->amOnPage('/user/2');
         $I->seeCurrentRouteIs('app_user_show', ['id' => $realuser->getId()]);
     }
+
+    public function testLienModification(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('user/1');
+        $I->click('Modifier');
+        $I->seeCurrentRouteIs('app_user_update', ['id' => $realuser->getId()]);
+    }
+
+    public function testLienSupression(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('user/1');
+        $I->click('Supprimer');
+        $I->seeCurrentRouteIs('app_user_delete', ['id' => $realuser->getId()]);
+    }
 }
