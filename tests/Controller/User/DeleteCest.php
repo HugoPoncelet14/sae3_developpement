@@ -100,4 +100,28 @@ class DeleteCest
         $I->amOnPage('/user/2/delete');
         $I->seeCurrentRouteIs('app_user_delete', ['id' => $realuser->getId()]);
     }
+
+    public function AdminDeleteUser(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+
+        UserFactory::createOne(['prenom' => 'Peter',
+                'nom' => 'Parker',
+                'email' => 'spiderman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('/user/2/delete');
+        $I->click('Confirmer la supression');
+        $I->seeCurrentRouteIs('app_recettes_index');
+        $I->amOnPage('/user/2/delete');
+        $I->seeResponseCodeIs(404);
+    }
 }
