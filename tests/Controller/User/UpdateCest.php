@@ -174,4 +174,62 @@ class UpdateCest
         $allergenes = $I->grabMultiple('details ul li');
         $I->assertEquals($allergenes, ['Céleri', 'Arachide']);
     }
+
+    public function updateDateDeNaissance(ControllerTester $I): void
+    {
+        AllergeneFactory::createOne(['nomAll' => 'Céleri']);
+
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'pseudo' => 'StarkTony',
+                'allergenes' => [AllergeneFactory::random(['nomAll' => 'Céleri'])],
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('user/1/update');
+        $I->submitForm('form[name="user"]', [
+            'user[dateNais][day]' => '1',
+            'user[dateNais][month]' => '1',
+            'user[dateNais][year]' => '2024',
+        ], 'input[type="submit"]');
+        $I->seeCurrentRouteIs('app_user_show', ['id' => 1]);
+        $I->seeResponseCodeIsSuccessful();
+        $infos = $I->grabMultiple('dd');
+        $I->assertEquals($infos, ['Tony', 'Stark', 'ironman@example.com', 'StarkTony', '01/01/2024']);
+        $allergenes = $I->grabMultiple('details ul li');
+        $I->assertEquals($allergenes, ['Céleri']);
+    }
+
+    public function updateRoles(ControllerTester $I): void
+    {
+        AllergeneFactory::createOne(['nomAll' => 'Céleri']);
+
+        $user = UserFactory::createOne(['prenom' => 'Homer',
+                'nom' => 'Simpson',
+                'roles' => ['ROLE_ADMIN']]);
+
+        $usertest = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'pseudo' => 'StarkTony',
+                'allergenes' => [AllergeneFactory::random(['nomAll' => 'Céleri'])],
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('user/2/update');
+        $I->submitForm('form[name="user_type_admin"]', [
+            'user_type_admin[roles]' => ['ROLE_ADMIN'],
+        ], 'input[type="submit"]');
+
+        $I->seeCurrentRouteIs('app_recettes_index');
+        $I->seeResponseCodeIsSuccessful();
+        $I->assertEquals(['ROLE_ADMIN', 'ROLE_USER'], $usertest->getRoles());
+    }
 }
