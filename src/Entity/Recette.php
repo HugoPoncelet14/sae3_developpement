@@ -19,7 +19,7 @@ class Recette
     #[ORM\Column(length: 50)]
     private ?string $nomRec = null;
 
-    #[ORM\Column(length: 250)]
+    #[ORM\Column(length: 1000)]
     private ?string $descRec = null;
 
     #[ORM\Column(type: Types::BLOB, nullable: true)]
