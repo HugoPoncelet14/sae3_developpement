@@ -43,7 +43,7 @@ class RecetteRepository extends ServiceEntityRepository
     public function recommandation(): array
     {
         $qb = $this->createQueryBuilder('r')
-        ->setMaxResults(4);
+        ->setMaxResults(5);
         $query = $qb->getQuery();
 
         return $query->execute();
@@ -76,8 +76,18 @@ class RecetteRepository extends ServiceEntityRepository
         return $this->paginator->paginate(
             $query,
             $search->page,
-            3,
+            6,
         );
+    }
+
+    public function fastRecipe(): array
+    {
+        $query = $this->createQueryBuilder('r')
+            ->where('r.tpsDePrep + r.tpsCuisson < 60');
+
+        $res = $query->getQuery();
+
+        return $res->getResult();
     }
 
     //    /**

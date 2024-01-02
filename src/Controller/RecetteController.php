@@ -19,10 +19,12 @@ class RecetteController extends AbstractController
     public function index(RecetteRepository $recetteRepository): Response
     {
         $recommandations = $recetteRepository->recommandation();
+        $recettes_rapides = $recetteRepository->fastRecipe();
 
         return $this->render('recette/index.html.twig', [
             'controller_name' => 'RecetteController',
             'recettes' => $recommandations,
+            'recettesRapides' => $recettes_rapides,
         ]);
     }
 

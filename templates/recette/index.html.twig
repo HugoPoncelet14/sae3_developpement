@@ -8,10 +8,67 @@
     <div class="recommandations_container" id="home-page">
     {% for recette in recettes %}
         <a class="recipe_container" href="/recettes/{{ recette.id }}">
-            <div class="recipe_image-box"><img  src="/recettes/{{ recette.id }}/image"
-                                                        alt="Image de {{ recette.nomRec }}"></div>
-                    <div class="recipe_title-box"><h5>{{ recette.nomRec }}</h5></div>
+            <div class="recipe_image-box">
+                <img class="recommandations_image" src="/recettes/{{ recette.id }}/image" alt="Image de {{ recette.nomRec }}"></div>
+            <div class="recipe_title-box"><h5>{{ recette.nomRec }}</h5></div>
+        </a>
+    {% endfor %}
+    </div>
+
+    <h1 class="title_small-padding" id="home-page">Recettes rapides</h1>
+    <div class="fast-recipe_parent-container">
+        <div class="fast-recipe_child1-container">
+            {% for i in range(3, 4) %}
+                <a class="recipe_container" href="/recettes/{{ recettesRapides[i].id }}">
+                    <div class="recipe_image-box">
+                        <img class="recommandations_image" src="/recettes/{{ recettesRapides[i].id }}/image" alt="Image de {{ recettesRapides[i].nomRec }}">
+                    </div>
+                    <div class="recipe_title-box">
+                        <h5>{{ recettesRapides[i].nomRec }}</h5>
+                    </div>
                 </a>
             {% endfor %}
         </div>
+        <div class="fast-recipe_child2-container">
+            <div class="fast-recipe_child21-container">
+                {% for i in range(5,6) %}
+                <a class="recipe_container" href="/recettes/{{ recettesRapides[i].id }}">
+                    <div class="recipe_image-box">
+                        <img class="recommandations_image" src="/recettes/{{ recettesRapides[i].id }}/image" alt="Image de {{ recettesRapides[i].nomRec }}">
+                    </div>
+                    <div class="recipe_title-box">
+                        <h5>{{ recettesRapides[i].nomRec }}</h5>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="fast-recipe_child22-container">
+                <div class="fast-recipe_child221-container">
+                    {% for i in range(7,8) %}
+                        <a class="recipe_container" href="/recettes/{{ recettesRapides[i].id }}">
+                            <div class="recipe_image-box">
+                                <img class="recommandations_image" src="/recettes/{{ recettesRapides[i].id }}/image" alt="Image de {{ recettesRapides[i].nomRec }}">
+                            </div>
+                            <div class="recipe_title-box">
+                                <h5>{{ recettesRapides[i].nomRec }}</h5>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="fast-recipe_child222-container">
+                    {% for i in range(9,10) %}
+                        <a class="recipe_container" href="/recettes/{{ recettesRapides[i].id }}">
+                            <div class="recipe_image-box">
+                                <img class="recommandations_image" src="/recettes/{{ recettesRapides[i].id }}/image" alt="Image de {{ recettesRapides[i].nomRec }}">
+                            </div>
+                            <div class="recipe_title-box">
+                                <h5>{{ recettesRapides[i].nomRec }}</h5>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
