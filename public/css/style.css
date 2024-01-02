@@ -258,7 +258,7 @@ input[type="date"], .form-control {
     width: 16rem;
     height: 25rem;
     border-radius: 0.5rem;
-    transition: width 0.5s;
+    transition: height 0.5s, width 0.5s;
 }
 
 .recommandations_container > .recipe_container{
@@ -472,6 +472,10 @@ details#allergies {
     margin-top: 3px;
 }
 
+.fast-recipe_child1-container .recipe_container:hover{
+    filter: brightness(90%);
+}
+
 .fast-recipe_child2-container {
     display: flex;
     flex-direction: column;
@@ -492,6 +496,10 @@ details#allergies {
     height: 100%;
     margin-left: 3px;
     margin-right: 3px;
+}
+
+.fast-recipe_child21-container .recipe_container:hover{
+    filter: brightness(90%);
 }
 
 .fast-recipe_child22-container {
@@ -526,6 +534,11 @@ details#allergies {
     height: 100%;
     margin-left: 3px;
     margin-right: 3px;
+}
+
+.fast-recipe_child221-container .recipe_container:hover,
+.fast-recipe_child222-container .recipe_container:hover{
+    filter: brightness(90%);
 }
 
 
