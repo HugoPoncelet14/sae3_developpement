@@ -80,6 +80,16 @@ class RecetteRepository extends ServiceEntityRepository
         );
     }
 
+    public function fastRecipe(): array
+    {
+        $query = $this->createQueryBuilder('r')
+            ->where('r.tpsDePrep + r.tpsCuisson < 60');
+
+        $res = $query->getQuery();
+
+        return $res->getResult();
+    }
+
     //    /**
     //     * @return Recette[] Returns an array of Recette objects
     //     */
