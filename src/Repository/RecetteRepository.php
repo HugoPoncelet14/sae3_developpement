@@ -43,7 +43,7 @@ class RecetteRepository extends ServiceEntityRepository
     public function recommandation(): array
     {
         $qb = $this->createQueryBuilder('r')
-        ->setMaxResults(4);
+        ->setMaxResults(5);
         $query = $qb->getQuery();
 
         return $query->execute();
