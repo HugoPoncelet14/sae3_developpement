@@ -25,7 +25,9 @@ class RecetteFixtures extends Fixture implements DependentFixtureInterface
         $progressBar->setFormat('verbose');
 
         foreach ($recettes as $infoRecette) {
-            $recette = ['nomRec' => $infoRecette['nomRec'],
+            $recette = [
+                'nomRec' => $infoRecette['nomRec'],
+                'descRec' => $infoRecette['descRec'],
                 'tpsDePrep' => $infoRecette['tpsDePrep'],
                 'nbrPers' => $infoRecette['nbrPers'],
             ];
