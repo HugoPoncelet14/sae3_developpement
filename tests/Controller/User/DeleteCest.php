@@ -124,4 +124,23 @@ class DeleteCest
         $I->amOnPage('/user/2/delete');
         $I->seeResponseCodeIs(404);
     }
+
+    public function UserDeleteUs(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('/user/1/delete');
+        $I->click('Confirmer la supression');
+        $I->seeCurrentRouteIs('app_recettes_index');
+        $I->seeElement('a[class="login-button"]');
+        $I->amOnPage('/user/1/delete');
+        $I->seeResponseCodeIs(404);
+    }
 }
