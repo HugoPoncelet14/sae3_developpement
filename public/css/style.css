@@ -278,7 +278,7 @@ input[type="date"], .form-control {
 .recipe_title-box h5 {
     color: white;
     font-size: 24px;
-    font-weight: 1000;
+    font-weight: 650;
     -webkit-text-stroke: 1px black;
 }
 
@@ -448,6 +448,7 @@ details#allergies {
 
 .login-button:hover {
     color: black;
+    background-color: lightgray;
 }
 
 .fast-recipe_parent-container {
