@@ -31,10 +31,15 @@
         <details id="allergies">
             <summary id="allergies">Allergies</summary>
                 <ul>
-                    {% for element in user.allergenes %}
-                    <li>{{ element.nomAll }}</li>
-                    {% endfor %}
+                    {% if user.allergenes|length != 0 %}
+                        {% for element in user.allergenes %}
+                        <li>{{ element.nomAll }}</li>
+                        {% endfor %}
+                        {% else %}
+                        <li>Pas d'allergies</li>
+                    {% endif %}
                 </ul>
+
         </details>
     </dl>
     <div class="profile_delete-button-container">
