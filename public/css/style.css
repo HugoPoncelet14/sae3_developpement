@@ -313,6 +313,10 @@ input[type="date"], .form-control {
     border-radius: 0.5rem;
 }
 
+.details-text_container {
+    width: 60%;
+}
+
 .details_title {
     padding-top: 2rem;
 }
