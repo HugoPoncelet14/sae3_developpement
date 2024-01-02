@@ -258,24 +258,27 @@ input[type="date"], .form-control {
     border-radius: 0.5rem;
     margin-left: 0.375rem;
     margin-right: 0.375rem;
+    transition: width 0.5s;
 }
 
 .recipe_title-box{
     display: flex;
-    width: 12rem;
-    background-color: rgba(255,255,255,90%);
+    max-width: 80%;
     position: absolute;
     bottom: 1rem;
     left: 1rem;
     border-radius: 0.35rem;
 }
 
-.recipe_container:hover .recipe_title-box{
-    background-color: rgb(255,255,255);
+.recipe_title-box h5 {
+    color: white;
+    font-size: 24px;
+    font-weight: 1000;
+    -webkit-text-stroke: 1px black;
 }
 
-.recipe_title-box > h5 {
-    padding-left: 0.75rem
+.recipe_container:hover{
+    width: 25rem;
 }
 
 .recipe_image-box{
@@ -311,6 +314,10 @@ input[type="date"], .form-control {
     width: 16rem;
     height: 16rem;
     border-radius: 0.5rem;
+}
+
+.details-text_container {
+    width: 60%;
 }
 
 .details_title {
