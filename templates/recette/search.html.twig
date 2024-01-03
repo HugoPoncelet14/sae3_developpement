@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}page{% endblock %}
+{% block title %}Résultat de recherche : {{ search }}{% endblock %}
 
 {% block body %}
     <div class="resultat">
-        <h1 class="title_small-padding" id="home-page"> Resultats pour "{{ search }}": </h1>
-        <ul>
+        <div class="title_container">
+            <h1 class="title_small-padding" id="home-page"> Résultats pour: {{ search }} </h1>
+            <span id="count">{{ recettes|length }} recettes</span>
+        </div>
         {% for recette in recettes %}
             <a href="/recettes/{{ recette.id }}">
                 {% include 'recette/_recette.html.twig' with {recette: recette} only %}

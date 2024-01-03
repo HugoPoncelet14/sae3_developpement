@@ -101,8 +101,8 @@ body {
     justify-content: start;
     flex: 2;
     gap: 0.25rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 7rem;
+    margin-bottom: 2rem;
     padding: 0 2rem 1rem 2rem;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -117,6 +117,10 @@ body {
     margin-bottom: 1rem;
     padding: 8.5rem 2rem 8.5rem 2rem;
     gap: 1rem;
+}
+
+.signup_form{
+    width: 50%
 }
 
 .auth-form__container a{
@@ -155,9 +159,15 @@ form#auth {
     margin-top: 0.5rem;
 }
 
+.auth-button.custom-size {
+    width: 100%;
+}
+
 .auth-button:hover{
     background-color: #612C05;
 }
+
+
 
 hr {
     border: 0;
@@ -166,6 +176,10 @@ hr {
     background-color:black;
     height: 1px;
     width: 20rem;
+}
+
+hr#signup {
+    width: 50%;
 }
 
 .main>a {
@@ -237,7 +251,7 @@ input[type="date"], .form-control {
 }
 
 .form-control.custom-size {
-    width: 20rem;
+    width: 100%;
 }
 
 .recommandations_container {

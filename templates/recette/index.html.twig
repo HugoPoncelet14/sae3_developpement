@@ -4,7 +4,9 @@
 
 {% block body %}
 
-    <h1 class="title_small-padding" id="home-page">Nos recommandations</h1>
+    <div class="title_container">
+        <h1 class="title_small-padding" id="home-page">Nos recommandations</h1>
+    </div>
     <div class="recommandations_container" id="home-page">
     {% for recette in recettes %}
         <a class="recipe_container" href="/recettes/{{ recette.id }}">

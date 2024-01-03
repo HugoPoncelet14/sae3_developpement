@@ -49,6 +49,7 @@ class UserType extends AbstractType
                 'choice_label' => 'nomAll',
                 'multiple' => true,
                 'expanded' => true,
+                'label' => false,
             ])
 
         ;

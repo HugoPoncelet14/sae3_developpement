@@ -1,16 +1,19 @@
-{{ form_start(form) }}
-    {{ form_row(form.email) }}
-    {% if form.password is defined %}
-        {{ form_row(form.password) }}
-    {% endif %}
-    {{ form_row(form.nom) }}
-    {{ form_row(form.prenom) }}
-    {{ form_row(form.pseudo) }}
-    {{ form_row(form.dateNais) }}
-    {{ form_row(form.photoProfil) }}
-    {{ form_row(form.allergenes) }}
-    {% if form.roles is defined %}
-        {{ form_row(form.roles) }}
-    {% endif %}
-<input class="w-100 btn btn-primary" type="submit" value={{ submit_label }}>
-{{ form_end(form)}}
+ {{ form_start(form, {'attr': {'class': 'signup_form', 'id': 'auth signup'}}) }}
+        {{ form_row(form.nom, {'attr': {'class': 'form-control custom-size'}}) }}
+        {{ form_row(form.prenom, {'attr': {'class': 'form-control custom-size'}}) }}
+        {{ form_row(form.pseudo, {'attr': {'class': 'form-control custom-size'}}) }}
+        {{ form_row(form.dateNais, {'attr': {'class': 'form-control custom-size'}}) }}
+        {{ form_row(form.photoProfil, {'attr': {'class': 'form-control custom-size'}}) }}
+        {{ form_row(form.email, {'attr': {'class': 'form-control custom-size'}}) }}
+        {% if form.password is defined %}
+            {{ form_row(form.password, {'attr': {'class': 'form-control custom-size'}}) }}
+        {% endif %}
+    <details id="allergies">
+        <summary id="allergies">Allergies</summary>
+        {{ form_row(form.allergenes) }}
+    </details>
+        {% if form.roles is defined %}
+            {{ form_row(form.roles) }}
+        {% endif %}
+    <input class="auth-button custom-size" type="submit" value={{ submit_label }}>
+    {{ form_end(form)}}
