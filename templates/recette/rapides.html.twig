@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Recettes rapides{% endblock %}
+
+{% block body %}
+    <div class="resultat">
+        <h1 class="title_small-padding" id="home-page"> Recettes rapides </h1>
+        <ul>
+            {% for recette in recettes %}
+                <a href="/recettes/{{ recette.id }}">
+                    {% include 'recette/_recette.html.twig' with {recette: recette} only %}
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+
