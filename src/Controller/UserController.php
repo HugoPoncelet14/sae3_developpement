@@ -41,7 +41,7 @@ class UserController extends AbstractController
         return $response;
     }
 
-    #[Route('/user/create')]
+    #[Route('/signup')]
     public function create(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
