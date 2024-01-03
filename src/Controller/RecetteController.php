@@ -78,4 +78,15 @@ class RecetteController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/recettes-rapides', name: 'app_recettes_rapides')]
+    public function recettesRapides(RecetteRepository $recetteRepository): Response
+    {
+        $recettesRapides = $recetteRepository->fastRecipe();
+
+        return $this->render('recette/rapides.html.twig', [
+            'recettes' => $recettesRapides,
+            'count' => count($recettesRapides),
+        ]);
+    }
 }

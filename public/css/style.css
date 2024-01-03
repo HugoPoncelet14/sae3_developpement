@@ -539,4 +539,25 @@ details#allergies {
     filter: brightness(90%);
 }
 
+.title_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
 
+a#voir-tout {
+    font-size: 1.2rem;
+    color: #AD4F09;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+span#count {
+    font-size: 1.1rem;
+    color: gray;
+    margin-left: 10%;
+}
+
+.title_container > h1 {
+    margin-left: 3%;
+}
