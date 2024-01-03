@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\IngrediantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: IngrediantRepository::class)]
@@ -24,6 +25,9 @@ class Ingrediant
 
     #[ORM\OneToMany(mappedBy: 'ingrediant', targetEntity: Quantite::class)]
     private Collection $quantites;
+
+    #[ORM\Column(type: Types::BLOB, nullable: true)]
+    private $imgIng = null;
 
     public function __construct()
     {
@@ -85,6 +89,18 @@ class Ingrediant
                 $quantite->setIngrediant(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImgIng()
+    {
+        return $this->imgIng;
+    }
+
+    public function setImgIng($imgIng): static
+    {
+        $this->imgIng = $imgIng;
 
         return $this;
     }
