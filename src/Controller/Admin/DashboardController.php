@@ -8,6 +8,7 @@ use App\Entity\Ingrediant;
 use App\Entity\Pays;
 use App\Entity\Quantite;
 use App\Entity\Recette;
+use App\Entity\Region;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -40,6 +41,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Pays', 'fas fa-list', Pays::class);
         yield MenuItem::linkToCrud('Quantite', 'fas fa-list', Quantite::class);
         yield MenuItem::linkToCrud('Recette', 'fas fa-list', Recette::class);
+        yield MenuItem::linkToCrud('Region', 'fas fa-list', Region::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
     }
 }
