@@ -5,7 +5,10 @@
 
 {% block body %}
     <div class="resultat">
-        <h1 class="title_small-padding" id="home-page"> Recettes rapides </h1>
+        <div class="title_container">
+            <h1 class="title_small-padding" id="home-page"> Recettes rapides </h1>
+            <span id="count">{{ count }} recettes</span>
+        </div>
         <ul>
             {% for recette in recettes %}
                 <a href="/recettes/{{ recette.id }}">
