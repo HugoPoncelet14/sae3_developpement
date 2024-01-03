@@ -119,6 +119,10 @@ body {
     gap: 1rem;
 }
 
+.signup_form{
+    width: 50%
+}
+
 .auth-form__container a{
     color: #AD4F09;
 }
@@ -155,9 +159,15 @@ form#auth {
     margin-top: 0.5rem;
 }
 
+.auth-button.custom-size {
+    width: 100%;
+}
+
 .auth-button:hover{
     background-color: #612C05;
 }
+
+
 
 hr {
     border: 0;
@@ -166,6 +176,10 @@ hr {
     background-color:black;
     height: 1px;
     width: 20rem;
+}
+
+hr#signup {
+    width: 50%;
 }
 
 .main>a {
@@ -237,7 +251,7 @@ input[type="date"], .form-control {
 }
 
 .form-control.custom-size {
-    width: 20rem;
+    width: 100%;
 }
 
 .recommandations_container {
