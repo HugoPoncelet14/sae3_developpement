@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Allergene;
 use App\Entity\Ingrediant;
 use App\Entity\Recette;
 use App\Entity\User;
@@ -30,6 +31,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Recette', 'fas fa-list', Allergene::class);
         yield MenuItem::linkToCrud('Ingrediant', 'fas fa-list', Ingrediant::class);
         yield MenuItem::linkToCrud('Recette', 'fas fa-list', Recette::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
