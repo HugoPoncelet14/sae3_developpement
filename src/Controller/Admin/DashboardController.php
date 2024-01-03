@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Allergene;
+use App\Entity\Etape;
 use App\Entity\Ingrediant;
 use App\Entity\Recette;
 use App\Entity\User;
