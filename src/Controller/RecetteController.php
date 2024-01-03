@@ -86,6 +86,7 @@ class RecetteController extends AbstractController
 
         return $this->render('recette/rapides.html.twig', [
             'recettes' => $recettesRapides,
+            'count' => count($recettesRapides),
         ]);
     }
 }
