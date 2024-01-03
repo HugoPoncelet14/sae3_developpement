@@ -3,10 +3,12 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
-
-    {{ include('user/_form.html.twig', {'form': form, submit_label : "S'inscrire"}, with_context = false) }}
-
+    <div class="auth-form__container align-center" id="signup" style="padding: 3rem 2rem 3rem 2rem">
+        <h1>Inscription</h1>
+        {{ include('user/_form.html.twig', {'form': form, submit_label : "S'inscrire"}, with_context = false) }}
+        <hr id="signup">
+        <a href="{{ path('app_login') }}">Vous avez déjà un compte ? Connectez vous</a>
+    </div>
 {% endblock %}
 
 
