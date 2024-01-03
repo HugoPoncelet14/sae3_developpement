@@ -11,6 +11,7 @@ use App\Entity\Recette;
 use App\Entity\Region;
 use App\Entity\TypeRecette;
 use App\Entity\User;
+use App\Entity\Ustensile;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -45,5 +46,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Region', 'fas fa-list', Region::class);
         yield MenuItem::linkToCrud('Type Recette', 'fas fa-list', TypeRecette::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
+        yield MenuItem::linkToCrud('Ustansile', 'fas fa-list', Ustensile::class);
     }
 }
