@@ -10,14 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IngrediantController extends AbstractController
 {
-    #[Route('/ingredient', name: 'app_ingredient')]
-    public function index(): Response
-    {
-        return $this->render('ingrediant/index.html.twig', [
-            'controller_name' => 'IngrediantController',
-        ]);
-    }
-
     #[Route('/ingrediant/{id}/image', name: 'app_ingrediant_image')]
     public function showUserImage(int $id, IngrediantRepository $ingrediantRepository)
     {
@@ -32,5 +24,11 @@ class IngrediantController extends AbstractController
         $response->headers->set('Content-Type', 'image/png');
 
         return $response;
+    }
+
+    #[Route('/ingredient/{id}', name: 'app_ingredient_show')]
+    public function show(Ingrediant $ingrediant): Response
+    {
+        return $this->render('ingrediant/show.html.twig', ['ingrediant' => $ingrediant]);
     }
 }
