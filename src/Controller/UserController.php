@@ -9,6 +9,7 @@ use App\Form\UserTypeCreate;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -93,7 +94,7 @@ class UserController extends AbstractController
 
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('user/{id}/update', requirements: ['userId' => '\d+'])]
-    public function update(EntityManagerInterface $entityManager, User $user, Request $request, UserPasswordHasherInterface $passwordHasher): Response
+    public function update(EntityManagerInterface $entityManager, User $user, Request $request): Response
     {
         $currentUser = $this->getUser();
 
@@ -133,7 +134,7 @@ class UserController extends AbstractController
 
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('user/{id}/delete', requirements: ['userId' => '\d+'])]
-    public function delete(EntityManagerInterface $entityManager, User $user, Request $request, TokenStorageInterface $tokenStorage): Response
+    public function delete(EntityManagerInterface $entityManager, User $user, Request $request, TokenStorageInterface $tokenStorage, UserPasswordHasherInterface $passwordHasher): Response
     {
         $currentUser = $this->getUser();
 
@@ -152,11 +153,25 @@ class UserController extends AbstractController
         $form = $this->createFormBuilder()
             ->add('delete', SubmitType::class)
             ->add('cancel', SubmitType::class)
+            ->add('password', PasswordType::class)
             ->getForm();
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $form = $this->createFormBuilder()
+                ->add('delete', SubmitType::class)
+                ->add('cancel', SubmitType::class)
+                ->getForm();
+        }
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if ($form->get('delete')->isClicked()) {
+                if (!$this->isGranted('ROLE_ADMIN')) {
+                    $testPassword = $form->get('password')->getData();
+                    if (!$passwordHasher->isPasswordValid($user, $testPassword)) {
+                        return $this->redirectToRoute('app_user_show', ['id' => $user->getId()]);
+                    }
+                }
                 $entityManager->remove($user);
                 $entityManager->flush();
                 if ($currentUser === $user) {
