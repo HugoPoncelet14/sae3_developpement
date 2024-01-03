@@ -6,6 +6,7 @@ use App\Entity\Allergene;
 use App\Entity\Etape;
 use App\Entity\Ingrediant;
 use App\Entity\Pays;
+use App\Entity\Quantite;
 use App\Entity\Recette;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -33,10 +34,11 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Recette', 'fas fa-list', Allergene::class);
+        yield MenuItem::linkToCrud('Allergene', 'fas fa-list', Allergene::class);
         yield MenuItem::linkToCrud('Recette', 'fas fa-list', Etape::class);
         yield MenuItem::linkToCrud('Ingrediant', 'fas fa-list', Ingrediant::class);
-        yield MenuItem::linkToCrud('Ingrediant', 'fas fa-list', Pays::class);
+        yield MenuItem::linkToCrud('Pays', 'fas fa-list', Pays::class);
+        yield MenuItem::linkToCrud('Quantite', 'fas fa-list', Quantite::class);
         yield MenuItem::linkToCrud('Recette', 'fas fa-list', Recette::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
     }
