@@ -26,9 +26,6 @@ class Ingrediant
     #[ORM\OneToMany(mappedBy: 'ingrediant', targetEntity: Quantite::class)]
     private Collection $quantites;
 
-    #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $imgIng = null;
-
     public function __construct()
     {
         $this->quantites = new ArrayCollection();
@@ -103,5 +100,10 @@ class Ingrediant
         $this->imgIng = $imgIng;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->nomIng;
     }
 }
