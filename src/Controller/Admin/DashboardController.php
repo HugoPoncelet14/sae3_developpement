@@ -36,16 +36,21 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::section('Menu Principal');
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Allergene', 'fas fa-list', Allergene::class);
-        yield MenuItem::linkToCrud('Recette', 'fas fa-list', Etape::class);
-        yield MenuItem::linkToCrud('Ingrediant', 'fas fa-list', Ingrediant::class);
-        yield MenuItem::linkToCrud('Pays', 'fas fa-list', Pays::class);
-        yield MenuItem::linkToCrud('Quantite', 'fas fa-list', Quantite::class);
-        yield MenuItem::linkToCrud('Recette', 'fas fa-list', Recette::class);
-        yield MenuItem::linkToCrud('Region', 'fas fa-list', Region::class);
-        yield MenuItem::linkToCrud('Type Recette', 'fas fa-list', TypeRecette::class);
-        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
-        yield MenuItem::linkToCrud('Ustansile', 'fas fa-list', Ustensile::class);
+        yield MenuItem::section('Localisation');
+        yield MenuItem::linkToCrud('Pays', 'fas fa-earth-europe', Pays::class);
+        yield MenuItem::linkToCrud('Region', 'fas fa-flag', Region::class);
+        yield MenuItem::section('Recette');
+        yield MenuItem::linkToCrud('Allergene', 'fas fa-skull-crossbones', Allergene::class);
+        yield MenuItem::linkToCrud('Etape', 'fas fa-list-check', Etape::class);
+        yield MenuItem::linkToCrud('Ingrediant', 'fas fa-egg', Ingrediant::class);
+        yield MenuItem::linkToCrud('Quantite', 'fas fa-scale-balanced', Quantite::class);
+        yield MenuItem::linkToCrud('Recette', 'fas fa-pizza-slice', Recette::class);
+        yield MenuItem::linkToCrud('Type Recette', 'fas fa-cake-candles', TypeRecette::class);
+        yield MenuItem::linkToCrud('Ustansile', 'fas fa-utensils', Ustensile::class);
+        yield MenuItem::section('Utilisateur');
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
+
     }
 }
