@@ -7,6 +7,7 @@ use App\Form\IngredientType;
 use App\Repository\IngredientRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -86,5 +87,29 @@ class IngredientController extends AbstractController
         }
 
         return $this->render('ingredient/update.html.twig', ['ingredient' => $ingredient, 'form' => $form]);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('ingredient/{id}/delete', requirements: ['ingredientId' => '\d+'])]
+    public function delete(EntityManagerInterface $entityManager, Ingredient $ingredient, Request $request): Response
+    {
+        $form = $this->createFormBuilder()
+            ->add('delete', SubmitType::class)
+            ->add('cancel', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('delete')->isClicked()) {
+                $entityManager->remove($ingredient);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('app_home');
+            } else {
+                return $this->redirectToRoute('app_ingredient_show', ['id' => $ingredient->getId()]);
+            }
+        }
+
+        return $this->render('ingredient/delete.html.twig', ['ingredient' => $ingredient, 'form' => $form]);
     }
 }
