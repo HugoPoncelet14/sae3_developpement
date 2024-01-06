@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de l'ingredient suivant : {{ ingredient.nomIng }}{% endblock %}
+
+{% block body %}
+    <h1>Modification de l'ingredient suivant : {{ ingredient.nomIng }}</h1>
+    {{ include('ingredient/_form.html.twig', {'form': form, submit_label : "Modifier"}, with_context = false) }}
+{% endblock %}
