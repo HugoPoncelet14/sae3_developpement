@@ -2,32 +2,32 @@
 
 namespace App\Factory;
 
-use App\Entity\Ingrediant;
-use App\Repository\IngrediantRepository;
+use App\Entity\Ingredient;
+use App\Repository\IngredientRepository;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
 
 /**
- * @extends ModelFactory<Ingrediant>
+ * @extends ModelFactory<Ingredient>
  *
- * @method        Ingrediant|Proxy                     create(array|callable $attributes = [])
- * @method static Ingrediant|Proxy                     createOne(array $attributes = [])
- * @method static Ingrediant|Proxy                     find(object|array|mixed $criteria)
- * @method static Ingrediant|Proxy                     findOrCreate(array $attributes)
- * @method static Ingrediant|Proxy                     first(string $sortedField = 'id')
- * @method static Ingrediant|Proxy                     last(string $sortedField = 'id')
- * @method static Ingrediant|Proxy                     random(array $attributes = [])
- * @method static Ingrediant|Proxy                     randomOrCreate(array $attributes = [])
- * @method static IngrediantRepository|RepositoryProxy repository()
- * @method static Ingrediant[]|Proxy[]                 all()
- * @method static Ingrediant[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
- * @method static Ingrediant[]|Proxy[]                 createSequence(iterable|callable $sequence)
- * @method static Ingrediant[]|Proxy[]                 findBy(array $attributes)
- * @method static Ingrediant[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
- * @method static Ingrediant[]|Proxy[]                 randomSet(int $number, array $attributes = [])
+ * @method        Ingredient|Proxy                     create(array|callable $attributes = [])
+ * @method static Ingredient|Proxy                     createOne(array $attributes = [])
+ * @method static Ingredient|Proxy                     find(object|array|mixed $criteria)
+ * @method static Ingredient|Proxy                     findOrCreate(array $attributes)
+ * @method static Ingredient|Proxy                     first(string $sortedField = 'id')
+ * @method static Ingredient|Proxy                     last(string $sortedField = 'id')
+ * @method static Ingredient|Proxy                     random(array $attributes = [])
+ * @method static Ingredient|Proxy                     randomOrCreate(array $attributes = [])
+ * @method static IngredientRepository|RepositoryProxy repository()
+ * @method static Ingredient[]|Proxy[]                 all()
+ * @method static Ingredient[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Ingredient[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Ingredient[]|Proxy[]                 findBy(array $attributes)
+ * @method static Ingredient[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Ingredient[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
-final class IngrediantFactory extends ModelFactory
+final class IngredientFactory extends ModelFactory
 {
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
@@ -72,12 +72,12 @@ final class IngrediantFactory extends ModelFactory
     protected function initialize(): self
     {
         return $this
-            // ->afterInstantiate(function(Ingrediant $ingrediant): void {})
+            // ->afterInstantiate(function(Ingredient $ingredient): void {})
         ;
     }
 
     protected static function getClass(): string
     {
-        return Ingrediant::class;
+        return Ingredient::class;
     }
 }

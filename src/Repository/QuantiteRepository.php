@@ -24,7 +24,7 @@ class QuantiteRepository extends ServiceEntityRepository
     public function AllQuantiteByRecetteId(int $idRec): array
     {
         $qb = $this->createQueryBuilder('q')
-            ->innerJoin('q.ingrediant', 'i')
+            ->innerJoin('q.ingredient', 'i')
             ->innerJoin('q.recette', 'r')
             ->addSelect('i as ingredient')
             ->where('r.id = :id')
