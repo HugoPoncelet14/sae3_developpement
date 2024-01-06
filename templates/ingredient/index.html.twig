@@ -8,6 +8,12 @@
         {% for ingredient in ingredients %}
             <li>
                 <a class="ingredient" href="{{ path('app_ingredient_show', {id: ingredient.id}) }}"><span class="nomIng">{{ ingredient.nomIng }}</span></a>
+                <a href="{{ path('app_ingredient_update', {'id':ingredient.id}) }}">
+                    <span class="material-symbols-outlined text-warning">edit</span>
+                </a>
+                <a href="{{ path('app_ingredient_delete', {'id':ingredient.id}) }}">
+                    <span class="material-symbols-outlined text-danger">delete</span>
+                </a>
             </li>
         {% endfor %}
     </ul>
