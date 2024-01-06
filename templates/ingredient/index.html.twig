@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des ingrédients{% endblock %}
+
+{% block body %}
+    <h1>Liste des ingrédients</h1>
+    <ul class="ingredients">
+        {% for ingredient in ingredients %}
+            <li>
+                <a class="ingredient" href="{{ path('app_ingredient_show', {id: ingredient.id}) }}"><span class="nomIng">{{ ingredient.nomIng }}</span></a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+
