@@ -15,8 +15,17 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class IngredientController extends AbstractController
 {
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/ingredient', name: 'app_ingredient')]
+    public function index(IngredientRepository $ingredientRepository): Response
+    {
+        $ingredients = $ingredientRepository->findBy([], ['nomIng' => 'ASC']);
+
+        return $this->render('ingredient/index.html.twig', ['ingredients' => $ingredients]);
+    }
+
     #[Route('/ingredient/{id}/image', name: 'app_ingredient_image')]
-    public function showingredientImage(int $id, IngredientRepository $ingredientRepository)
+    public function showIngredientImage(int $id, IngredientRepository $ingredientRepository)
     {
         $dir = __DIR__;
         $ingredient = $ingredientRepository->findOneBy(['id' => $id]);
