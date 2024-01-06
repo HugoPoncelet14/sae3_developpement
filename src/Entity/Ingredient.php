@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\IngrediantRepository;
+use App\Repository\IngredientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: IngrediantRepository::class)]
-class Ingrediant
+#[ORM\Entity(repositoryClass: IngredientRepository::class)]
+class Ingredient
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,11 +19,11 @@ class Ingrediant
     #[ORM\Column(length: 50)]
     private ?string $nomIng = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ingrediants')]
+    #[ORM\ManyToOne(inversedBy: 'ingredients')]
     #[ORM\JoinColumn(nullable: true)]
     private ?Allergene $allergene = null;
 
-    #[ORM\OneToMany(mappedBy: 'ingrediant', targetEntity: Quantite::class)]
+    #[ORM\OneToMany(mappedBy: 'ingredient', targetEntity: Quantite::class)]
     private Collection $quantites;
 
     #[ORM\Column(type: Types::BLOB, nullable: true)]
@@ -75,7 +75,7 @@ class Ingrediant
     {
         if (!$this->quantites->contains($quantite)) {
             $this->quantites->add($quantite);
-            $quantite->setIngrediant($this);
+            $quantite->setIngredient($this);
         }
 
         return $this;
@@ -85,8 +85,8 @@ class Ingrediant
     {
         if ($this->quantites->removeElement($quantite)) {
             // set the owning side to null (unless already changed)
-            if ($quantite->getIngrediant() === $this) {
-                $quantite->setIngrediant(null);
+            if ($quantite->getIngredient() === $this) {
+                $quantite->setIngredient(null);
             }
         }
 
