@@ -292,4 +292,8 @@ class Recette
 
         return $this;
     }
+    public function __toString(): string
+    {
+        return $this->nomRec;
+    }
 }
