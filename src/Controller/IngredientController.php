@@ -15,7 +15,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 class IngredientController extends AbstractController
 {
     #[Route('/ingredient/{id}/image', name: 'app_ingredient_image')]
-    public function showUserImage(int $id, IngredientRepository $ingredientRepository)
+    public function showingredientImage(int $id, IngredientRepository $ingredientRepository)
     {
         $dir = __DIR__;
         $ingredient = $ingredientRepository->findOneBy(['id' => $id]);
@@ -62,5 +62,29 @@ class IngredientController extends AbstractController
         return $this->render('ingredient/show.html.twig', ['ingredient' => $ingredient]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('ingredient/{id}/update', requirements: ['ingredientId' => '\d+'])]
+    public function update(EntityManagerInterface $entityManager, Ingredient $ingredient, Request $request): Response
+    {
+        $form = $this->createForm(IngredientType::class, $ingredient);
 
+        $lastImg = $ingredient->getimgIng();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $ingredient = $form->getData();
+
+            if (null !== $form->get('imgIng')->getData()) {
+                $imageFile = $form->get('imgIng')->getData();
+                $ingredient->setimgIng(file_get_contents($imageFile->getPathname()));
+            } else {
+                $ingredient->setimgIng($lastImg);
+            }
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_ingredient_show', ['id' => $ingredient->getId()]);
+        }
+
+        return $this->render('ingredient/update.html.twig', ['ingredient' => $ingredient, 'form' => $form]);
+    }
 }
