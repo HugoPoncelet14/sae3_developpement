@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Factory\IngrediantFactory;
+use App\Factory\IngredientFactory;
 use App\Factory\QuantiteFactory;
 use App\Factory\RecetteFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -35,7 +35,7 @@ class QuantiteFixtures extends Fixture implements DependentFixtureInterface
             }
 
             if (isset($infoQuantite['nomIng'])) {
-                $quantite['ingrediant'] = IngrediantFactory::random(['nomIng' => $infoQuantite['nomIng']]);
+                $quantite['ingredient'] = ingredientFactory::random(['nomIng' => $infoQuantite['nomIng']]);
             }
 
             QuantiteFactory::createOne($quantite);
@@ -48,6 +48,6 @@ class QuantiteFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies(): array
     {
-        return [RecetteFixtures::class, IngrediantFixtures::class];
+        return [RecetteFixtures::class, IngredientFixtures::class];
     }
 }

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ ingredient.nomIng }}{% endblock %}
+
+{% block body %}
+    <h1 class="title_small-padding">{{ ingredient.nomIng }}</h1>
+    <div class="ingredient_info-container">
+        <div class="recipe_image-container" id="ingredient">
+            <div class="recipe_image-box" id="ingredient">
+                <img  src="/ingredient/{{ ingredient.id }}/image" alt="Image de l'ingredient">
+            </div>
+        </div>
+        <div class="user_allergene-container">
+            <dl>
+                <dt>Allergene associé</dt><dd>{{ ingredient.allergene.nomAll ?? 'Aucun allergenne' }}</dd>
+            </dl>
+        </div>
+    </div>
+    <a class="profile_update-button btn btn-lg" href="{{ path('app_ingredient_update', {'id': ingredient.id}) }}" role="button">Modifier</a>
+    <div class="profile_delete-button-container">
+        <a class="profile_delete-button btn btn-lg btn-danger" href="{{ path('app_ingredient_delete', {'id': ingredient.id}) }}" role="button">Supprimer</a>
+    </div>
+
+{% endblock %}
+
+
+

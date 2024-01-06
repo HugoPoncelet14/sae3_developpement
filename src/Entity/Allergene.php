@@ -18,16 +18,15 @@ class Allergene
     #[ORM\Column(length: 50)]
     private ?string $nomAll = null;
 
-    #[ORM\OneToMany(mappedBy: 'allergene', targetEntity: Ingrediant::class)]
-    private Collection $ingrediants;
+    #[ORM\OneToMany(mappedBy: 'allergene', targetEntity: Ingredient::class)]
+    private Collection $ingredients;
 
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'allergenes')]
     private Collection $users;
 
     public function __construct()
     {
-        $this->personnes = new ArrayCollection();
-        $this->ingrediants = new ArrayCollection();
+        $this->ingredients = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
 
@@ -49,56 +48,29 @@ class Allergene
     }
 
     /**
-     * @return Collection<int, Personne>
+     * @return Collection<int, Ingredient>
      */
-    public function getPersonnes(): Collection
+    public function getIngredients(): Collection
     {
-        return $this->personnes;
+        return $this->ingredients;
     }
 
-    public function addPersonne(Personne $personne): static
+    public function addIngredient(Ingredient $ingredient): static
     {
-        if (!$this->personnes->contains($personne)) {
-            $this->personnes->add($personne);
-            $personne->addAllergene($this);
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients->add($ingredient);
+            $ingredient->setAllergene($this);
         }
 
         return $this;
     }
 
-    public function removePersonne(Personne $personne): static
+    public function removeIngredient(Ingredient $ingredient): static
     {
-        if ($this->personnes->removeElement($personne)) {
-            $personne->removeAllergene($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Ingrediant>
-     */
-    public function getIngrediants(): Collection
-    {
-        return $this->ingrediants;
-    }
-
-    public function addIngrediant(Ingrediant $ingrediant): static
-    {
-        if (!$this->ingrediants->contains($ingrediant)) {
-            $this->ingrediants->add($ingrediant);
-            $ingrediant->setAllergene($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIngrediant(Ingrediant $ingrediant): static
-    {
-        if ($this->ingrediants->removeElement($ingrediant)) {
+        if ($this->ingredients->removeElement($ingredient)) {
             // set the owning side to null (unless already changed)
-            if ($ingrediant->getAllergene() === $this) {
-                $ingrediant->setAllergene(null);
+            if ($ingredient->getAllergene() === $this) {
+                $ingredient->setAllergene(null);
             }
         }
 

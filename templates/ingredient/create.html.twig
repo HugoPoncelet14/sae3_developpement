@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un ingrédient{% endblock %}
+
+{% block body %}
+    <h1>Création d'un ingrédient</h1>
+    {{ include('ingredient/_form.html.twig', {'form': form, submit_label : "Créer"}, with_context = false) }}
+{% endblock %}
+
+
+

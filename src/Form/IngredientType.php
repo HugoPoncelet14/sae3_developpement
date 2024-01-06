@@ -3,40 +3,27 @@
 namespace App\Form;
 
 use App\Entity\Allergene;
-use App\Entity\User;
+use App\Entity\Ingredient;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 
-class UserType extends AbstractType
+class IngredientType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class)
-            ->add('nom', null, [
+            ->add('nomIng', null, [
                 'empty_data' => '',
+                'label' => 'Nom de l\'ingrédient',
             ])
-            ->add('prenom', null, [
-                'empty_data' => '',
-            ])
-            ->add('dateNais', DateType::class, [
-                'label' => 'Date de naissance',
-                'required' => false,
-                'years' => range(date('Y') - 100, date('Y')),
-            ])
-            ->add('pseudo', null, [
-                'empty_data' => '',
-            ])
-            ->add('photoProfil', FileType::class, [
+            ->add('imgIng', FileType::class, [
                 'required' => false,
                 'mapped' => false,
-                'label' => 'Photo de profil',
+                'label' => 'Image de l\'ingrédient',
                 'constraints' => [
                     new File([
                         'mimeTypes' => ['image/jpeg', 'image/png', 'image/jpg'],
@@ -44,21 +31,19 @@ class UserType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('allergenes', EntityType::class, [
+            ->add('allergene', EntityType::class, [
+                'required' => false,
                 'class' => Allergene::class,
                 'choice_label' => 'nomAll',
-                'multiple' => true,
                 'expanded' => true,
-                'label' => false,
             ])
-
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => Ingredient::class,
         ]);
     }
 }

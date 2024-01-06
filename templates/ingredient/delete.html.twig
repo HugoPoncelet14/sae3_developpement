@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suppression de l'ingredient suivant : {{ ingredient.nomIng }}{% endblock %}
+
+{% block body %}
+    <h1>Suppression de l'ingredient suivant : {{ ingredient.nomIng }}</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.delete, {'label' : 'Confirmer la supression'}) }}
+        {{ form_row(form.cancel, {'label' : 'Annuler'}) }}
+    {{ form_end(form) }}
+
+{% endblock %}
