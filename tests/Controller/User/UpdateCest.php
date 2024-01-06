@@ -31,7 +31,7 @@ class UpdateCest
         $I->see('Pseudo', 'label');
         $I->see('Date de naissance', 'legend');
         $I->see('Photo de profil', 'label');
-        $I->see('Allergenes', 'legend');
+        $I->see('allergies', 'details');
         $I->see('Rôle', 'legend');
         $I->seeElement('//input[@type="submit" and @value="Modifier"]');
     }
@@ -56,7 +56,7 @@ class UpdateCest
         $I->see('Pseudo', 'label');
         $I->see('Date de naissance', 'legend');
         $I->see('Photo de profil', 'label');
-        $I->see('Allergenes', 'legend');
+        $I->see('allergies', 'details');
         $I->dontSee('Rôle', 'legend');
         $I->seeElement('//input[@type="submit" and @value="Modifier"]');
     }

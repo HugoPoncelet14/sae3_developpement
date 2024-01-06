@@ -137,6 +137,7 @@ class DeleteCest
         $I->amLoggedInAs($realuser);
 
         $I->amOnPage('/user/1/delete');
+        $I->fillField('form[password]', 'test');
         $I->click('Confirmer la supression');
         $I->seeCurrentRouteIs('app_recettes_index');
         $I->seeElement('a[class="login-button"]');
