@@ -39,8 +39,8 @@ class UserType extends AbstractType
                 'label' => 'Photo de profil',
                 'constraints' => [
                     new File([
-                        'mimeTypes' => ['image/jpeg', 'image/png'],
-                        'mimeTypesMessage' => 'Veuillez entrer un type mime valide (JPEG,PNG)',
+                        'mimeTypes' => ['image/jpeg', 'image/png', 'image/jpg'],
+                        'mimeTypesMessage' => 'Veuillez entrer un type mime valide (JPEG,JPG,PNG)',
                     ]),
                 ],
             ])
