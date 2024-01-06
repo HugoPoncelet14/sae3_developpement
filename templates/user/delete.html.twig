@@ -4,9 +4,15 @@
 
 {% block body %}
     <h1>Suppression de {{ user.nom }}, {{ user.prenom }}</h1>
+
     {{ form_start(form, {'attr' : {'class' : 'd-flex'}}) }}
 
+    {% if form.password is defined %}
+        {{ form_row(form.password, {'attr': {'class': 'form-control custom-size'}}) }}
+    {% endif %}
+
     {{ form_row(form.delete, {'label' : 'Confirmer la supression', 'attr' : {'class' : 'btn btn-primary'} }) }}
+
     {{ form_row(form.cancel, {'label' : 'Annuler', 'attr' : {'class' : 'btn btn-secondary'} }) }}
 
     {{ form_end(form) }}

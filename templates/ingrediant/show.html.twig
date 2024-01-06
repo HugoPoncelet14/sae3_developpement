@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ ingrediant.nomIng }}{% endblock %}
+
+{% block body %}
+    <h1 class="title_small-padding">{{ ingrediant.nomIng }}</h1>
+    <div class="ingrediant_info-container">
+        <div class="recipe_image-container" id="ingrediant">
+            <div class="recipe_image-box" id="ingrediant">
+                <img  src="/ingrediant/{{ ingrediant.id }}/image" alt="Image de l'ingredient">
+            </div>
+        </div>
+        <div class="user_allergene-container">
+            <dl>
+                <dt>Allergene associé</dt><dd>{{ ingrediant.allergene.nomAll ?? 'Aucun allergenne' }}</dd>
+            </dl>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

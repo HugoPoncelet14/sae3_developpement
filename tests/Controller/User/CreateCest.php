@@ -9,7 +9,7 @@ class CreateCest
 {
     public function testStructure(ControllerTester $I): void
     {
-        $I->amOnPage('/user/create');
+        $I->amOnPage('/signup');
         $I->seeResponseCodeIsSuccessful();
         $I->seeInTitle('Inscription');
         $I->see('Inscription', 'h1');
@@ -21,7 +21,7 @@ class CreateCest
         $I->see('Pseudo', 'label');
         $I->see('Date de naissance', 'legend');
         $I->see('Photo de profil', 'label');
-        $I->see('Allergenes', 'legend');
+        $I->seeElement('div[id="user_type_create_allergenes"]');
         $I->seeElement('input[type="submit"]');
     }
 
@@ -35,13 +35,14 @@ class CreateCest
         $realuser = $user->object();
         $I->amLoggedInAs($realuser);
 
-        $I->amOnPage('user/create');
+        $I->amOnPage('/signup');
         $I->seeCurrentRouteIs('app_recettes_index');
     }
 
     public function createUser(ControllerTester $I): void
     {
-        $I->amOnPage('user/create');
+        $I->amOnPage('/signup');
+        $I->seeElement('form[name="user_type_create"]');
         $I->submitForm('form[name="user_type_create"]', [
             'user_type_create[prenom]' => 'Homer',
             'user_type_create[nom]' => 'Simpson',
