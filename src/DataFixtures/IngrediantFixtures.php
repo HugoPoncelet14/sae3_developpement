@@ -29,6 +29,10 @@ class IngrediantFixtures extends Fixture implements DependentFixtureInterface
                 $ingrediant['allergene'] = AllergeneFactory::random(['nomAll' => $infoIngrediant['nomAll']]);
             }
 
+            if (isset($infoIngrediant['imgIng'])) {
+                $ingrediant['imgIng'] = file_get_contents("$dir/img/ingrediants/{$infoIngrediant['imgIng']}.jpg");
+            }
+
             IngrediantFactory::createOne($ingrediant);
             $progressBar->advance();
         }
