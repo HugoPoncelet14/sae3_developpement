@@ -30,7 +30,7 @@ class IngrediantFixtures extends Fixture implements DependentFixtureInterface
             }
 
             if (isset($infoIngrediant['imgIng'])) {
-                $ingrediant['imgIng'] = file_get_contents("$dir/img/ingrediants/{$infoIngrediant['imgIng']}.jpg");
+                $ingrediant['imgIng'] = file_get_contents("$dir/img/ingredients/{$infoIngrediant['imgIng']}.jpg");
             }
 
             IngrediantFactory::createOne($ingrediant);
