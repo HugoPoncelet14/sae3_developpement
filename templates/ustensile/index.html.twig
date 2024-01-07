@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des ustensiles{% endblock %}
+
+{% block body %}
+    <h1>Liste des ustensiles</h1>
+    <ul class="ustensiles">
+        {% for ustensile in ustensiles %}
+            <li>
+                <a class="ustensile" href="{{ path('app_ustensile_show', {id: ustensile.id}) }}"><span class="nomIng">{{ ustensile.name }}</span></a>
+                <a href="{{ path('app_ustensile_update', {'id':ustensile.id}) }}">
+                    <span class="material-symbols-outlined text-warning">edit</span>
+                </a>
+                <a href="{{ path('app_ustensile_delete', {'id':ustensile.id}) }}">
+                    <span class="material-symbols-outlined text-danger">delete</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

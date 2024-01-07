@@ -16,6 +16,15 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 class UstensileController extends AbstractController
 {
     #[IsGranted('ROLE_ADMIN')]
+    #[Route('/ustensile', name: 'app_ustensile')]
+    public function index(UstensileRepository $ustensileRepository): Response
+    {
+        $ustensiles = $ustensileRepository->findBy([], ['name' => 'ASC']);
+
+        return $this->render('ustensile/index.html.twig', ['ustensiles' => $ustensiles]);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/ustensile/{id}/image', name: 'app_ustensile_image')]
     public function showUstensileImage(int $id, UstensileRepository $ustensileRepository)
     {
