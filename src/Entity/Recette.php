@@ -292,4 +292,5 @@ class Recette
 
         return $this;
     }
+
 }
