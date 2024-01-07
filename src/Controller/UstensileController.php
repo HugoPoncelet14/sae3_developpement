@@ -31,6 +31,32 @@ class UstensileController extends AbstractController
         return $response;
     }
 
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/ustensile/create', name: 'app_ustensile_create')]
+    public function create(EntityManagerInterface $entityManager, Request $request): Response
+    {
+        $ustensile = new Ustensile();
+
+        $form = $this->createForm(UstensileType::class, $ustensile);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $ustensile = $form->getData();
+
+            if (null !== $form->get('imgUst')->getData()) {
+                $imageFile = $form->get('imgUst')->getData();
+                $ustensile->setimgUst(file_get_contents($imageFile->getPathname()));
+            }
+
+            $entityManager->persist($ustensile);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_ustensile_show', ['id' => $ustensile->getId()]);
+        }
+
+        return $this->render('ustensile/create.html.twig', ['form' => $form]);
+    }
+
     #[Route('/ustensile/{id}', name: 'app_ustensile_show')]
     public function show(Ustensile $ustensile): Response
     {

@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un ustensile{% endblock %}
+
+{% block body %}
+    <h1>Création d'un ustensile</h1>
+    {{ include('ustensile/_form.html.twig', {'form': form, submit_label : "Créer"}, with_context = false) }}
+{% endblock %}
