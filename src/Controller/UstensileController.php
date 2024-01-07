@@ -7,6 +7,7 @@ use App\Form\UstensileType;
 use App\Repository\UstensileRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -34,5 +35,31 @@ class UstensileController extends AbstractController
     public function show(Ustensile $ustensile): Response
     {
         return $this->render('ustensile/show.html.twig', ['ustensile' => $ustensile]);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('ustensile/{id}/update', requirements: ['ustensileId' => '\d+'])]
+    public function update(EntityManagerInterface $entityManager, Ustensile $ustensile, Request $request): Response
+    {
+        $form = $this->createForm(UstensileType::class, $ustensile);
+
+        $lastImg = $ustensile->getimgUst();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $ustensile = $form->getData();
+
+            if (null !== $form->get('imgUst')->getData()) {
+                $imageFile = $form->get('imgUst')->getData();
+                $ustensile->setimgUst(file_get_contents($imageFile->getPathname()));
+            } else {
+                $ustensile->setimgUst($lastImg);
+            }
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_ustensile_show', ['id' => $ustensile->getId()]);
+        }
+
+        return $this->render('ustensile/update.html.twig', ['ustensile' => $ustensile, 'form' => $form]);
     }
 }
