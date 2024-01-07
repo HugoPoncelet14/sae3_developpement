@@ -7,6 +7,7 @@ use App\Form\UstensileType;
 use App\Repository\UstensileRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -87,5 +88,29 @@ class UstensileController extends AbstractController
         }
 
         return $this->render('ustensile/update.html.twig', ['ustensile' => $ustensile, 'form' => $form]);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('ustensile/{id}/delete', requirements: ['ustensileId' => '\d+'])]
+    public function delete(EntityManagerInterface $entityManager, Ustensile $ustensile, Request $request): Response
+    {
+        $form = $this->createFormBuilder()
+            ->add('delete', SubmitType::class)
+            ->add('cancel', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('delete')->isClicked()) {
+                $entityManager->remove($ustensile);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('app_home');
+            } else {
+                return $this->redirectToRoute('app_ustensile_show', ['id' => $ustensile->getId()]);
+            }
+        }
+
+        return $this->render('ustensile/delete.html.twig', ['ustensile' => $ustensile, 'form' => $form]);
     }
 }
