@@ -11,5 +11,8 @@
             </div>
         </div>
     </div>
-
+    <a class="profile_update-button btn btn-lg" href="{{ path('app_ustensile_update', {'id': ustensile.id}) }}" role="button">Modifier</a>
+    <div class="profile_delete-button-container">
+        <a class="profile_delete-button btn btn-lg btn-danger" href="{{ path('app_ustensile_delete', {'id': ustensile.id}) }}" role="button">Supprimer</a>
+    </div>
 {% endblock %}
