@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Ustensile;
+use App\Form\UstensileType;
 use App\Repository\UstensileRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,5 +28,11 @@ class UstensileController extends AbstractController
         $response->headers->set('Content-Type', 'image/png');
 
         return $response;
+    }
+
+    #[Route('/ustensile/{id}', name: 'app_ustensile_show')]
+    public function show(Ustensile $ustensile): Response
+    {
+        return $this->render('ustensile/show.html.twig', ['ustensile' => $ustensile]);
     }
 }

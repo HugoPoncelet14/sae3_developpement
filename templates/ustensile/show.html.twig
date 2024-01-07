@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ ustensile.name }}{% endblock %}
+
+{% block body %}
+    <h1 class="title_small-padding">{{ ustensile.name }}</h1>
+    <div class="ustensile_info-container">
+        <div class="recipe_image-container" id="ustensile">
+            <div class="recipe_image-box" id="ustensile">
+                <img  src="/ustensile/{{ ustensile.id }}/image" alt="Image de l'ustensile">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
