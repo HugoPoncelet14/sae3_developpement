@@ -66,6 +66,7 @@ class IngredientController extends AbstractController
         return $this->render('ingredient/create.html.twig', ['form' => $form]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/ingredient/{id}', name: 'app_ingredient_show')]
     public function show(Ingredient $ingredient): Response
     {
