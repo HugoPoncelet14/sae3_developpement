@@ -22,7 +22,7 @@ class Ustensile
     #[ORM\Column(type: Types::BLOB, nullable: true)]
     private $imgUst;
 
-    #[ORM\ManyToMany(targetEntity: Recette::class, mappedBy: 'ustensile')]
+    #[ORM\ManyToMany(targetEntity: Recette::class, mappedBy: 'ustensiles')]
     private Collection $recettes;
 
     public function __construct()
