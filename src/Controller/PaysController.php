@@ -49,4 +49,19 @@ class PaysController extends AbstractController
     {
         return $this->render('pays/show.html.twig', ['pays' => $pays]);
     }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('pays/{id}/update', requirements: ['paysId' => '\d+'])]
+    public function update(EntityManagerInterface $entityManager, pays $pays, Request $request): Response
+    {
+        $form = $this->createForm(PaysType::class, $pays);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $pays = $form->getData();
+            $entityManager->flush();
+            return $this->redirectToRoute('app_pays_show', ['id' => $pays->getId()]);
+        }
+        return $this->render('pays/update.html.twig', ['pays' => $pays, 'form' => $form]);
+    }
 }
