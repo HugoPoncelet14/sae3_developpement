@@ -321,8 +321,9 @@ input[type="date"], .form-control {
 
 .details_container {
     display:flex;
+    flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     padding-top: 2rem;
 }
 
@@ -335,7 +336,7 @@ input[type="date"], .form-control {
 }
 
 .details-text_container {
-    width: 60%;
+    width: 100%;
 }
 
 .details_title {
@@ -627,6 +628,18 @@ span#count {
     .fast-recipe_child221-container .recipe_container:hover,
     .fast-recipe_child222-container .recipe_container:hover{
         filter: brightness(90%);
+    }
+
+    .details_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+        padding-top: 2rem;
+    }
+
+    .details-text_container {
+        width: 60%;
     }
 
 }
