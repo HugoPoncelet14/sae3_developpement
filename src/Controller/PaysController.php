@@ -43,4 +43,10 @@ class PaysController extends AbstractController
 
         return $this->render('pays/create.html.twig', ['form' => $form]);
     }
+
+    #[Route('/pays/{id}', name: 'app_pays_show')]
+    public function show(pays $pays): Response
+    {
+        return $this->render('pays/show.html.twig', ['pays' => $pays]);
+    }
 }
