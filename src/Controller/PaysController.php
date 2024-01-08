@@ -23,4 +23,24 @@ class PaysController extends AbstractController
 
         return $this->render('pays/index.html.twig', ['listePays' => $listePays]);
     }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/pays/create', name: 'app_pays_create')]
+    public function create(EntityManagerInterface $entityManager, Request $request): Response
+    {
+        $pays = new Pays();
+
+        $form = $this->createForm(PaysType::class, $pays);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $pays = $form->getData();
+            $entityManager->persist($pays);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_pays_show', ['id' => $pays->getId()]);
+        }
+
+        return $this->render('pays/create.html.twig', ['form' => $form]);
+    }
 }
