@@ -64,4 +64,28 @@ class PaysController extends AbstractController
         }
         return $this->render('pays/update.html.twig', ['pays' => $pays, 'form' => $form]);
     }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('pays/{id}/delete', requirements: ['paysId' => '\d+'])]
+    public function delete(EntityManagerInterface $entityManager, pays $pays, Request $request): Response
+    {
+        $form = $this->createFormBuilder()
+            ->add('delete', SubmitType::class)
+            ->add('cancel', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('delete')->isClicked()) {
+                $entityManager->remove($pays);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('app_home');
+            } else {
+                return $this->redirectToRoute('app_pays_show', ['id' => $pays->getId()]);
+            }
+        }
+
+        return $this->render('pays/delete.html.twig', ['pays' => $pays, 'form' => $form]);
+    }
 }
