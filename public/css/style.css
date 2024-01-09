@@ -522,6 +522,40 @@ span#count {
     display: none;
 }
 
+.type-search_container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+a#search-button {
+    text-decoration: none;
+    color: #000;
+    width: 22%;
+    transition: all 0.5s;
+}
+
+a#search-button:hover {
+    transform: translateY(-5px);
+}
+
+.type-search_button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 120%;
+    border-radius: 7px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.type-search_button > span {
+    font-size: 1.2rem;
+}
+
+.type-search_image {
+    width: 40px;
+    height: 40px;
+}
+
 @media (min-width: 600px) {
     .fast-recipe_parent-container .recipe_container {
         width: 17.5rem;
