@@ -388,6 +388,7 @@ input[type="date"], .form-control {
 
 .profile_info-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 50px;
@@ -398,7 +399,7 @@ input[type="date"], .form-control {
 .user_info-container{
     display:flex;
     flex-direction: column;
-    width: 50%;
+    width: 90%;
 }
 
 .user_names-container {
@@ -565,7 +566,7 @@ span#count {
         margin-top: 3px;
     }
 
-    .fast-recipe_child1-container .recipe_container:hover{
+    .fast-recipe_child1-container .recipe_container:hover {
         filter: brightness(90%);
     }
 
@@ -592,7 +593,7 @@ span#count {
         margin-right: 3px;
     }
 
-    .fast-recipe_child21-container .recipe_container:hover{
+    .fast-recipe_child21-container .recipe_container:hover {
         filter: brightness(90%);
     }
 
@@ -622,8 +623,7 @@ span#count {
     }
 
     .fast-recipe_child221-container .recipe_container,
-    .fast-recipe_child222-container .recipe_container
-    {
+    .fast-recipe_child222-container .recipe_container {
         width: 50%;
         height: 100%;
         margin-left: 3px;
@@ -631,7 +631,7 @@ span#count {
     }
 
     .fast-recipe_child221-container .recipe_container:hover,
-    .fast-recipe_child222-container .recipe_container:hover{
+    .fast-recipe_child222-container .recipe_container:hover {
         filter: brightness(90%);
     }
 
@@ -660,5 +660,13 @@ span#count {
 
     .signup_form {
         width: 50%;
+    }
+
+    .profile_info-container {
+        flex-direction: row;
+    }
+
+    .user_info-container {
+        width: 50%
     }
 }
