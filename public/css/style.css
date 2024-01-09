@@ -329,9 +329,10 @@ input[type="date"], .form-control {
 
 
 .recipe_image-container {
+    flex-shrink: 0;
     position: relative;
-    width: 16rem;
-    height: 16rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 0.5rem;
 }
 
@@ -516,6 +517,10 @@ span#count {
     margin-left: 3%;
 }
 
+.details-text_container > #description {
+    display: none;
+}
+
 @media (min-width: 600px) {
     .fast-recipe_parent-container .recipe_container {
         width: 17.5rem;
@@ -640,6 +645,17 @@ span#count {
 
     .details-text_container {
         width: 60%;
+    }
+
+    .details-text_container > #description {
+        display: block;
+    }
+
+    .recipe_image-container {
+        position: relative;
+        width: 16rem;
+        height: 16rem;
+        border-radius: 0.5rem;
     }
 
 }
