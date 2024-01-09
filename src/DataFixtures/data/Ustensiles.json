@@ -32,5 +32,9 @@
   {"name": "pinceau", "imgUst": "pinceau"},
   {"name": "fève", "imgUst": "feve"},
   {"name": "fourchette", "imgUst": "fourchette"},
-  {"name": "aluminium", "imgUst": "aluminium"}
+  {"name": "aluminium", "imgUst": "aluminium"},
+  {"name": "papier sulfurisé", "imgUst": "papier_sulfurise"},
+  {"name": "mixeur", "imgUst": "mixeur"},
+  {"name": "cercle à pâtisserie", "imgUst": "cercle_a_patisserie"},
+  {"name": "couvercle", "imgUst": "couvercle"}
 ]
