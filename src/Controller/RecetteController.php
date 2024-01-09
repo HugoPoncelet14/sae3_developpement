@@ -69,6 +69,26 @@ class RecetteController extends AbstractController
         return $this->render('recette/create.html.twig', ['form' => $form]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/recette/create2', name: 'app_recette_createQte')]
+    public function create2(EntityManagerInterface $entityManager, Request $request): Response
+    {
+        $ingredients = $request->getSession()->get('donnees')['ingredients'];
+        $form = $this->createForm(QuantiteType::class, null, [
+            'ingredients' => $ingredients,
+        ]);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $quantites = $form->getData();
+            $request->getSession()->set('quantites', $quantites);
+
+            return $this->redirectToRoute('app_recette_createEtp');
+        }
+
+        return $this->render('recette/createIngredients.html.twig', ['form' => $form, 'ingredients' => $ingredients]);
+    }
+
     #[Route('/recettes/{id}', name: 'app_recette_show')]
     public function show(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository, int $id): Response
     {
