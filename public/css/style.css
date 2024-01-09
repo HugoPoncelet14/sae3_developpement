@@ -571,6 +571,15 @@ a#search-button {
     color: #803A06;
 }
 
+.btn-primary {
+    background-color: #AD4F09;
+    border-style: none;
+}
+
+.btn-primary:hover {
+    background-color: #803A06;
+}
+
 @media (min-width: 600px) {
     .fast-recipe_parent-container .recipe_container {
         width: 17.5rem;
