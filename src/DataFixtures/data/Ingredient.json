@@ -12,12 +12,14 @@
 
   {"nomIng": "Eau", "imgIng": "eau"},
   {"nomIng": "Eau tiède", "imgIng": "eau"},
+  {"nomIng": "Jus de citron", "imgIng": "jus_de_citron"},
   {"nomIng": "Huile", "imgIng": "huile"},
   {"nomIng": "Huile d'olive", "imgIng": "huile_d_olive"},
   {"nomIng": "Huile de colza", "imgIng": "huile_de_colza"},
   {"nomIng": "Huile de friture", "imgIng": "huile_de_friture"},
   {"nomIng": "Vin blanc", "imgIng": "vin_blanc"},
   {"nomIng": "Vin rouge", "imgIng": "vin_rouge"},
+  {"nomIng": "Armagnac", "imgIng": "armagnac"},
 
   {"nomIng": "Spaghetti", "imgIng": "spaghetti"},
 
@@ -42,18 +44,24 @@
   {"nomIng": "Palette", "imgIng": "palette"},
   {"nomIng": "Saucisses de Strasbourg", "imgIng": "saucisses_de_strasbourg"},
   {"nomIng": "Merguez", "imgIng": "merguez"},
+  {"nomIng": "Veau", "imgIng": "veau"},
   {"nomIng": "Blanquette de veau", "imgIng": "blanquette_de_veau"},
   {"nomIng": "Filet de poulet", "imgIng": "filet_de_poulet"},
   {"nomIng": "Pilon de poulet", "imgIng": "pilon_de_poulet"},
   {"nomIng": "Bouillon de poule", "imgIng": "bouillon"},
   {"nomIng": "Bouillon de boeuf", "imgIng": "bouillon"},
   {"nomIng": "Cube de bouillon de boeuf", "imgIng": "cube_de_bouillon"},
+  {"nomIng": "Porc", "imgIng": "porc"},
+  {"nomIng": "Chair à saucisse", "imgIng": "chair_a_saucisse"},
+
+  {"nomIng": "Saumon frais", "imgIng": "saumon_frais"},
 
   {"nomIng": "Jaune d'oeuf","nomAll": "Oeuf", "imgIng": "jaune_d_oeuf"},
   {"nomIng": "Oeuf","nomAll": "Oeuf", "imgIng": "oeuf"},
 
   {"nomIng": "Oignon", "imgIng": "oignon"},
   {"nomIng": "Oignon en poudre", "imgIng": "oignon_en_poudre"},
+  {"nomIng": "Oignon blanc", "imging": "oignon_blanc"},
   {"nomIng": "Gousse d'ail", "imgIng": "gousse_d_ail"},
   {"nomIng": "Champignons (coupés)", "imgIng": "champignons_coupes"},
   {"nomIng": "Champignons de Paris (en boîte)", "imgIng": "champignons_de_paris_boite"},
@@ -96,9 +104,12 @@
   {"nomIng": "Cassonade", "imgIng": "cassonade"},
 
   {"nomIng": "Muscade râpée", "imgIng": "muscade_rapee"},
+  {"nomIng": "Muscade", "imgIng": "muscade"},
   {"nomIng": "Gousse de vanille", "imgIng": "gousse_de_vanille"},
 
   {"nomIng": "Pâte sablée", "imgIng": "pate_sablee"},
   {"nomIng": "Pâte feuilletée", "imgIng": "pate_feuilletee"},
-  {"nomIng": "Lasagnes", "imgIng": "lasagnes"}
+  {"nomIng": "Lasagnes", "imgIng": "lasagnes"},
+
+  {"nomIng": "Gelée", "imgIng": "gelee"}
 ]
