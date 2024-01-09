@@ -78,7 +78,7 @@ class Ingredient
     {
         if (!$this->quantites->contains($quantite)) {
             $this->quantites->add($quantite);
-            $quantite->setIngredient($this);
+            $quantite->setIngrediant($this);
         }
 
         return $this;
@@ -88,8 +88,8 @@ class Ingredient
     {
         if ($this->quantites->removeElement($quantite)) {
             // set the owning side to null (unless already changed)
-            if ($quantite->getIngredient() === $this) {
-                $quantite->setIngredient(null);
+            if ($quantite->getIngrediant() === $this) {
+                $quantite->setIngrediant(null);
             }
         }
 
@@ -106,5 +106,10 @@ class Ingredient
         $this->imgIng = $imgIng;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->nomIng;
     }
 }
