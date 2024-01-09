@@ -67,6 +67,7 @@ class UstensileController extends AbstractController
         return $this->render('ustensile/create.html.twig', ['form' => $form]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/ustensile/{id}', name: 'app_ustensile_show')]
     public function show(Ustensile $ustensile): Response
     {
