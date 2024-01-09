@@ -120,7 +120,7 @@ body {
 }
 
 .signup_form{
-    width: 50%
+    width: 100%
 }
 
 .auth-form__container a{
@@ -658,4 +658,7 @@ span#count {
         border-radius: 0.5rem;
     }
 
+    .signup_form {
+        width: 50%;
+    }
 }
