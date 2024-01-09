@@ -10,13 +10,10 @@
             </div>
             <div class="col-md-9" style="margin-top: 16px">
                 <div class="d-flex jusitfy-content-ent mb-2">
-                    <button>
+                    <h5 style="margin-right: 1rem">Trier par :  </h5>
                         {{ knp_pagination_sortable(recettes,'Calories','r.nbrCallo') }}
-                    </button>
-                    <button>
                         {{ knp_pagination_sortable(recettes,'Temps','r.tpsDePrep') }}
-                    </button>
-                    <span id="count" style="margin-left: 65%">{{ recettes|length }} recettes</span>
+                    <span id="count" style="margin-left: 45%">{{ recettes|length }} recettes</span>
                 </div>
                 <div class="grid">
                     {% for recette in recettes %}
