@@ -70,7 +70,7 @@ class RecetteController extends AbstractController
     }
 
     #[IsGranted('ROLE_ADMIN')]
-    #[Route('/recette/create2', name: 'app_recette_createQte')]
+    #[Route('/recette/createQte', name: 'app_recette_createQte')]
     public function create2(EntityManagerInterface $entityManager, Request $request): Response
     {
         $ingredients = $request->getSession()->get('donnees')['ingredients'];
@@ -90,7 +90,7 @@ class RecetteController extends AbstractController
     }
 
     #[IsGranted('ROLE_ADMIN')]
-    #[Route('/recette/create3', name: 'app_recette_createEtp')]
+    #[Route('/recette/createEtp', name: 'app_recette_createEtp')]
     public function create3(EntityManagerInterface $entityManager, Request $request, $form1 = null, $form2 = null): Response
     {
         $donnees = $request->getSession()->get('donnees');
