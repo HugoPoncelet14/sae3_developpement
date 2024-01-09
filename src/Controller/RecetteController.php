@@ -2,16 +2,26 @@
 
 namespace App\Controller;
 
+use App\Entity\Etape;
+use App\Entity\Ingredient;
+use App\Entity\Pays;
+use App\Entity\Quantite;
 use App\Entity\Recette;
+use App\Entity\TypeRecette;
+use App\Form\EtapeType;
+use App\Form\QuantiteType;
+use App\Form\RecetteType;
 use App\Form\SearchData;
 use App\Form\SearchForm;
 use App\Repository\EtapeRepository;
 use App\Repository\QuantiteRepository;
 use App\Repository\RecetteRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class RecetteController extends AbstractController
 {
@@ -37,6 +47,26 @@ class RecetteController extends AbstractController
         $response->headers->set('Content-Type', 'image/png');
 
         return $response;
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/recette/create', name: 'app_pays_create1')]
+    public function create1(EntityManagerInterface $entityManager, Request $request): Response
+    {
+        $form = $this->createForm(RecetteType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $donnees = $form->getData();
+            if (null !== $donnees['imgRec']) {
+                $imageFile = $donnees['imgRec'];
+                $donnees['imgRec'] = file_get_contents($imageFile->getPathname());
+            }
+            $request->getSession()->set('donnees', $donnees);
+
+            return $this->redirectToRoute('app_recette_createQte');
+        }
+
+        return $this->render('recette/create.html.twig', ['form' => $form]);
     }
 
     #[Route('/recettes/{id}', name: 'app_recette_show')]

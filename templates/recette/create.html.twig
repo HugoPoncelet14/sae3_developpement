@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une recette{% endblock %}
+
+{% block body %}
+    <h1>Création d'une recette</h1>
+    {{ include('recette/_form.html.twig', {'form': form, submit_label : "Créer"}, with_context = false) }}
+{% endblock %}
+
