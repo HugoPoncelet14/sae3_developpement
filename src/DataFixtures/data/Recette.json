@@ -379,5 +379,47 @@
       "ust7": "fève",
       "ust8": "balance de cuisine"
     }
+  },
+  {
+    "nomRec": "Pâté en croûte",
+    "descRec": "Le pâté en croûte, délice de la gastronomie française, marie savamment viandes, épices et pâte croustillante. Cet assemblage culinaire emblématique présente des couches de viandes variées, souvent porc ou volaille, enveloppées dans une croûte dorée. Sa préparation exige minutie et savoir-faire, offrant en bouche un mariage harmonieux de textures et de saveurs, captivant les papilles par sa richesse gustative.",
+    "tpsDePrep": "45",
+    "tpsCuisson": "90",
+    "nbrPers": "4",
+    "nomTpRec": "Entrée",
+    "nomPays": "France",
+    "imgRec": "pate_en_croute",
+    "ustensiles":
+    {
+      "ust1": "saladier",
+      "ust2": "four",
+      "ust3": "cuillère en bois",
+      "ust4": "papier sulfurisé",
+      "ust5": "rouleau à pâtisserie",
+      "ust6": "spatule",
+      "ust7": "pinceau",
+      "ust8": "aluminium",
+      "ust9": "balance de cuisine",
+      "ust10": "frigo"
+    }
+  },
+  {
+    "nomRec": "Tartare de saumon",
+    "descRec": "Le tartare de saumon, une délectable harmonie de fraîcheur et de saveurs, marie délicatement des morceaux de saumon cru finement coupés avec des épices subtiles et des condiments frais. Sa texture délicate, sa palette de couleurs vibrantes et son goût délicieusement marin offrent une expérience culinaire exquise, parfaitement équilibrée entre douceur et vivacité.",
+    "tpsDePrep": "10",
+    "tpsCuisson": "0",
+    "nbrPers": "4",
+    "nomTpRec": "Entrée",
+    "nomPays": "Turquie",
+    "imgRec": "tartare_de_saumon",
+    "ustensiles":
+    {
+      "ust1": "cercle à pâtisserie",
+      "ust2": "couteau",
+      "ust3": "saladier",
+      "ust4": "couvercle",
+      "ust5": "balance de cuisine",
+      "ust6": "mixeur"
+    }
   }
 ]

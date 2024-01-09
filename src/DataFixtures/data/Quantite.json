@@ -177,5 +177,25 @@
   {"quantite": "2", "nomRec": "Galette des rois à la frangipane", "nomIng": "Pâte feuilletée"},
   {"quantite": "95", "unitMesure": "g", "nomRec": "Galette des rois à la frangipane", "nomIng": "Amandes en poudre"},
   {"quantite": "2", "nomRec": "Galette des rois à la frangipane", "nomIng": "Oeuf"},
-  {"quantite": "1", "nomRec": "Galette des rois à la frangipane", "nomIng": "Jaune d'oeuf"}
+  {"quantite": "1", "nomRec": "Galette des rois à la frangipane", "nomIng": "Jaune d'oeuf"},
+
+  {"quantite": "1", "unitMesure": "pincée", "nomRec": "Pâté en croûte", "nomIng": "Sel"},
+  {"quantite": "125", "unitMesure": "g", "nomRec": "Pâté en croûte", "nomIng": "Beurre"},
+  {"quantite": "250", "unitMesure": "g", "nomRec": "Pâté en croûte", "nomIng": "Farine"},
+  {"quantite": "1", "unitMesure": "cuillère à soupe", "nomRec": "Pâté en croûte", "nomIng": "Armagnac"},
+  {"quantite": "1", "unitMesure": "pincée", "nomRec": "Pâté en croûte", "nomIng": "Muscade"},
+  {"quantite": "1", "unitMesure": "pincée", "nomRec": "Pâté en croûte", "nomIng": "poivre"},
+  {"quantite": "250", "unitMesure": "g", "nomRec": "Pâté en croûte", "nomIng": "Veau"},
+  {"quantite": "150", "unitMesure": "g", "nomRec": "Pâté en croûte", "nomIng": "Porc"},
+  {"quantite": "125", "unitMesure": "g", "nomRec": "Pâté en croûte", "nomIng": "Chair à saucisse"},
+  {"quantite": "1", "nomRec": "Pâté en croûte", "nomIng": "Oeuf"},
+  {"quantite": "1", "unitMesure": "sachet", "nomRec": "Pâté en croûte", "nomIng": "Gelée"},
+  {"quantite": "1", "nomRec": "Pâté en croûte", "nomIng": "Jaune d'oeuf"},
+
+  {"quantite": "1", "unitMesure": "pincée", "nomRec": "Tartare de saumon", "nomIng": "Sel"},
+  {"quantite": "1", "unitMesure": "pincée", "nomRec": "Tartare de saumon", "nomIng": "Poivre"},
+  {"quantite": "2", "unitMesure": "cuillères à soupe", "nomRec": "Tartare de saumon", "nomIng": "Huile d'olive"},
+  {"quantite": "1", "unitMesure": "filet", "nomRec": "Tartare de saumon", "nomIng": "Saumon frais"},
+  {"quantite": "1", "nomRec": "Tartare de saumon", "nomIng": "Oignon blanc"},
+  {"quantite": "2", "unitMesure": "cuillères à café", "nomRec": "Tartare de saumon", "nomIng": "Jus de citron"}
 ]
