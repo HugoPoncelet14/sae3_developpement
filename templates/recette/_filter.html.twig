@@ -1,11 +1,11 @@
 {{ form_start(form) }}
-    <h4>Pays</h4>
-    {{ form_row(form.pays) }}
+    <h5 style="padding-top: 1rem">Pays</h5>
+    {{ form_row(form.pays, {'attr' : {'class' : 'filter-form'}}) }}
 
-    <h4>Région</h4>
-    {{ form_row(form.region) }}
+    <h5>Région</h5>
+    {{ form_row(form.region, {'attr' : {'class' : 'filter-form'}}) }}
 
-    <h4>Type</h4>
-    {{ form_row(form.typeRecette) }}
+    <h5>Type</h5>
+    {{ form_row(form.typeRecette, {'attr' : {'class' : 'filter-form'}}) }}
 <button type="submit" class="btn btn-primary w-100">Filtrer</button>
 {{ form_end(form) }}
