@@ -16,6 +16,36 @@
         </a>
     {% endfor %}
     </div>
+    <div class="title_container">
+        <h1 class="title_small-padding" id="home-page">Recherche par type</h1>
+    </div>
+    <div class="type-search_container">
+        <a href="/filter?typeRecette%5B%5D=1" id="search-button">
+            <div class="type-search_button">
+                <img class="type-search_image" src="{{ asset('img/svg/salad-dish-svgrepo-com.svg') }}">
+                <span>Entrée</span>
+            </div>
+        </a>
+        <a href="/filter?typeRecette%5B%5D=2" id="search-button">
+            <div class="type-search_button">
+                <img class="type-search_image" src="{{ asset('img/svg/turkey-dinner-svgrepo-com.svg') }}">
+                <span>Plat</span>
+            </div>
+        </a>
+        <a href="/filter?typeRecette%5B%5D=3" id="search-button">
+            <div class="type-search_button">
+                <img class="type-search_image" src="{{ asset('img/svg/cake-4-svgrepo-com.svg') }}">
+                <span>Dessert</span>
+            </div>
+        </a>
+        <a href="/filter?typeRecette%5B%5D=4" id="search-button">
+            <div class="type-search_button">
+                <img class="type-search_image" src="{{ asset('img/svg/bread-loaf-svgrepo-com.svg') }}">
+                <span>Accompagnement</span>
+            </div>
+        </a>
+    </div>
+
     {% if recettesRapides|length >= 8 %}
         <div class="title_container">
             <h1 class="title_small-padding" id="home-page">Recettes rapides</h1>
