@@ -580,6 +580,20 @@ a#search-button {
     background-color: #803A06;
 }
 
+ul.pagination {
+    margin-top: 2rem;
+}
+
+.page-link {
+    color: #AD4F09;
+}
+
+.active > .page-link {
+    background-color: #AD4F09;
+    border-color: #AD4F09;
+    color: white;
+}
+
 @media (min-width: 600px) {
     .fast-recipe_parent-container .recipe_container {
         width: 17.5rem;
