@@ -8,7 +8,7 @@
             <div class="col-md-3">
                 {% include 'recette/_filter.html.twig' with {form: form} only %}
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9" style="margin-top: 16px">
                 <div class="d-flex jusitfy-content-ent mb-2">
                     <button>
                         {{ knp_pagination_sortable(recettes,'Calories','r.nbrCallo') }}
@@ -16,6 +16,7 @@
                     <button>
                         {{ knp_pagination_sortable(recettes,'Temps','r.tpsDePrep') }}
                     </button>
+                    <span id="count" style="margin-left: 65%">{{ recettes|length }} recettes</span>
                 </div>
                 <div class="grid">
                     {% for recette in recettes %}
