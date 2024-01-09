@@ -743,5 +743,95 @@
     "numEtape": "6",
     "descEtape": "Enfourner pendant 20 à 30 min à 200°C (thermostat 6-7); vérifier régulièrement la cuisson !",
     "nomRec": "Galette des rois à la frangipane"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "A préparer la veille !",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Faire la pâte : mettre farine et beurre en morceaux dans un saladier, sabler. Ajouter une pincée de sel, l'eau pour obtenir une boule de pâte, à laisser reposer une demi-heure",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Préchauffer le four à 240°C.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "4",
+    "descEtape": "Pendant ce temps, préparer la farce : hacher les viandes, les mélanger à la chair à saucisse. Ajouter l'oeuf, l'armagnac, la muscade, le sel et le poivre.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "5",
+    "descEtape": "Bien mélanger.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "6",
+    "descEtape": "Etaler la pâte sur un papier sulfurisé en lui donnant une forme ovale. Déposer la farce sur une moitié dans la longueur. Replier la pâte pour former un chausson.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "7",
+    "descEtape": "Bien souder les bords en les humidifiant.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "8",
+    "descEtape": "Faire un petit trou sur le dessus et y glisser une petite cheminée faite en papier d'alu.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "9",
+    "descEtape": "Dorer à l'oeuf",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "10",
+    "descEtape": "Glisser le pâté avec le papier sulfurisé sur une plaque du four.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "11",
+    "descEtape": "Faire cuire 45 min à 240°C puis 45 min à 220°C.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "12",
+    "descEtape": "Laisser refroidir complètement",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "13",
+    "descEtape": "Préparer la gelée selon les indications du paquet et une fois froide, la verser par le trou de la cheminée.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "14",
+    "descEtape": "A laisser au réfrigérateur une nuit.",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "15",
+    "descEtape": "Bonne dégustation !",
+    "nomRec": "Pâté en croûte"
+  },
+  {
+    "numEtape": "1",
+    "descEtape": "Enlever la peau du filet de saumon, et le passer sous l'eau pour enlever d'éventuelles écailles.",
+    "nomRec": "Tartare de saumon"
+  },
+  {
+    "numEtape": "2",
+    "descEtape": "Peler un oignon et le hacher finement. Couper le filet en six morceaux et les passer au mixer avec les oignons, 2 cuillères à soupe d'huile d'olive, deux pincée de sel, un tour du moulin à poivre, et deux cuillères à café de jus de citron. Ne pas trop mouliner le saumon afin d'obtenir une structure pas trop fine.",
+    "nomRec": "Tartare de saumon"
+  },
+  {
+    "numEtape": "3",
+    "descEtape": "Placer la préparation dans un saladier, couvrir et mettre au frigo pendant 2 heures. Servir frais avec du beurre et des toasts.",
+    "nomRec": "Tartare de saumon"
   }
 ]
