@@ -6,7 +6,6 @@ use App\Entity\Region;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class RegionCrudController extends AbstractCrudController
@@ -15,7 +14,6 @@ class RegionCrudController extends AbstractCrudController
     {
         return Region::class;
     }
-
 
     public function configureFields(string $pageName): iterable
     {
@@ -27,5 +25,4 @@ class RegionCrudController extends AbstractCrudController
             ->hideOnIndex(),
         ];
     }
-
 }

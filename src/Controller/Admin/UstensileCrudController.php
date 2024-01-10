@@ -7,7 +7,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class UstensileCrudController extends AbstractCrudController
@@ -16,7 +15,6 @@ class UstensileCrudController extends AbstractCrudController
     {
         return Ustensile::class;
     }
-
 
     public function configureFields(string $pageName): iterable
     {
@@ -29,5 +27,4 @@ class UstensileCrudController extends AbstractCrudController
             ->hideOnIndex(),
         ];
     }
-
 }

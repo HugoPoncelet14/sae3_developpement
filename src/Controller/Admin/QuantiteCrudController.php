@@ -7,7 +7,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class QuantiteCrudController extends AbstractCrudController
@@ -16,7 +15,6 @@ class QuantiteCrudController extends AbstractCrudController
     {
         return Quantite::class;
     }
-
 
     public function configureFields(string $pageName): iterable
     {
@@ -31,5 +29,4 @@ class QuantiteCrudController extends AbstractCrudController
             AssociationField::new('ingredient'),
         ];
     }
-
 }
