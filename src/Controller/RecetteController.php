@@ -19,6 +19,7 @@ use App\Repository\RecetteRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -382,5 +383,37 @@ class RecetteController extends AbstractController
         }
 
         return $this->render('recette/updateEtapes.html.twig', ['form' => $form, 'nbrEtapes' => $nbrEtapes]);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('recette/{id}/delete', requirements: ['recetteId' => '\d+'])]
+    public function delete(EntityManagerInterface $entityManager, Recette $recette, Request $request): Response
+    {
+        $form = $this->createFormBuilder()
+            ->add('delete', SubmitType::class)
+            ->add('cancel', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('delete')->isClicked()) {
+                foreach($recette->getQuantites() as $quantite){
+                    $entityManager->remove($quantite);
+                    $entityManager->flush();
+                }
+                foreach($recette->getEtapes() as $etape){
+                    $entityManager->remove($etape);
+                    $entityManager->flush();
+                }
+                $entityManager->remove($recette);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('app_home');
+            } else {
+                return $this->redirectToRoute('app_pays_show', ['id' => $recette->getId()]);
+            }
+        }
+
+        return $this->render('recette/delete.html.twig', ['recette' => $recette, 'form' => $form]);
     }
 }
