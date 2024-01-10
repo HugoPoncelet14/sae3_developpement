@@ -22,7 +22,7 @@ class AllergeneCrudController extends AbstractCrudController
             IdField::new('id')
             ->hideOnForm(),
             TextField::new('nomAll'),
-            AssociationField::new('ingrediants'),
+            AssociationField::new('ingredients'),
             AssociationField::new('users'),
         ];
     }
