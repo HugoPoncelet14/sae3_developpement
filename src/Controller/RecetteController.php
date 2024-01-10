@@ -236,4 +236,44 @@ class RecetteController extends AbstractController
 
         return $this->render('recette/update.html.twig', ['form' => $form]);
     }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/recette/{id}/updateQte', name: 'app_recette_updateQte')]
+    public function update2(EntityManagerInterface $entityManager, Recette $recette, Request $request): Response
+    {
+        $ingredients = $request->getSession()->get('donnees')['ingredients'];
+        $form = $this->createForm(QuantiteType::class, null, [
+            'ingredients' => $ingredients,
+        ]);
+
+        $quantites = $recette->getQuantites();
+
+        $lastIngredientsArray = new ArrayCollection();
+        foreach ($quantites as $quantite) {
+            $lastIngredientsArray->add($quantite->getIngredient());
+        }
+        $ingredientsArray = $request->getSession()->get('donnees')['ingredients'];
+
+        $lastdatas = [];
+
+        foreach ($ingredientsArray as $ingredient) {
+            $quantite = $entityManager->getRepository(Quantite::class)->findOneBy(['ingredient' => $ingredient, 'recette' => $recette]);
+            if (null !== $quantite) {
+                $lastdatas["quantiteIng{$ingredient->getId()}"] = $quantite->getQuantite();
+                $lastdatas["unitMesureIng{$ingredient->getId()}"] = $quantite->getUnitMesure();
+            }
+        }
+
+        $form->setData($lastdatas);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $quantites = $form->getData();
+            $request->getSession()->set('quantites', $quantites);
+
+            return $this->redirectToRoute('app_recette_updateEtp', ['id' => $recette->getId()]);
+        }
+
+        return $this->render('recette/updateIngredients.html.twig', ['form' => $form, 'ingredients' => $ingredients]);
+    }
 }
