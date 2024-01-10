@@ -21,4 +21,31 @@ class IndexCest
         $I->see('Voir toutes les recettes rapides', 'a[href]');
         $I->seeNumberOfElements('.fast-recipe_parent-container a.recipe_container', 8);
     }
+
+    public function testLiens(ControllerTester $I): void
+    {
+        RecetteFactory::createOne(['nomRec' => 'RecetteTest', 'tpsDePrep' => 70]);
+        RecetteFactory::createOne(['nomRec' => 'RecetteTestRapide', 'tpsDePrep' => 10, 'tpsCuisson' => 10]);
+        RecetteFactory::createMany(15, ['tpsDePrep' => 10, 'tpsCuisson' => 10]);
+        // Test lien recette dans recommandations
+        $I->amOnPage('/recettes');
+        $I->click('RecetteTest');
+        $I->seeResponseCodeIsSuccessful();
+        $I->seeCurrentRouteIs('app_recette_show');
+        // Test lien recherche par type
+        $I->amOnPage('/recettes');
+        $I->click('Entrée', 'a[id="search-button"]');
+        $I->seeResponseCodeIsSuccessful();
+        $I->seeCurrentRouteIs('app_recette_filter');
+        // Test lien recette dans recettes rapides
+        $I->amOnPage('/recettes');
+        $I->click('RecetteTestRapide');
+        $I->seeResponseCodeIsSuccessful();
+        $I->seeCurrentRouteIs('app_recette_show');
+        // Test lien vers toutes les recettes rapides
+        $I->amOnPage('/recettes');
+        $I->click('Voir toutes les recettes rapides', 'a[id="voir-tout"]');
+        $I->seeResponseCodeIsSuccessful();
+        $I->seeCurrentRouteIs('app_recettes_rapides');
+    }
 }
