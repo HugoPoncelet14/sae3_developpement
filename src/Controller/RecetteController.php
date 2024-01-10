@@ -276,4 +276,111 @@ class RecetteController extends AbstractController
 
         return $this->render('recette/updateIngredients.html.twig', ['form' => $form, 'ingredients' => $ingredients]);
     }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/recette/{id}/updateEtp', name: 'app_recette_updateEtp')]
+    public function update3(EntityManagerInterface $entityManager, Recette $recette, Request $request): Response
+    {
+        $donnees = $request->getSession()->get('donnees');
+        $nbrEtapes = $donnees['nbrEtapes'];
+        $form = $this->createForm(EtapeType::class, null, [
+            'nbrEtapes' => $nbrEtapes,
+        ]);
+
+        $etapes = $recette->getEtapes();
+
+        $lastdatas = [];
+        $i = 1;
+        foreach ($etapes as $etape) {
+            if ($i <= $nbrEtapes) {
+                $lastdatas["descEtape{$etape->getNumEtape()}"] = $etape->getDescEtape();
+            }
+            ++$i;
+        }
+        $form->setData($lastdatas);
+
+        $lastIngId = new ArrayCollection();
+        foreach ($recette->getQuantites() as $quantite) {
+            $lastIngId->add($quantite->getIngredient()->getId());
+        }
+        $lastEtapesId = new ArrayCollection();
+        foreach ($recette->getEtapes() as $etape) {
+            $lastEtapesId->add($etape->getId());
+        }
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $etapes = $form->getData();
+
+            $recette->setNomRec($donnees['nomRec']);
+            $recette->setDescRec($donnees['descRec']);
+            if (isset($donnees['imgRec'])) {
+                $recette->setImgRec($donnees['imgRec']);
+            }
+            $recette->setTpsDePrep($donnees['tpsDePrep']);
+            if (isset($donnees['tpsCuisson'])) {
+                $recette->setTpsCuisson($donnees['tpsCuisson']);
+            }
+            $recette->setNbrCallo($donnees['nbrCallo']);
+            $recette->setNbrPers($donnees['nbrPers']);
+            $recette->setTypeRecette($entityManager->getRepository(TypeRecette::class)->find($donnees['typeRecette']));
+            $recette->setPays($entityManager->getRepository(Pays::class)->find($donnees['pays']));
+            $entityManager->persist($recette);
+            $entityManager->flush();
+
+            $quantites = $request->getSession()->get('quantites');
+
+            $newIngId = new ArrayCollection();
+            foreach ($donnees['ingredients'] as $ingredient) {
+                $newIngId->add($ingredient->getId());
+                $quantite = $entityManager->getRepository(Quantite::class)->findOneBy(['ingredient' => $ingredient, 'recette' => $recette]);
+
+                if (null === $quantite) {
+                    $quantite = new Quantite();
+                    $quantite->setIngredient($entityManager->getRepository(Ingredient::class)->find($ingredient));
+                    $quantite->setRecette($recette);
+                }
+                $quantite->setQuantite($quantites["quantiteIng{$ingredient->getId()}"]);
+                if (isset($quantites["unitMesureIng{$ingredient->getId()}"])) {
+                    $quantite->setUnitMesure($quantites["unitMesureIng{$ingredient->getId()}"]);
+                }
+                $entityManager->persist($quantite);
+                $entityManager->flush();
+            }
+            foreach ($lastIngId as $id) {
+                if (!$newIngId->contains($id)) {
+                    $ingredient = $entityManager->getRepository(Ingredient::class)->findOneBy(['id' => $id]);
+                    $quantite = $entityManager->getRepository(Quantite::class)->findOneBy(['ingredient' => $ingredient, 'recette' => $recette]);
+                    $entityManager->remove($quantite);
+                    $entityManager->flush();
+                }
+            }
+            $i = 1;
+            $newEtapesId = new ArrayCollection();
+            foreach ($etapes as $etape) {
+                $etape = $entityManager->getRepository(Etape::class)->findOneBy(['numEtape' => $i, 'recette' => $recette]);
+                if (null === $etape) {
+                    $etape = new Etape();
+                    $etape->setNumEtape($i);
+                    $etape->setRecette($recette);
+                }
+                $etape->setDescEtape($etapes["descEtape$i"]);
+                $entityManager->persist($etape);
+                $entityManager->flush();
+                ++$i;
+                $newEtapesId->add($etape->getId());
+            }
+            foreach ($lastEtapesId as $id) {
+                if (!$newEtapesId->contains($id)) {
+                    $etape = $entityManager->getRepository(Etape::class)->findOneBy(['id' => $id]);
+                    $entityManager->remove($etape);
+                    $entityManager->flush();
+                }
+            }
+
+            return $this->redirectToRoute('app_recette_show', ['id' => $recette->getId()]);
+        }
+
+        return $this->render('recette/updateEtapes.html.twig', ['form' => $form, 'nbrEtapes' => $nbrEtapes]);
+    }
 }

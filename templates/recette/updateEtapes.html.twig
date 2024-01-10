@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout des etapes de la recette{% endblock %}
+
+{% block body %}
+    <h1>Ajout des etapes de la recette</h1>
+    {{ form_start(form) }}
+    {% for i in range (1, nbrEtapes) %}
+        {% set nomChampEtape = 'descEtape' ~ i  %}
+        {{ form_row(form[nomChampEtape]) }}
+    {% endfor %}
+    <input class="auth-button custom-size" type="submit" value="Créer">
+    {{ form_end(form) }}
+{% endblock %}
+
