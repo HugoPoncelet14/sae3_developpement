@@ -16,6 +16,7 @@ use App\Form\SearchForm;
 use App\Repository\EtapeRepository;
 use App\Repository\QuantiteRepository;
 use App\Repository\RecetteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -123,7 +124,6 @@ class RecetteController extends AbstractController
             $quantites = $request->getSession()->get('quantites');
             foreach ($donnees['ingredients'] as $ingredient) {
                 $quantite = new Quantite();
-
                 $quantite->setIngredient($entityManager->getRepository(Ingredient::class)->find($ingredient));
                 $quantite->setQuantite($quantites["quantiteIng{$ingredient->getId()}"]);
                 $quantite->setUnitMesure($quantites["unitMesureIng{$ingredient->getId()}"]);
@@ -197,5 +197,43 @@ class RecetteController extends AbstractController
             'recettes' => $recettesRapides,
             'count' => count($recettesRapides),
         ]);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/recette/{id}/update', name: 'app_pays_update1', requirements: ['recetteId' => '\d+'])]
+    public function update1(EntityManagerInterface $entityManager, Recette $recette, Request $request): Response
+    {
+        $form = $this->createForm(RecetteType::class);
+
+        $ingredientsArray = new ArrayCollection();
+        foreach ($recette->getQuantites() as $quantite) {
+            $ingredientsArray->add($quantite->getIngredient());
+        }
+        $lastdatas = ['nomRec' => $recette->getNomRec(),
+                      'descRec' => $recette->getDescRec(),
+                      'tpsDePrep' => $recette->getTpsDePrep(),
+                      'tpsCuisson' => $recette->getTpsCuisson(),
+                      'nbrCallo' => $recette->getNbrCallo(),
+                      'nbrPers' => $recette->getNbrPers(),
+                      'typeRecette' => $recette->getTypeRecette(),
+                      'pays' => $recette->getPays(),
+                      'ustensiles' => $recette->getUstensiles(),
+                      'ingredients' => $ingredientsArray,
+                      'nbrEtapes' => count($recette->getEtapes())];
+
+        $form->setData($lastdatas);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $donnees = $form->getData();
+            if (null !== $donnees['imgRec']) {
+                $imageFile = $donnees['imgRec'];
+                $donnees['imgRec'] = file_get_contents($imageFile->getPathname());
+            }
+            $request->getSession()->set('donnees', $donnees);
+
+            return $this->redirectToRoute('app_recette_updateQte', ['id' => $recette->getId()]);
+        }
+
+        return $this->render('recette/update.html.twig', ['form' => $form]);
     }
 }
