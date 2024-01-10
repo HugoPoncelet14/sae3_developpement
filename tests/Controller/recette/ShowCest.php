@@ -38,6 +38,6 @@ class ShowCest
         $numEtapes = $I->grabMultiple('h3');
         $I->assertEquals($numEtapes, ['Etape 1', 'Etape 2']);
         $descEtapes = $I->grabMultiple('p');
-        $I->assertEquals($descEtapes, ['DescTest1', 'Desctest2']);
+        $I->assertEquals($descEtapes, ['DescTest1', 'DescTest2']);
     }
 }
