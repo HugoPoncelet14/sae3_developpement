@@ -48,4 +48,15 @@ class IndexCest
         $I->seeResponseCodeIsSuccessful();
         $I->seeCurrentRouteIs('app_recettes_rapides');
     }
+
+    public function search(Controllertester $I): void
+    {
+        RecetteFactory::createSequence([['nomRec' => 'Recette1'], ['nomRec' => 'Recette2'], ['nomRec' => 'Recette30'], ['nomRec' => 'Recette31'], ['nomRec' => 'Recette4']]);
+        $I->amOnPage('/recettes');
+        $I->seeResponseCodeIsSuccessful();
+        $I->submitForm('.d-flex', ['search' => '3']);
+        $I->amOnPage('/recette_recherche?search=3');
+        $links = $I->grabMultiple('h5');
+        $I->assertEquals($links, ['Recette30', 'Recette31']);
+    }
 }
