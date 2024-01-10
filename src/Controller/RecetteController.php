@@ -201,7 +201,7 @@ class RecetteController extends AbstractController
     }
 
     #[IsGranted('ROLE_ADMIN')]
-    #[Route('/recette/{id}/update', name: 'app_pays_update1', requirements: ['recetteId' => '\d+'])]
+    #[Route('/recette/{id}/update', name: 'app_recette_update', requirements: ['recetteId' => '\d+'])]
     public function update1(EntityManagerInterface $entityManager, Recette $recette, Request $request): Response
     {
         $form = $this->createForm(RecetteType::class);
@@ -410,7 +410,7 @@ class RecetteController extends AbstractController
 
                 return $this->redirectToRoute('app_home');
             } else {
-                return $this->redirectToRoute('app_pays_show', ['id' => $recette->getId()]);
+                return $this->redirectToRoute('app_recette_show', ['id' => $recette->getId()]);
             }
         }
 
