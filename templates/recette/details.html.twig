@@ -14,15 +14,14 @@
                         <h1> {{ recette.nomRec }}</h1>
                         <div> {{ recette.descRec }}</div>
                         <div class="details_cooking-time">
-                                <span>Temps de préparation: {{ recette.tpsDePrep}} min</span>
-                                <span>Temps de cuisson: {{ recette.tpsCuisson }} min</span>
+                                <span>Temps de préparation: {{recette.tpsDePrep}} min</span>
+                                <span> Temps de cuisson: {{ recette.tpsCuisson ?: '0' }} min</span>
                         </div>
                 </div>
         </div>
                 <div class="ingredient">
                         <h2 class="details_title">Ingredients</h2>
                         <ul>
-
                         {% for quantite in quantites %}
                                 <li>
                                         {{ quantite.quantite }}
@@ -35,8 +34,9 @@
                 <h2 class="details_title">Etapes</h2>
                 <ul>
                 {% for etape in etapes %}
+                        <h3>Etape {{ etape.numEtape }}</h3>
                         <li>
-                                <p>{{ etape.numEtape }}. {{ etape.descEtape }}</p>
+                                <p>{{ etape.descEtape }}</p>
                         </li>
                 {% endfor %}
                 </ul>
