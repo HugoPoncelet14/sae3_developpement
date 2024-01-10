@@ -78,7 +78,7 @@ class Ingredient
     {
         if (!$this->quantites->contains($quantite)) {
             $this->quantites->add($quantite);
-            $quantite->setIngrediant($this);
+            $quantite->setIngredient($this);
         }
 
         return $this;
@@ -88,8 +88,8 @@ class Ingredient
     {
         if ($this->quantites->removeElement($quantite)) {
             // set the owning side to null (unless already changed)
-            if ($quantite->getIngrediant() === $this) {
-                $quantite->setIngrediant(null);
+            if ($quantite->getIngredient() === $this) {
+                $quantite->setIngredient(null);
             }
         }
 

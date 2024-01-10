@@ -2,17 +2,17 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Ingrediant;
+use App\Entity\Ingredient;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class IngrediantCrudController extends AbstractCrudController
+class IngredientCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Ingrediant::class;
+        return Ingredient::class;
     }
 
     /*

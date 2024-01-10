@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Allergene;
 use App\Entity\Etape;
-use App\Entity\Ingrediant;
+use App\Entity\Ingredient;
 use App\Entity\Pays;
 use App\Entity\Quantite;
 use App\Entity\Recette;
@@ -44,11 +44,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Recette');
         yield MenuItem::linkToCrud('Allergene', 'fas fa-skull-crossbones', Allergene::class);
         yield MenuItem::linkToCrud('Etape', 'fas fa-list-check', Etape::class);
-        yield MenuItem::linkToCrud('Ingrediant', 'fas fa-egg', Ingrediant::class);
+        yield MenuItem::linkToCrud('Ingredient', 'fas fa-egg', Ingredient::class);
         yield MenuItem::linkToCrud('Quantite', 'fas fa-scale-balanced', Quantite::class);
         yield MenuItem::linkToCrud('Recette', 'fas fa-pizza-slice', Recette::class);
         yield MenuItem::linkToCrud('Type Recette', 'fas fa-cake-candles', TypeRecette::class);
-        yield MenuItem::linkToCrud('Ustansile', 'fas fa-utensils', Ustensile::class);
+        yield MenuItem::linkToCrud('Ustensile', 'fas fa-utensils', Ustensile::class);
         yield MenuItem::section('Utilisateur');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
 

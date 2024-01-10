@@ -28,7 +28,7 @@ class QuantiteCrudController extends AbstractCrudController
             TextField::new('unitMesure')
                 ->hideOnIndex(),
             AssociationField::new('recette'),
-            AssociationField::new('ingrediant'),
+            AssociationField::new('ingredient'),
         ];
     }
 
