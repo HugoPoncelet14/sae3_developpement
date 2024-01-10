@@ -252,4 +252,19 @@ class CreateCest
 
         $I->seeCurrentRouteIs('app_recette_show', ['id' => 1]);
     }
+
+    public function accessIsRestrictedToAdminUsers(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('/recette/create');
+        $I->seeResponseCodeIs(403);
+    }
 }
