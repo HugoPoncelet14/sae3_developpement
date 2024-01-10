@@ -52,7 +52,7 @@ class RecetteController extends AbstractController
     }
 
     #[IsGranted('ROLE_ADMIN')]
-    #[Route('/recette/create', name: 'app_pays_create1')]
+    #[Route('/recette/create', name: 'app_recette_create')]
     public function create1(EntityManagerInterface $entityManager, Request $request): Response
     {
         $form = $this->createForm(RecetteType::class);
