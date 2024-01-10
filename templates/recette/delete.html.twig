@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suppression de la recette suivante : {{ recette.nomRec }}{% endblock %}
+
+{% block body %}
+    <h1>Suppression de la recette suivante : {{ recette.nomRec }} ainsi que toutes ses étapes et quantités</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.delete, {'label' : 'Confirmer la supression'}) }}
+    {{ form_row(form.cancel, {'label' : 'Annuler'}) }}
+    {{ form_end(form) }}
+
+{% endblock %}
+

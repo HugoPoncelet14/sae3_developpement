@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Ingredient;
 use App\Entity\Pays;
-use App\Entity\Recette;
 use App\Entity\TypeRecette;
 use App\Entity\Ustensile;
 use Doctrine\ORM\EntityRepository;
@@ -21,11 +20,11 @@ class RecetteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nomRec')
-            ->add('descRec')
+            ->add('nomRec', null, ['label' => 'Nom de la recette'])
+            ->add('descRec', null, ['label' => 'Description de la recette'])
             ->add('imgRec', FileType::class, [
                 'required' => false,
-                'label' => 'Photo de profil',
+                'label' => 'Image de la recette',
                 'constraints' => [
                     new File([
                         'mimeTypes' => ['image/jpeg', 'image/png', 'image/jpg'],
@@ -33,19 +32,22 @@ class RecetteType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('tpsDePrep', NumberType::class)
+            ->add('tpsDePrep', NumberType::class, ['label' => 'Temps de préparation'])
             ->add('tpsCuisson', NumberType::class, [
                 'required' => false,
+                'label' => 'Temps de cuisson',
                 ])
-            ->add('nbrCallo', NumberType::class)
-            ->add('nbrPers', NumberType::class)
+            ->add('nbrCallo', NumberType::class, ['label' => 'Nombre de callories'])
+            ->add('nbrPers', NumberType::class, ['label' => 'Nombre de personne(s)'])
             ->add('typeRecette', EntityType::class, [
                 'class' => TypeRecette::class,
                 'choice_label' => 'nomTpRec',
+                'label' => 'Type de la recette',
             ])
             ->add('pays', EntityType::class, [
                 'class' => Pays::class,
                 'choice_label' => 'nomPays',
+                'label' => "Pays d'origine",
             ])
             ->add('ustensiles', EntityType::class, [
                 'class' => Ustensile::class,

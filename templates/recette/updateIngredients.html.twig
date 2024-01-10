@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout des quantités pour les ingrédients{% endblock %}
+
+{% block body %}
+    <h1>Ajout des quantités pour les ingrédients</h1>
+    {{ form_start(form) }}
+    {% for ingredient in ingredients %}
+        <h2>{{ ingredient.nomIng }}</h2>
+        {% set nomChampQuant = 'quantiteIng' ~ ingredient.id  %}
+        {% set nomChampUnit = 'unitMesureIng' ~ ingredient.id  %}
+        {{ form_row(form[nomChampQuant]) }}
+        {{ form_row(form[nomChampUnit]) }}
+    {% endfor %}
+    <input class="auth-button custom-size" type="submit" value="Suivant">
+    {{ form_end(form) }}
+{% endblock %}
+

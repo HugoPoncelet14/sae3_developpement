@@ -60,8 +60,10 @@ class PaysController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $pays = $form->getData();
             $entityManager->flush();
+
             return $this->redirectToRoute('app_pays_show', ['id' => $pays->getId()]);
         }
+
         return $this->render('pays/update.html.twig', ['pays' => $pays, 'form' => $form]);
     }
 

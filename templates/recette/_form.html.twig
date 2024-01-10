@@ -8,8 +8,12 @@
         {{ form_row(form.nbrPers) }}
         {{ form_row(form.typeRecette) }}
         {{ form_row(form.pays) }}
+        <a class="auth-button custom-size btn" href="{{ path('app_pays_create')}}" role="button">Créer un nouveau pays</a>
         {{ form_row(form.ustensiles) }}
+        <a class="auth-button custom-size btn" href="{{ path('app_ustensile_create')}}" role="button">Créer un nouvel ustensile</a>
         {{ form_row(form.ingredients) }}
+        <a class="auth-button custom-size btn" href="{{ path('app_ingredient_create')}}" role="button">Créer un nouvel ingrédient</a>
         {{ form_row(form.nbrEtapes) }}
+
     <input class="auth-button custom-size" type="submit" value={{ submit_label }}>
 {{ form_end(form)}}

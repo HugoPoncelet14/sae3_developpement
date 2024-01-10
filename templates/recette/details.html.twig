@@ -14,15 +14,14 @@
                         <h1> {{ recette.nomRec }}</h1>
                         <div> {{ recette.descRec }}</div>
                         <div class="details_cooking-time">
-                                <span>Temps de préparation: {{ recette.tpsDePrep}} min</span>
-                                <span>Temps de cuisson: {{ recette.tpsCuisson }} min</span>
+                                <span>Temps de préparation: {{recette.tpsDePrep}} min</span>
+                                <span> Temps de cuisson: {{ recette.tpsCuisson ?: '0' }} min</span>
                         </div>
                 </div>
         </div>
                 <div class="ingredient">
                         <h2 class="details_title">Ingredients</h2>
                         <ul>
-
                         {% for quantite in quantites %}
                                 <li>
                                         {{ quantite.quantite }}
@@ -35,9 +34,16 @@
                 <h2 class="details_title">Etapes</h2>
                 <ul>
                 {% for etape in etapes %}
+                        <h3>Etape {{ etape.numEtape }}</h3>
                         <li>
-                                <p>{{ etape.numEtape }}. {{ etape.descEtape }}</p>
+                                <p>{{ etape.descEtape }}</p>
                         </li>
                 {% endfor %}
                 </ul>
+        {% if is_granted('ROLE_ADMIN') %}
+                <a class="profile_update-button btn btn-lg" href="{{ path('app_recette_update', {'id': recette.id}) }}" role="button">Modifier</a>
+                <div class="profile_delete-button-container">
+                        <a class="profile_delete-button btn btn-lg btn-danger" href="{{ path('app_recette_delete', {'id': recette.id}) }}" role="button">Supprimer</a>
+                </div>
+        {% endif %}
 {% endblock %}

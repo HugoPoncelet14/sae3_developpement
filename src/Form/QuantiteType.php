@@ -17,6 +17,7 @@ class QuantiteType extends AbstractType
                 ])
                 ->add("unitMesureIng{$ingredient->getId()}", null, [
                     'label' => 'Unité de mesure',
+                    'required' => false,
                 ]);
         }
     }
