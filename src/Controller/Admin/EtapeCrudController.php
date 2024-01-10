@@ -15,7 +15,6 @@ class EtapeCrudController extends AbstractCrudController
         return Etape::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         return [

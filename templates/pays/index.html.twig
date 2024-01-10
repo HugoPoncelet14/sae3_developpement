@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des pays{% endblock %}
+
+{% block body %}
+    <h1>Liste des pays</h1>
+    <ul class="listepays">
+        {% for pays in listePays %}
+            <li>
+                <a class="pays" href="{{ path('app_pays_show', {id: pays.id}) }}"><span class="nomPays">{{ pays.nomPays }}</span></a>
+                <a href="{{ path('app_pays_update', {'id':pays.id}) }}">
+                    <span class="material-symbols-outlined text-warning">edit</span>
+                </a>
+                <a href="{{ path('app_pays_delete', {'id':pays.id}) }}">
+                    <span class="material-symbols-outlined text-danger">delete</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

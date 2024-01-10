@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pays.nomPays }}{% endblock %}
+
+{% block body %}
+    <h1 class="title_small-padding">{{ pays.nomPays }}</h1>
+    <div class="pays_info-container">
+        <div class="user_allergene-container">
+            <dl>
+                <dt>Région associée</dt><dd>{{ pays.region.nomReg ?? 'Aucune région' }}</dd>
+            </dl>
+        </div>
+    </div>
+    <a class="profile_update-button btn btn-lg" href="{{ path('app_pays_update', {'id': pays.id}) }}" role="button">Modifier</a>
+    <div class="profile_delete-button-container">
+        <a class="profile_delete-button btn btn-lg btn-danger" href="{{ path('app_pays_delete', {'id': pays.id}) }}" role="button">Supprimer</a>
+    </div>
+{% endblock %}
+

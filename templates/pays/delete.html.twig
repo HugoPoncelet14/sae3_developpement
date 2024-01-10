@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suppression du pays suivant : {{ pays.nomPays }}{% endblock %}
+
+{% block body %}
+    <h1>Suppression du pays suivant : {{ pays.nomPays }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.delete, {'label' : 'Confirmer la supression'}) }}
+    {{ form_row(form.cancel, {'label' : 'Annuler'}) }}
+    {{ form_end(form) }}
+
+{% endblock %}
+

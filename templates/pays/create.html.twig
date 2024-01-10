@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un pays{% endblock %}
+
+{% block body %}
+    <h1>Création d'un pays</h1>
+    {{ include('pays/_form.html.twig', {'form': form, submit_label : "Créer"}, with_context = false) }}
+{% endblock %}
+

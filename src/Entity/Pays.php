@@ -6,6 +6,7 @@ use App\Repository\PaysRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PaysRepository::class)]
 class Pays
@@ -15,6 +16,8 @@ class Pays
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 50)]
     #[ORM\Column(length: 50)]
     private ?string $nomPays = null;
 

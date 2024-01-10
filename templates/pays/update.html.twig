@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification du pays suivant : {{ pays.nomPays }}{% endblock %}
+
+{% block body %}
+    <h1>Modification du pays suivant : {{ pays.nomPays }}</h1>
+    {{ include('pays/_form.html.twig', {'form': form, submit_label : "Modifier"}, with_context = false) }}
+{% endblock %}
+
