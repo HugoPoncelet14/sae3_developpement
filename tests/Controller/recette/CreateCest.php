@@ -204,4 +204,52 @@ class CreateCest
         $etapes = $I->grabMultiple('div.mb-3 label');
         $I->assertEquals($etapes, ['Etape 1', 'Etape 2', 'Etape 3', 'Etape 4']);
     }
+
+    public function testSubmitFormPage3(ControllerTester $I)
+    {
+        UstensileFactory::createSequence([['name' => 'UstensileTest1'], ['name' => 'UstensileTest2']]);
+        IngredientFactory::createSequence([['nomIng' => 'IngredientTest1'], ['nomIng' => 'IngredientTest2']]);
+        $tpRecette = TypeRecetteFactory::createOne();
+        $pays = PaysFactory::createOne();
+
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('/recette/create');
+
+        $I->submitForm('form[name="recette"]', [
+            'recette[nomRec]' => 'Recette Test',
+            'recette[descRec]' => 'Description Test',
+            'recette[tpsDePrep]' => 20,
+            'recette[tpsCuisson]' => 30,
+            'recette[nbrCallo]' => 1500,
+            'recette[nbrPers]' => 4,
+            'recette[typeRecette]' => $tpRecette->getId(),
+            'recette[pays]' => $pays->getId(),
+            'recette[ustensiles]' => [1, 2],
+            'recette[ingredients]' => [1, 2],
+            'recette[nbrEtapes]' => 4,
+        ], 'input[type="submit"]');
+
+        $I->submitForm('form[name="quantite"]', [
+            'quantite[quantiteIng1]' => 100,
+            'quantite[unitMesureIng1]' => 'cl',
+            'quantite[quantiteIng2]' => 100,
+            'quantite[unitMesureIng2]' => 'g',
+        ], 'input[type="submit"]');
+
+        $I->submitForm('form[name="etape"]', [
+            'etape[descEtape1]' => 'DescriptionTest1',
+            'etape[descEtape2]' => 'DescriptionTest2',
+            'etape[descEtape3]' => 'DescriptionTest3',
+            'etape[descEtape4]' => 'DescriptionTest4',
+        ], 'input[type="submit"]');
+
+        $I->seeCurrentRouteIs('app_recette_show', ['id' => 1]);
+    }
 }
