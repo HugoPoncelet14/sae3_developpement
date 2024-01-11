@@ -28,4 +28,23 @@ class IndexCest
 
         $I->seeNumberOfElements('.listeuser li', 5);
     }
+
+    public function testLien(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne([
+            'prenom' => 'Homer',
+            'nom' => 'Simpson',
+            'roles' => ['ROLE_ADMIN'],
+        ]);
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        UserFactory::createOne(['nom' => 'nomTest', 'prenom' => 'prenomTest']);
+
+        $I->amOnPage('/user');
+        $I->click('nomTest prenomTest');
+        $I->seeResponseCodeIsSuccessful();
+        $I->seeCurrentRouteIs('app_user_show');
+    }
 }
