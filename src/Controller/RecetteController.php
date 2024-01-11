@@ -162,7 +162,6 @@ class RecetteController extends AbstractController
         return $this->render('recette/createEtapes.html.twig', ['form' => $form, 'nbrEtapes' => $nbrEtapes]);
     }
 
-
     #[Route('/recette_recherche', name: 'app_recette_search')]
     public function search(RecetteRepository $recetteRepository, Request $request): Response
     {
