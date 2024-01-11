@@ -22,7 +22,7 @@ class UstensileCrudController extends AbstractCrudController
             IdField::new('id')
             ->hideOnForm(),
             TextField::new('name'),
-            ImageField::new('imgUst'),
+            // ImageField::new('imgUst'),
             AssociationField::new('recettes')
             ->hideOnIndex(),
         ];

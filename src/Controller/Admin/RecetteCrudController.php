@@ -3,11 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Recette;
+use Doctrine\DBAL\Types\BlobType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -26,7 +29,7 @@ class RecetteCrudController extends AbstractCrudController
             TextField::new('nomRec'),
             TextField::new('descRec')
                 ->hideOnIndex(),
-            AvatarField::new('imgRec')->setHeight(50),
+            //CollectionField::new('imgRec'),
             IntegerField::new('tpsDePrep')
                 ->hideOnIndex(),
             Field::new('nbrCallo')
