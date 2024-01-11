@@ -15,6 +15,6 @@ class SearchData
     public array $region = [];
     public array $typeRecette = [];
     public bool $allergene = false;
-    public User $user;
+    public ?User $user = null ;
 
 }
