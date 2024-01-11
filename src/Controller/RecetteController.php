@@ -106,7 +106,7 @@ class RecetteController extends AbstractController
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/recette/createEtp', name: 'app_recette_createEtp')]
-    public function create3(EntityManagerInterface $entityManager, Request $request, $form1 = null, $form2 = null): Response
+    public function create3(EntityManagerInterface $entityManager, Request $request): Response
     {
         $donnees = $request->getSession()->get('donnees');
         $nbrEtapes = $donnees['nbrEtapes'];
@@ -161,7 +161,6 @@ class RecetteController extends AbstractController
 
         return $this->render('recette/createEtapes.html.twig', ['form' => $form, 'nbrEtapes' => $nbrEtapes]);
     }
-
 
     #[Route('/recette_recherche', name: 'app_recette_search')]
     public function search(RecetteRepository $recetteRepository, Request $request): Response

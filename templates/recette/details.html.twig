@@ -31,6 +31,14 @@
                         {% endfor %}
                         </ul>
                 </div>
+                <div class="ustensile">
+                        <h2 class="details_title">Ustensiles</h2>
+                        <ul>
+                                {% for ustensile in recette.ustensiles %}
+                                        <li>{{ ustensile.name }}</li>
+                                {% endfor %}
+                        </ul>
+                </div>
                 <h2 class="details_title">Etapes</h2>
                 <ul>
                 {% for etape in etapes %}

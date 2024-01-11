@@ -44,7 +44,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         $query = $this->createQueryBuilder('q');
         $query->where($query->expr()->notLike('q.roles', ':role'))
-            ->setParameter('role', '%ROLE_ADMIN%');
+            ->setParameter('role', '%ROLE_ADMIN%')
+            ->orderBy('q.nom');
         $res = $query->getQuery();
 
         return $res->getResult();

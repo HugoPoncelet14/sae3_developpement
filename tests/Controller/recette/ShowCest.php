@@ -24,7 +24,7 @@ class ShowCest
                                     'unitMesure' => 'unitTest',
                                     'ingredient' => IngredientFactory::createOne(['nomIng' => 'IngredientTest'])]);
         EtapeFactory::createSequence([['recette' => $recette, 'numEtape' => 1, 'descEtape' => 'DescTest1'], ['recette' => $recette, 'numEtape' => 2, 'descEtape' => 'DescTest2']]);
-        $I->amOnPage('/recette/1');
+        $I->amOnPage('/recettes/1');
         $I->seeResponseCodeIsSuccessful();
         $I->seeElement("img[alt='Image de {$recette->getNomRec()}']");
         $I->see($recette->getNomRec(), 'h1');
@@ -34,6 +34,11 @@ class ShowCest
         $I->see('Ingredients', 'h2');
         $I->seeNumberOfElements('.ingredient ul li', 1);
         $I->see('100 unitTest IngredientTest');
+        $I->see('Ustensiles', 'h2');
+        $I->seeNumberOfElements('.ustensile ul li', 2);
+        $numUst = $I->grabMultiple('.ustensile ul li');
+
+        $I->assertEquals($numUst, ['UstensileTest1', 'UstensileTest2']);
         $I->seeNumberOfElements('p', 2);
         $numEtapes = $I->grabMultiple('h3');
         $I->assertEquals($numEtapes, ['Etape 1', 'Etape 2']);
