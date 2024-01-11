@@ -58,6 +58,11 @@
                         {% endif %}
                     </li>
                     <li class="nav-item">
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a class="nav-link active" aria-current="page" href="/admin">Back-office</a>
+                        {% endif %}
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ path('app_recette_filter') }}">Filtre</a>
                     </li>
                 </ul>
