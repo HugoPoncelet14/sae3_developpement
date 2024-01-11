@@ -1,7 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Liste des utilisateurs{% endblock %}
 
 {% block body %}
+    <h1>Liste des utilisateurs</h1>
+    <ul class="listeuser">
+        {% for user in users %}
+            <li>
+                <a class="user" href="{{ path('app_user_show', {id: user.id}) }}"><span class="nom">{{ user.nom }}</span> <span class="prenom">{{ user.prenom }}</span></a>
+                <a href="{{ path('app_user_update', {'id':user.id}) }}">
+                    <span class="material-symbols-outlined text-warning">edit</span>
+                </a>
+                <a href="{{ path('app_user_delete', {'id':user.id}) }}">
+                    <span class="material-symbols-outlined text-danger">delete</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}
