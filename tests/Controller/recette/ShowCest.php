@@ -24,7 +24,7 @@ class ShowCest
                                     'unitMesure' => 'unitTest',
                                     'ingredient' => IngredientFactory::createOne(['nomIng' => 'IngredientTest'])]);
         EtapeFactory::createSequence([['recette' => $recette, 'numEtape' => 1, 'descEtape' => 'DescTest1'], ['recette' => $recette, 'numEtape' => 2, 'descEtape' => 'DescTest2']]);
-        $I->amOnPage('/recettes/1');
+        $I->amOnPage('/recette/1');
         $I->seeResponseCodeIsSuccessful();
         $I->seeElement("img[alt='Image de {$recette->getNomRec()}']");
         $I->see($recette->getNomRec(), 'h1');
