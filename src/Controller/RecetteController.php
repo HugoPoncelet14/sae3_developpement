@@ -179,6 +179,7 @@ class RecetteController extends AbstractController
     public function recettesFilter(RecetteRepository $recetteRepository, Request $request): Response
     {
         $data = new SearchData();
+        $this->addTheUser($data);
         $data->page = $request->get('page', 1);
         $form = $this->createForm(SearchForm::class, $data);
         $form->handleRequest($request);
@@ -188,6 +189,12 @@ class RecetteController extends AbstractController
             'recettes' => $recettes,
             'form' => $form->createView(),
         ]);
+    }
+
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
+    public function addTheUser(SearchData $data)
+    {
+        $data->user = $this->getUser();
     }
 
     #[Route('/recettes-rapides', name: 'app_recettes_rapides')]
