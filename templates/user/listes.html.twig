@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes les listes{% endblock %}
+
+{% block body %}
+    <h1>Toutes les listes</h1>
+
+    <a class="auth-button custom-size btn" href="{{ path('app_user') }}" role="button">Liste des utilisateurs</a>
+    <a class="auth-button custom-size btn" href="{{ path('app_ingredient') }}" role="button">Liste des ingrédients</a>
+    <a class="auth-button custom-size btn" href="{{ path('app_ustensile') }}" role="button">Liste des ustensiles</a>
+    <a class="auth-button custom-size btn" href="{{ path('app_pays') }}" role="button">Liste des pays</a>
+
+{% endblock %}
