@@ -149,7 +149,7 @@ class RecetteController extends AbstractController
         return $this->render('recette/createEtapes.html.twig', ['form' => $form, 'nbrEtapes' => $nbrEtapes]);
     }
 
-    #[Route('/recettes/{id}', name: 'app_recette_show')]
+    #[Route('/recette/{id}', name: 'app_recette_show')]
     public function show(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository, int $id): Response
     {
         $quantites = $quantiteRepository->AllQuantiteByRecetteId($id);
@@ -235,7 +235,7 @@ class RecetteController extends AbstractController
             return $this->redirectToRoute('app_recette_updateQte', ['id' => $recette->getId()]);
         }
 
-        return $this->render('recette/update.html.twig', ['form' => $form]);
+        return $this->render('recette/update.html.twig', ['form' => $form, 'recette' => $recette]);
     }
 
     #[IsGranted('ROLE_ADMIN')]
@@ -275,7 +275,7 @@ class RecetteController extends AbstractController
             return $this->redirectToRoute('app_recette_updateEtp', ['id' => $recette->getId()]);
         }
 
-        return $this->render('recette/updateIngredients.html.twig', ['form' => $form, 'ingredients' => $ingredients]);
+        return $this->render('recette/updateIngredients.html.twig', ['form' => $form, 'ingredients' => $ingredients, 'recette' => $recette]);
     }
 
     #[IsGranted('ROLE_ADMIN')]
@@ -382,7 +382,7 @@ class RecetteController extends AbstractController
             return $this->redirectToRoute('app_recette_show', ['id' => $recette->getId()]);
         }
 
-        return $this->render('recette/updateEtapes.html.twig', ['form' => $form, 'nbrEtapes' => $nbrEtapes]);
+        return $this->render('recette/updateEtapes.html.twig', ['form' => $form, 'nbrEtapes' => $nbrEtapes, 'recette' => $recette]);
     }
 
     #[IsGranted('ROLE_ADMIN')]
@@ -397,11 +397,11 @@ class RecetteController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if ($form->get('delete')->isClicked()) {
-                foreach($recette->getQuantites() as $quantite){
+                foreach ($recette->getQuantites() as $quantite) {
                     $entityManager->remove($quantite);
                     $entityManager->flush();
                 }
-                foreach($recette->getEtapes() as $etape){
+                foreach ($recette->getEtapes() as $etape) {
                     $entityManager->remove($etape);
                     $entityManager->flush();
                 }
