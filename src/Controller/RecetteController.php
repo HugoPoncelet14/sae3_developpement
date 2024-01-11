@@ -40,6 +40,19 @@ class RecetteController extends AbstractController
         ]);
     }
 
+    #[Route('/recettes/{id}', name: 'app_recette_show')]
+    public function show(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository, int $id): Response
+    {
+        $quantites = $quantiteRepository->AllQuantiteByRecetteId($id);
+        $etapes = $etapeRepository->getAllEtapeWithRecetteId($id);
+
+        return $this->render('recette/details.html.twig', [
+            'recette' => $recette,
+            'quantites' => $quantites,
+            'etapes' => $etapes,
+        ]);
+    }
+
     #[Route('/recettes/{id}/image', name: 'app_recettes_image')]
     public function showRecetteImage(int $id, RecetteRepository $recetteRepository)
     {
@@ -149,18 +162,6 @@ class RecetteController extends AbstractController
         return $this->render('recette/createEtapes.html.twig', ['form' => $form, 'nbrEtapes' => $nbrEtapes]);
     }
 
-    #[Route('/recette/{id}', name: 'app_recette_show')]
-    public function show(Recette $recette, QuantiteRepository $quantiteRepository, EtapeRepository $etapeRepository, int $id): Response
-    {
-        $quantites = $quantiteRepository->AllQuantiteByRecetteId($id);
-        $etapes = $etapeRepository->getAllEtapeWithRecetteId($id);
-
-        return $this->render('recette/details.html.twig', [
-            'recette' => $recette,
-            'quantites' => $quantites,
-            'etapes' => $etapes,
-        ]);
-    }
 
     #[Route('/recette_recherche', name: 'app_recette_search')]
     public function search(RecetteRepository $recetteRepository, Request $request): Response
