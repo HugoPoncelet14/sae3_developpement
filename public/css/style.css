@@ -294,9 +294,6 @@ input[type="date"], .form-control {
     -webkit-text-stroke: 1px black;
 }
 
-.recipe_container:hover{
-    width: 25rem;
-}
 
 .recipe_image-box{
     height: 100%;
@@ -747,5 +744,13 @@ ul.pagination {
 
     .user_info-container {
         width: 50%
+    }
+
+    #count.filter-counter {
+        margin-left: 50%;
+    }
+
+    .recipe_container:hover{
+        width: 25rem;
     }
 }

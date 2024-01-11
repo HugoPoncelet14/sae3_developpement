@@ -13,7 +13,7 @@
                     <h5 style="margin-right: 1rem">Trier par :  </h5>
                         {{ knp_pagination_sortable(recettes,'Calories','r.nbrCallo') }}
                         {{ knp_pagination_sortable(recettes,'Temps','r.tpsDePrep') }}
-                    <span id="count" style="margin-left: 45%">{{ recettes|length }} recettes</span>
+                    <span class="filter-counter" id="count">{{ recettes|length }} recettes</span>
                 </div>
                 <div class="grid">
                     {% for recette in recettes %}
