@@ -71,6 +71,20 @@ class RecetteRepository extends ServiceEntityRepository
                 ->andWhere('t.id IN (:typeRecette)')
                 ->setParameter('typeRecette', $search->typeRecette);
         }
+        if (!empty($search->allergene)) {
+            $user = $search->user;
+            $userAll = $user->getAllergenes();
+            $allergenes = [];
+            foreach ($userAll as $allergene) {
+                $allergenes[] = $allergene->getId();
+            }
+            $query = $query
+                ->innerJoin('r.quantites', 'q')
+                ->innerJoin('q.ingredient', 'i')
+                ->leftJoin('i.allergene', 'a')
+                ->andWhere('a.id NOT in (:allergene)')
+                ->setParameter('allergene', $allergenes);
+        }
         $query = $query->getQuery();
 
         return $this->paginator->paginate(
