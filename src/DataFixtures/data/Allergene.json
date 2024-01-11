@@ -1,9 +1,21 @@
 [
   {
+    "nomAll": "Agrumes"
+  },
+  {
     "nomAll": "Arachide"
   },
   {
     "nomAll": "Céleri"
+  },
+  {
+    "nomAll": "Champignons"
+  },
+  {
+    "nomAll": "Cinnamaldéhyde"
+  },
+  {
+    "nomAll": "Colza"
   },
   {
     "nomAll": "Crustacés"
@@ -15,7 +27,16 @@
     "nomAll": "Fruits à coque"
   },
   {
+    "nomAll": "Gluten"
+  },
+  {
     "nomAll": "Lait"
+  },
+  {
+    "nomAll": "Légumineuses"
+  },
+  {
+    "nomAll": "Liliacées"
   },
   {
     "nomAll": "Lupin"
@@ -31,6 +52,18 @@
   },
   {
     "nomAll": "Moutarde"
+  },
+  {
+    "nomAll": "Pollen de courgette"
+  },
+  {
+    "nomAll": "Polylénoles"
+  },
+  {
+    "nomAll": "Porc"
+  },
+  {
+    "nomAll": "Protéines de raisin"
   },
   {
     "nomAll": "Sésame"
