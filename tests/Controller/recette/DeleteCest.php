@@ -44,4 +44,32 @@ class DeleteCest
         $I->see('Confirmer la supression', 'button');
         $I->see('Annuler', 'button');
     }
+
+    public function deleteRecette(ControllerTester $I)
+    {
+        $recette = RecetteFactory::createOne(['tpsCuisson' => 10,
+            'pays' => PaysFactory::createOne(['nomPays' => 'PaysTest']),
+            'typeRecette' => TypeRecetteFactory::createOne(['nomTpRec' => 'TypeRecetteTest']),
+            'ustensiles' => UstensileFactory::createSequence([['name' => 'UstensileTest1'], ['name' => 'UstensileTest2']])]);
+        $quantites = QuantiteFactory::createOne(['recette' => $recette,
+            'quantite' => 100,
+            'unitMesure' => 'unitTest',
+            'ingredient' => IngredientFactory::createOne(['nomIng' => 'IngredientTest1'])]);
+        $etapes = EtapeFactory::createSequence([['recette' => $recette, 'numEtape' => 1, 'descEtape' => 'DescTest1'], ['recette' => $recette, 'numEtape' => 2, 'descEtape' => 'DescTest2'], ['recette' => $recette, 'numEtape' => 3, 'descEtape' => 'DescTest3']]);
+
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_ADMIN']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('/recette/1/delete');
+        $I->click('Confirmer la supression');
+        $I->seeCurrentRouteIs('app_recettes_index');
+        $I->amOnPage('/recette/1');
+        $I->seeResponseCodeIs(404);
+    }
 }
