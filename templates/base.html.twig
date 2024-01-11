@@ -32,6 +32,11 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-text">
                     <li class="nav-item">
                         {% if is_granted('ROLE_ADMIN')%}
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_user_listes') }}">Listes</a>
+                        {% endif %}
+                    </li>
+                    <li class="nav-item">
+                        {% if is_granted('ROLE_ADMIN')%}
                             <a class="nav-link active" aria-current="page" href="{{ path('app_recette_create') }}">Créer une recette</a>
                         {% endif %}
                     </li>

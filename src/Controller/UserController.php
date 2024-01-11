@@ -190,4 +190,11 @@ class UserController extends AbstractController
 
         return $this->render('user/delete.html.twig', ['user' => $user, 'form' => $form]);
     }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/listes', name: 'app_user_listes')]
+    public function listes(): Response
+    {
+        return $this->render('user/listes.html.twig');
+    }
 }
