@@ -65,4 +65,19 @@ class IndexCest
         $links = $I->grabMultiple('li a.user');
         $I->assertEquals($links, ['aNom prenom1', 'bNom prenom3', 'cNom prenom2', 'dNom prenom4']);
     }
+
+    public function accessIsRestrictedToAdminUsers(ControllerTester $I): void
+    {
+        $user = UserFactory::createOne(['prenom' => 'Tony',
+                'nom' => 'Stark',
+                'email' => 'ironman@example.com',
+                'roles' => ['ROLE_USER']]
+        );
+
+        $realuser = $user->object();
+        $I->amLoggedInAs($realuser);
+
+        $I->amOnPage('/user');
+        $I->seeResponseCodeIs(403);
+    }
 }
