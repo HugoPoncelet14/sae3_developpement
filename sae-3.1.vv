@@ -1,0 +1,10 @@
+[virt-viewer]
+type=vnc
+title=sae-3.1
+host=one-dell1
+port=11873
+proxy=http://one-frontend:29876?token=v9t7c1aznvl17rdgw3d7
+fullscreen=0
+toggle-fullscreen=shift+f11
+release-cursor=shift+f12
+secure-attention=ctrl+alt+end
