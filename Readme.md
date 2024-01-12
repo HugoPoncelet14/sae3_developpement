@@ -18,6 +18,8 @@ Copier le fichier `.env` en `.env.local` et modifier `.env.local` pour ajuster l
 
 Vous pouvez accédez au site web sur le serveur distant avec cette adresse : <http://10.31.33.45>
 
+Accédez à la machine virtuelle grâce au fichier sae-3.1.vv
+
 ## Serveur Web local
 
 ### Sur Linux
