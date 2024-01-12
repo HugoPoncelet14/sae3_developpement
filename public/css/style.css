@@ -750,7 +750,7 @@ ul.pagination {
         margin-left: 50%;
     }
 
-    .recipe_container:hover{
+    .recipe_container#recommandations:hover{
         width: 25rem;
     }
 }
