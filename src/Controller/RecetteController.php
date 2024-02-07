@@ -8,6 +8,7 @@ use App\Entity\Pays;
 use App\Entity\Quantite;
 use App\Entity\Recette;
 use App\Entity\TypeRecette;
+use App\Entity\Ustensile;
 use App\Form\EtapeType;
 use App\Form\QuantiteType;
 use App\Form\RecetteType;
@@ -132,6 +133,11 @@ class RecetteController extends AbstractController
             $recette->setNbrPers($donnees['nbrPers']);
             $recette->setTypeRecette($entityManager->getRepository(TypeRecette::class)->find($donnees['typeRecette']));
             $recette->setPays($entityManager->getRepository(Pays::class)->find($donnees['pays']));
+
+            $ustensiles = $donnees['ustensiles'];
+            foreach ($ustensiles as $ustensile) {
+                $recette->addUstensile($entityManager->getRepository(Ustensile::class)->find($ustensile));
+            }
             $entityManager->persist($recette);
             $entityManager->flush();
 
@@ -326,6 +332,12 @@ class RecetteController extends AbstractController
             $recette->setNbrPers($donnees['nbrPers']);
             $recette->setTypeRecette($entityManager->getRepository(TypeRecette::class)->find($donnees['typeRecette']));
             $recette->setPays($entityManager->getRepository(Pays::class)->find($donnees['pays']));
+
+            $ustensiles = $donnees['ustensiles'];
+            foreach ($ustensiles as $ustensile) {
+                $recette->addUstensile($entityManager->getRepository(Ustensile::class)->find($ustensile));
+            }
+
             $entityManager->persist($recette);
             $entityManager->flush();
 
